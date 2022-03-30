@@ -116,7 +116,7 @@ The template is divided into several files, which are listed here below:
         Images/TSLogo.png    & The logo used.                  \\
         \hline
         % ----------------------------------------------------------------------
-        \tsCaptionLabelTable{Die Dateien des Templates}
+        \tsCaptionLabelTable{The files of the template}
     \end{longtable}
 \end{small}
 
@@ -269,6 +269,21 @@ existing abbreviation. In the above example, the usage looks like this:
 \gls{TS}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Use of a glossary entry}
+\end{figure}
+
+In case a glossary is to be used, the document must be translated with
+\tsFontCode{makeglossaries}.
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+pdflatex
+makeglossaries
+pdflatex
+pdflatex
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Translate with glossary}
 \end{figure}
 
 \subsection{Hyphenation}
