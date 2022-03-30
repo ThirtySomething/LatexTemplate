@@ -1,0 +1,212 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+%% -----------------------------------------------------------------------------
+%% Envelope definition of Latex template
+%% -----------------------------------------------------------------------------
+
+% A4 paper, font size
+\documentclass[12pt,a4paper]{article}
+% German spelling
+\usepackage[american]{babel}
+% Logo in header
+\usepackage{graphicx}
+% To have header/footer
+\usepackage{fancyhdr}
+% Enhanced verbatim environments
+\usepackage{fancyvrb}
+% To have figures and other don't fly around
+\usepackage{float}
+% Get filename
+\usepackage{currfile}
+% Dottet lines in toc
+\usepackage{tocloft}
+% Equivalent to Arial
+\usepackage{helvet}
+% Used for hyperlinks in document
+\usepackage[
+    pdftex,
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+]{hyperref}
+% Use of tabulars
+\usepackage{tabulary}
+% Font size of caption
+\usepackage[font=scriptsize]{caption}
+% To get formatted date string
+\usepackage{datetime}
+% Add lists to table of content
+\usepackage{tocbibind}
+% Long tables across more than one page
+\usepackage{longtable}
+% To enable \begin{BVerbatim} inside a verbtatim box
+\usepackage{verbatimbox}
+% Multiple watermarks as background images
+% https://tex.stackexchange.com/questions/134717/how-do-you-add-multiple-watermarks
+\usepackage{background}
+% To use compactitem {itemize} inside of longtable
+\usepackage{paralist}
+% Compact itemize inside longtable
+% https://tex.stackexchange.com/questions/114822/itemize-inside-longtable
+\usepackage{array,booktabs,enumitem}
+% To see the (page)frames used for hyphenation determination
+% \usepackage{showframe}
+% For glossary usage - do not move these statements up!
+\usepackage[automake,toc]{glossaries}
+\usepackage[automake]{glossaries-extra}
+
+% Lore ipsum blind text
+\usepackage{lipsum}
+
+% Include command definition file
+\input{./TSCommands.tex}
+
+% Include custom command definition file
+\input{./TSCustomCommands.tex}
+
+% No indent of paragraphs
+\setlength{\parindent}{0pt}
+
+% Include meta variables for document
+\input{TSMeta.tex}
+
+% Setting of document meta information
+\author{\tsAuthor{}}
+\title{\tsTitle{}}
+\date{\tsToday{}}
+
+% Setting of pdf meta information
+\hypersetup{pdfauthor={\tsAuthor{} -- \tsURL{}}}
+\hypersetup{pdftitle={\tsTitle{}}}
+\hypersetup{pdfsubject={\tsSubject{}}}
+
+% Set font type
+\renewcommand{\familydefault}{\sfdefault}
+
+% Settings for dotted line in table of content
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% Re-definition of own page style
+\fancypagestyle{plain}{
+    \setlength{\headheight}{15pt}
+    \fancyhf{}
+    \fancyhead[L]{\scriptsize \tsTitle.pdf}
+    \fancyhead[R]{\includegraphics[height=0.7\headheight]{./Images/TSLogo.png}}
+    \fancyfoot[L]{\scriptsize \tsToday{}}
+    \fancyfoot[R]{\scriptsize Page \thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+% Include hyphenation definition file
+\input{./TSHyphenation.tex}
+
+% Include glossary definition file and build it
+\makeglossaries
+\input{./TSGlossary.tex}
+\renewcommand*{\glspostdescription}{}
+
+% Setting tolerance for word wrap
+% See also: https://texfaq.org/FAQ-overfull
+\tolerance=3000
+
+% Create toc content
+\makeindex
+
+% Start each section on new page
+\AddToHook{cmd/section/before}{\clearpage}
+
+% Start document here
+\begin{document}
+
+% Define version number as overlay on all pages
+% Version number
+\SetBgContents{\begin{footnotesize}\tsVersionString{}\end{footnotesize}}
+\SetBgPosition{current page.center}
+\SetBgAngle{90}
+\SetBgColor{black}
+\SetBgScale{0.5}
+\SetBgHshift{27cm}
+\SetBgVshift{19cm}
+\SetBgOpacity{1}
+
+% For a second watermark on the same page then repeat
+% \makeatletter
+% Or AddThispageHook for one time only
+% \AddEverypageHook{%
+%     % Revision number
+%     \SetBgContents{\begin{footnotesize}Second watermark\end{footnotesize}}
+%     \SetBgPosition{current page.center}
+%     \SetBgAngle{90}
+%     \SetBgColor{black}
+%     \SetBgScale{0.5}
+%     \SetBgHshift{-27cm}
+%     \SetBgVshift{19cm}
+%     \SetBgOpacity{1}
+%     \bg@material
+% }
+
+% Set pagestyle to plain as modified above
+\pagestyle{plain}
+
+% Include title page
+\input{./TSTitle.tex}
+
+% Re-start numbering of content pages with arabic numbers
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+% Toc page - table of content
+\tableofcontents
+
+% Include change history
+\newpage
+\input{TSHistory.tex}
+
+% Include content
+\newpage
+\input{TSContent.tex}
+
+% Start toc on new page
+\newpage
+
+% Start non content pages with roman numbering
+\setcounter{page}{1}
+\pagenumbering{Roman}
+
+% Print list of figures (lof)
+\newpage
+\listoffigures
+
+% Print list of table (lot)
+\newpage
+\listoftables
+
+% Print glossary
+\newpage
+\printglossaries
+
+\end{document}

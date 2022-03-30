@@ -1,0 +1,630 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+%% -----------------------------------------------------------------------------
+%% Content definition of Latex template
+%% -----------------------------------------------------------------------------
+
+\section{License information}
+
+This template is published under the \href{https://opensource.org/licenses/mit-license.php}{MIT license}:
+
+\begin{figure}[H]
+    \footnotesize
+    \centering
+    \begin{BVerbatim}
+--------------------------------------------------------------------------
+MIT License
+
+Copyright 2022 ThirtySomething
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+--------------------------------------------------------------------------
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{MIT Lizenz}
+\end{figure}
+
+\section{Introduction}
+
+This is a template for use with \LaTeX{}. An attempt has been made to make
+this template as simple as possible for the user.
+
+\section{Template}
+
+The template is divided into several files, which are listed here below:
+
+\begin{small}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+        \hline
+        \tsFontBold{File}    & \tsFontBold{Meaning}            \\
+        \hline
+        % ----------------------------------------------------------------------
+        LICENSE              & MIT license file.               \\
+        \hline
+        % ----------------------------------------------------------------------
+        README.md            & Information about the template. \\
+        \hline
+        % ----------------------------------------------------------------------
+        TSCommands.tex       & The common predefined commands. \\
+        \hline
+        % ----------------------------------------------------------------------
+        TSContent.tex        & The content of the document.    \\
+        \hline
+        % ----------------------------------------------------------------------
+        TSCustomCommands.tex & The document specific commands. \\
+        \hline
+        % ----------------------------------------------------------------------
+        TSGlossary.tex       & The glossary of the document.   \\
+        \hline
+        % ----------------------------------------------------------------------
+        TSHistory.tex        & Document history.               \\
+        \hline
+        % ----------------------------------------------------------------------
+        TSHyphenation.tex    & Document-specific hyphenation.  \\
+        \hline
+        % ----------------------------------------------------------------------
+        TSMeta.tex           & The metadata for the document.  \\
+        \hline
+        % ----------------------------------------------------------------------
+        TSTemplate.pdf       & The result as a PDF file.       \\
+        \hline
+        % ----------------------------------------------------------------------
+        TSTemplate.tex       & The framework document.         \\
+        \hline
+        % ----------------------------------------------------------------------
+        TSTitle.tex          & The title page of the document. \\
+        \hline
+        % ----------------------------------------------------------------------
+        Images/TSLogo.png    & The logo used.                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsCaptionLabelTable{Die Dateien des Templates}
+    \end{longtable}
+\end{small}
+
+Custom commands and formatting have been defined for the template. They all
+have in common that they start with a \tsFontItalic{\tsBackslash{}ts\ldots{}}.
+This serves to distinguish them from the commands otherwise used in \LaTeX{}.
+The available commands are explained in the \nameref{sec:Commands} chapter.
+
+\section{Usage}
+
+As already described, the use of the template should be simple. So the user
+copies the template, that is, the entire directory with all files and
+subdirectories.
+\bigbreak
+
+Normally the user adjusts the metadata (file \tsFontItalic{TSMeta.tex},
+see \nameref{subsec:Metadata}) and the content in the file
+\tsFontItalic{TSContent.tex} according to his needs. The rest is controlled
+by the template.
+\bigbreak
+
+It is recommended to rename the main template file \tsFontItalic{TSTemplate.tex}
+into a more more descriptive name.
+
+\tsImageF{./Images/Otherpage.png}{Document page}{height=0.5\textheight}
+
+In principle, nothing needs to be changed in terms of content. Possibly a
+list of figures, a list of tables or a glossary is not desired. These are
+enabled in the framework document \tsFontItalic{TSTemplate.tex}. To disable
+them, place the comment character (\%) in the corresponding lines. The places
+are easy to find. Firstly, they are located quite at the end of the template
+and secondly, they are marked with appropriate comments:
+
+\begin{figure}[H]
+    \scriptsize
+    \centering
+    \begin{BVerbatim}
+% Print list of figures (lof)
+\newpage
+\listoffigures
+
+% Print list of table (lot)
+\newpage
+\listoftables
+
+% Print glossary
+\newpage
+\printglossaries
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Indexes}
+\end{figure}
+
+If one (or more) of the options is disabled, it will be automatically removed
+from the table of contents.
+
+\subsection{Metadata}
+\label{subsec:Metadata}
+
+There is metadata for each document. This means the following definitions at
+the moment:
+
+\begin{footnotesize}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+        \hline
+        \tsFontBold{Metadefinition}       & \tsFontBold{Meaning}                                     \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsAuthor\{\}        & The author of the document.                              \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsSubject\{\}       & The subject of the document.                             \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsTitle\{\}         & The title of the document.                               \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsURL\{\}           & The url of the author.                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsVersionMajor\{\}  & The major version of the document.\tsFootnoteDef{See
+        \href{https://semver.org}{Semantic Versioning} for more details.}{semver}                    \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsVersionMinor\{\}  & The minor version of the document.\tsFootnoteRef{semver} \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsVersionPatch\{\}  & The patch number of the document.\tsFootnoteRef{semver}  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsVersionString\{\} & Complete version string.\tsFootnoteRef{semver}           \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsCaptionLabelTable{Defined metadata}
+    \end{longtable}
+\end{footnotesize}
+
+These metadata are referenced in various places in the template. For example,
+they are used in the title page of the document. The version number is based
+on semantic versioning\tsFootnoteRef{semver}.
+
+\tsImageF{./Images/Titlepage.png}{Title page}{height=0.5\textheight}
+
+They are also used to set metadata in the generated PDF:
+
+\tsImage{./Images/PDF-Properties.png}{PDF properties}{width=0.6\textwidth}
+
+\subsection{Document content}
+
+The document content is entered like a normal \LaTeX{} document. For this the
+file \tsFontItalic{TSContent.tex} is used, in which the user enters the text.
+The basic conditions such as the inclusion of packages are regulated in the file
+\tsFontItalic{TSTemplate.tex}.
+
+\subsection{Glossary}
+
+The user has the option of entering his own glossary. The entries for the
+glossary are made in the file \tsFontItalic{TSGlossary.tex}. \gls{TS}
+is entered here as an example. This looks like this:
+
+\begin{figure}[H]
+    \scriptsize
+    \centering
+    \begin{BVerbatim}
+\newglossaryentry{TS}{name={ThirtySomething},description={Ein Glossareintrag}}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Definition of a glossary entry}
+\end{figure}
+
+The values have the following correspondences:
+
+\begin{itemize}
+    \item \tsFontCode{TS} -- This is the abbreviation used to reference the
+          keyword in the document.
+    \item \tsFontCode{ThirtySomething} -- This is the keyword listed in the
+          glossary.
+    \item \tsFontCode{Ein Glossareintrag} -- This is the description for the
+          keyword listed in the glossary.
+\end{itemize}
+
+The glossary then lists the keyword, the description and the page number(s)
+where the keyword was used everywhere. A prerequisite for this is, of course,
+the use of the command \tsFontCode{\tsBackslash{}gls\{abbreviation\}} with the
+existing abbreviation. In the above example, the usage looks like this:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+\gls{TS}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Use of a glossary entry}
+\end{figure}
+
+\subsection{Hyphenation}
+
+In some circumstances, hyphenation is not performed for some words. This may
+be because these words are very specific and \LaTeX{} does not know them and
+therefore cannot hyphenate them. The result may be overlong lines, which are
+clearly visible in most cases. In some cases this overlength is not
+immediately obvious. For this you can temporarily add the line
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+% To see the (page)frames used for hyphenation determination
+% \usepackage{showframe}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Preamble -- Package showframe}
+\end{figure}
+
+by removing the comment sign (\%). This will display frames in the document
+indicating the text areas -- and you can clearly see the overlong lines. The
+affected words at the end of the line can then be entered in the
+\tsFontItalic{TSHyphenation.tex} file. An entry there follows the following
+pattern:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+\hyphenation{Thir-ty-Some-thing}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Exemplary content of TSHyphenation.tex}
+\end{figure}
+
+An entry corresponds to the word to be separated with a separator after each
+syllable. If necessary in the different cases, then the words are separated
+by a space. In addition, the following parameter can be changed in the document
+\tsFontItalic{TSTemplate.tex}:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+% Setting tolerance for word wrap
+% See also: https://texfaq.org/FAQ-overfull
+\tolerance=3000
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Influencing the hyphenation}
+\end{figure}
+
+The permissible values are in the range from 0 to 10000. setting, hyphenation
+is performed earlier or later.
+
+\section{Commands}
+\label{sec:Commands}
+
+To simplify things for newcomers, various commands have been defined. The use
+of the commands is optional. However, using them makes it clearer what the
+author wants to achieve with the corresponding command. It is recommended to
+end commands without parameters with \{\}, even if this is not necessary.
+However, it leads to the fact that, for example, after such a command there
+can also be a space character -- otherwise this is removed by \LaTeX{} when
+compiling.
+
+\begin{footnotesize}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | p{0.5\textwidth} | p{0.45\textwidth} | }
+        \hline
+        \tsFontBold{Command definition}                                                             & \tsFontBold{Meaning}                             \\
+        % ----------------------------------------------------------------------
+        \hline
+        \tsBackslash{}tsBackslash\{\}                                                               & With \tsBackslash{}tsBackslash\{\} a backslash
+        is output. (\tsBackslash{}).                                                                                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsBullet\{\}                                                                  & With this command you can to insert a black dot.
+        It looks like this: \tsBullet{}.                                                                                                               \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsCaptionLabelFigure\{text\}                                                  & This command is usually used below a mapping.
+        It not only adds a description, but also a so-called label. Thus the figure can be referenced via
+        \tsBackslash{}ref\{fig:Figure\} or via \tsBackslash{}nameref\{fig:Figure\} in the text.                                                        \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsCaptionLabelFormula\{text\}                                                 & This command is similar to
+        \tsBackslash{}tsCaptionLabelFigure, but is referenced via \tsBackslash{}ref\{for:Formula\} or via
+        \tsBackslash{}nameref\{for:Formula\}.                                                                                                          \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsCaptionLabelTable\{text\}                                                   & This command is similar to
+        \tsBackslash{}tsCaptionLabelFigure, but is referenced via \tsBackslash{}ref\{tab:Table\} or via
+        \tsBackslash{}nameref\{tab:Table\}.                                                                                                            \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsDegree\{zahl\}                                                              & Output of the degree sign with an optional
+        number. Without number \tsDegree{} or with number \tsDegree{715}!                                                                              \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsFontBold\{text\}                                                            & A text is output with bold font.
+        \tsFontBold{Bold!}                                                                                                                             \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsFontCode\{text\}                                                            & A text is output with a monospaced font.
+        \tsFontCode{Code!}                                                                                                                             \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsFontItalic\{text\}                                                          & A text is output with italic font.
+        \tsFontItalic{Italic!}                                                                                                                         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsFontUnderline\{text\}                                                       & A text is underlined.
+        \tsFontUnderline{Underlined!}                                                                                                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsFootnoteDef\{text\}\{ref\}                                                  & Defines a footnote\tsFootnoteDef{I am a
+        footnote.}{fndef} with label, which can be referenced elsewhere with \tsBackslash{}tsFootnoteRef\{ref\}.                                       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsFootnoteRef\{ref\}                                                          & References a footnote\tsFootnoteRef{fndef}
+        which was defined elsewhere with \tsBackslash{}tsFootnoteDef\{text\}\{ref\}.                                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsImage\{filename\}\{description\}\{options\}                                 & With this, an image can be included - it then
+        automatically gets a description. It is mandatory to specify three parameter brackets. The first parameter is
+        the file name. The second parameter is the signature under the image. The third parameter, the options, are
+        optional, that is, the brackets can be empty. These are the parameters that can be used with
+        \tsBackslash{}includegraphics, e.g. \tsFontCode{width=380px}.                                                                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsImageF\{filename\}\{description\}\{options\}                                & Like \tsBackslash{}tsImage, but with a frame.    \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}begin\{tsLTItemize\} \tsBackslash{}item Enum \tsBackslash{}end\{tsLTItemize\} & An enumeration environment for tables.
+        \begin{tsLTItemize}
+            \item An enumeration list.
+        \end{tsLTItemize}                                                                                                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsTextQuoteF\{\}                                                              & Sets a text in French quotation marks.
+        \tsTextQuoteF{Quoted!}                                                                                                                         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsTextQuoteG\{\}                                                              & Sets a text in German quotation marks.
+        \tsTextQuoteG{Quoted!}                                                                                                                         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsTextLower\{text\}                                                           & Sets a text lower. \tsTextLower{Lower!}          \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsTextUpper\{text\}                                                           & Sets a text raised. \tsTextUpper{Upper!}         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsCaptionLabelTable{Available commands}
+    \end{longtable}
+\end{footnotesize}
+
+A look into the source code of this document shows the usage of the commands.
+
+\subsection{Examples to images}
+
+\begin{figure}[H]
+    \scriptsize
+    \centering
+    \begin{BVerbatim}
+% Insert image TSLogo.png
+% File is in subdirectory Images
+% Signature is 'Image without parameters'
+% Optional parameters are empty
+\tsImage{./Images/TSLogo.png}{Image without parameters}{}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Call image without parameters}
+\end{figure}
+
+\tsImage{./Images/TSLogo.png}{Image without parameters}{}
+
+\begin{figure}[H]
+    \scriptsize
+    \centering
+    \begin{BVerbatim}
+% Insert image TSLogo.png
+% File is in subdirectory Images
+% Signature is 'Image with parameter'
+% Parameter: width=0.5\textwidth => scale the image to half page width
+\tsImage{./Images/TSLogo.png}{Image with parameter}{width=0.5\textwidth}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Call image with parameter}
+\end{figure}
+
+\tsImage{./Images/TSLogo.png}{Image with parameter}{width=0.5\textwidth}
+
+\begin{figure}[H]
+    \scriptsize
+    \centering
+    \begin{BVerbatim}
+% Insert image TSLogo.png with frame
+% File is in subdirectory Images
+% Signature is 'Image without parameters, with frame'
+% Optional parameters are empty
+\tsImageF{./Images/TSLogo.png}{image without parameters, with frame}{}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Call Image without parameters, with frame}
+\end{figure}
+
+\tsImageF{./Images/TSLogo.png}{Image without parameters, with frame}{}
+
+\section{Font sizes}
+\label{sec:Font sizes}
+
+There may be a need to adjust the font size. For this purpose \LaTeX{} provides
+the following options:
+
+\begin{footnotesize}
+    \renewcommand*{\arraystretch}{3}
+    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+        \hline
+        \tsFontBold{Command}                       & \tsFontBold{Example}              \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}Huge\{text\}                 & \Huge{Huge}                       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}huge\{text\}                 & \huge{huge}                       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}LARGE\{text\}                & \LARGE{LARGE}                     \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}Large\{text\}                & \Large{Large}                     \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}normalsize\{text\} (Default) & \normalsize{normalsize (Default)} \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}small\{text\}                & \small{small}                     \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}footnotesize\{text\}         & \footnotesize{footnotesize}       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}scriptsize\{text\}           & \scriptsize{scriptsize}           \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tiny\{text\}                 & \tiny{tiny}                       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsCaptionLabelTable{Font sizes}
+    \end{longtable}
+\end{footnotesize}
+
+\section{Tables}
+
+Font sizes play a role in the use of tables when it comes to distributing
+the content appropriately among the columns. Here is a sample code how to
+make a table.
+
+\begin{figure}[H]
+    \footnotesize
+    \centering
+    \begin{BVerbatim}
+\begin{footnotesize}
+    \renewcommand*{\arraystretch}{3}
+    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+        \hline
+        \tsFontBold{Command}       & \tsFontBold{Sample} \\
+        \hline
+        \tsBackslash{}Huge\{text\} & \Huge{Huge}         \\
+        \hline
+        \tsCaptionLabelTable{Font sizes}
+    \end{longtable}
+\end{footnotesize}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Tables}
+\end{figure}
+
+It is started with a block in one of the desired \nameref{sec:Font sizes}.
+The first command within the font environment changes the spacing between the
+text lines. If you do not do this, the table content and the table grid will
+overlap or the spacing will be very tight. A good value is
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+\renewcommand*{\arraystretch}{1.5}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Row height in tables}
+\end{figure}
+
+The definition of the columns and their widths follows. The total width
+available to a text in a line is \tsFontCode{\tsBackslash{}textwidth}. Due
+to the lines of the table, not quite \tsFontCode{1.0 \tsBackslash{}textwidth}
+is available. So the sum of all individual column widths should not exceed
+\tsFontCode{0.9\tsBackslash{}textwidth}.
+\bigbreak
+
+To slightly separate column headings from the column contents, the\linebreak
+\tsFontCode{\tsBackslash{}tsFontBold\{column name\}} command can be used. Each
+column value is separated from the next column by a \tsFontCode{\&}. The end
+of the row is marked with a \tsFontCode{\tsBackslash{}\tsBackslash{}}.
+\bigbreak
+
+For horizontal lines, a \tsFontCode{\tsBackslash{}hline} is inserted.
+\bigbreak
+
+The data lines follow the same structure.
+\bigbreak
+
+To give the table a referencable name, add a
+\tsFontCode{\tsBackslash{}tsCaptionLabelTable\{Font sizes\}} at the end. How
+the whole thing looks then, you can look up in the chapter
+\nameref{sec:Font sizes} in the source code or here in the document.
+
+\section{The verbatim environment}
+
+With the Verbatim environment text can be displayed in a kind of
+\tsFontCode{Monospace} font. This is used to display source code.
+
+\begin{figure}[H]
+    \centering
+    \begin{verbbox}
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+        Sample code of verbatim environment.
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Verbatim Environment Demo}
+\end{figure}
+    \end{verbbox}
+    \theverbbox
+    \tsCaptionLabelFigure{Verbatim Environment Code}
+\end{figure}
+
+In order for the verbatim environment to get a signature, it is embedded in a
+figure environment. The \tsFontCode{[H]} behind it makes sure that the
+environment stays in the desired place in the text and does not end up
+somewhere in the document.
+\bigbreak
+
+The adjustment of the font size is done as needed. So is possible centering,
+which is achieved here using \tsFontCode{\tsBackslash{}centering}.
+\tsFontBold{Note:} If the verbatim environment is to be centered, the text that
+is between \tsFontCode{\tsBackslash{}begin\{BVerbatim\}} and
+\tsFontCode{\tsBackslash{}end\{BVerbatim\}} must be leftmost aligned in the
+source code of the document. Otherwise, the spaces will be included in the
+centering.
+\bigbreak
+
+The example from above then produces this result:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+        Sample code of verbatim environment.
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Verbatim Environment Demo}
+\end{figure}
