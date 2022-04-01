@@ -58,7 +58,7 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 --------------------------------------------------------------------------
     \end{BVerbatim}
-    \tsCaptionLabelFigure{MIT Lizenz}
+    \tsCaptionLabelFigure{MIT License}
 \end{figure}
 
 \section{Introduction}
@@ -67,6 +67,7 @@ This is a template for use with \LaTeX{}. An attempt has been made to make
 this template as simple as possible for the user.
 
 \section{Template}
+\label{sec:Template}
 
 The template is divided into several files, which are listed here below:
 
@@ -172,8 +173,8 @@ and secondly, they are marked with appropriate comments:
 If one (or more) of the options is disabled, it will be automatically removed
 from the table of contents.
 
-\subsection{Metadata}
-\label{subsec:Metadata}
+\subsection{Metadata I}
+\label{subsec:Metadata-I}
 
 There is metadata for each document. This means the following definitions at
 the moment:
@@ -210,7 +211,7 @@ the moment:
         \tsBackslash{}tsVersionString\{\} & Complete version string.\tsFootnoteRef{semver}           \\
         \hline
         % ----------------------------------------------------------------------
-        \tsCaptionLabelTable{Defined metadata}
+        \tsCaptionLabelTable{Metadata I}
     \end{longtable}
 \end{footnotesize}
 
@@ -223,6 +224,57 @@ on semantic versioning\tsFootnoteRef{semver}.
 They are also used to set metadata in the generated PDF:
 
 \tsImage{./Images/PDF-Properties.png}{PDF properties}{width=0.6\textwidth}
+
+\subsection{Metadata II}
+\label{subsec:Metadata-II}
+
+Additional to the metadata of section \ref{subsec:Metadata-I} there exists
+metadata to influence the filenames. Except for the \tsFontItalic{TSMeta.tex}
+file all other files are used indirect by commands. So there are these
+commands available:
+
+\begin{footnotesize}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+        \hline
+        \tsFontBold{Metadefinition}            & \tsFontBold{Meaning}                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsContentFile\{\}        & Filename for content,\newline
+        default \tsFontItalic{TSContent.tex}                                           \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsCommandsFile\{\}       & Filename for commands, \newline
+        default \tsFontItalic{TSCommands.tex}                                          \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsCustomCommandsFile\{\} & Filename for custom commands,\newline
+        default \tsFontItalic{TSCustomCommands.tex}                                    \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsGlossaryFile\{\}       & Filename for glossary,\newline
+        default \tsFontItalic{TSGlossary.tex}                                          \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsHistoryFile\{\}        & Filename for history,\newline
+        default \tsFontItalic{TSHistory.tex}                                           \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsLogoFile\{\}           & Filename for logo,\newline
+        default \tsFontItalic{./Images/TSLogo.png}                                     \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsHyphenationFile\{\}    & Filename for hyphenation,\newline
+        default \tsFontItalic{TSHyphenation.tex}                                       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsTitleFile\{\}          & Filename for title,\newline
+        default \tsFontItalic{TSTitle.tex}                                             \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsCaptionLabelTable{Metadata II}
+    \end{longtable}
+\end{footnotesize}
 
 \subsection{Document content}
 
@@ -241,7 +293,7 @@ is entered here as an example. This looks like this:
     \scriptsize
     \centering
     \begin{BVerbatim}
-\newglossaryentry{TS}{name={ThirtySomething},description={Ein Glossareintrag}}
+\newglossaryentry{TS}{name={ThirtySomething},description={A glossary entry}}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Definition of a glossary entry}
 \end{figure}
@@ -455,7 +507,7 @@ A look into the source code of this document shows the usage of the commands.
 % Optional parameters are empty
 \tsImage{./Images/TSLogo.png}{Image without parameters}{}
     \end{BVerbatim}
-    \tsCaptionLabelFigure{Call image without parameters}
+    \tsCaptionLabelFigure{Code of image without parameters}
 \end{figure}
 
 \tsImage{./Images/TSLogo.png}{Image without parameters}{}
@@ -470,7 +522,7 @@ A look into the source code of this document shows the usage of the commands.
 % Parameter: width=0.5\textwidth => scale the image to half page width
 \tsImage{./Images/TSLogo.png}{Image with parameter}{width=0.5\textwidth}
     \end{BVerbatim}
-    \tsCaptionLabelFigure{Call image with parameter}
+    \tsCaptionLabelFigure{Code of image with parameter}
 \end{figure}
 
 \tsImage{./Images/TSLogo.png}{Image with parameter}{width=0.5\textwidth}
@@ -485,7 +537,7 @@ A look into the source code of this document shows the usage of the commands.
 % Optional parameters are empty
 \tsImageF{./Images/TSLogo.png}{image without parameters, with frame}{}
     \end{BVerbatim}
-    \tsCaptionLabelFigure{Call Image without parameters, with frame}
+    \tsCaptionLabelFigure{Code of image without parameters, with frame}
 \end{figure}
 
 \tsImageF{./Images/TSLogo.png}{Image without parameters, with frame}{}
@@ -605,14 +657,14 @@ With the Verbatim environment text can be displayed in a kind of
 \begin{figure}[H]
     \centering
     \begin{verbbox}
-\begin{figure}[H]
-    \small
-    \centering
-    \begin{BVerbatim}
-        Sample code of verbatim environment.
-    \end{BVerbatim}
-    \tsCaptionLabelFigure{Verbatim Environment Demo}
-\end{figure}
+        \begin{figure}[H]
+            \small
+            \centering
+            \begin{BVerbatim}
+Sample code of verbatim environment.
+            \end{BVerbatim}
+            \tsCaptionLabelFigure{Verbatim Environment Demo}
+        \end{figure}
     \end{verbbox}
     \theverbbox
     \tsCaptionLabelFigure{Verbatim Environment Code}
@@ -639,7 +691,7 @@ The example from above then produces this result:
     \small
     \centering
     \begin{BVerbatim}
-        Sample code of verbatim environment.
+Sample code of verbatim environment.
     \end{BVerbatim}
     \tsCaptionLabelFigure{Verbatim Environment Demo}
 \end{figure}
