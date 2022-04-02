@@ -102,7 +102,7 @@ The template is divided into several files, which are listed here below:
         TSHyphenation.tex    & Document-specific hyphenation.  \\
         \hline
         % ----------------------------------------------------------------------
-        TSMeta.tex           & The metadata for the document.  \\
+        TSTemplate-Meta.tex  & The metadata of the document.   \\
         \hline
         % ----------------------------------------------------------------------
         TSTemplate.pdf       & The result as a PDF file.       \\
@@ -125,6 +125,13 @@ Custom commands and formatting have been defined for the template. They all
 have in common that they start with a \tsFontItalic{\tsBackslash{}ts\ldots{}}.
 This serves to distinguish them from the commands otherwise used in \LaTeX{}.
 The available commands are explained in the \nameref{sec:Commands} chapter.
+\bigbreak
+
+\tsFontBold{NOTE:} The file containing the meta data is depending on the name
+of the envelope document \tsFontCode{TSTemplate.tex}. The rule is just simple:
+The name will be \tsFontCode{TSTemplate} followed by \tsFontCode{-Meta.tex}.
+If you name your document \tsFontCode{MyDocument.tex} then the filename of the
+metadata file will be \tsFontCode{MyDocument-Meta.tex}.
 
 \section{Usage}
 
