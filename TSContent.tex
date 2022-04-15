@@ -140,7 +140,7 @@ copies the template, that is, the entire directory with all files and
 subdirectories.
 \bigbreak
 
-Normally the user adjusts the metadata (file \tsFontItalic{TSMeta.tex},
+Normally the user adjusts the metadata (file \tsFontItalic{TSTemplate-Meta.tex},
 see \nameref{subsec:Metadata}) and the content in the file
 \tsFontItalic{TSContent.tex} according to his needs. The rest is controlled
 by the template.
@@ -236,7 +236,7 @@ They are also used to set metadata in the generated PDF:
 \label{subsec:Metadata-II}
 
 Additional to the metadata of section \ref{subsec:Metadata-I} there exists
-metadata to influence the filenames. Except for the \tsFontItalic{TSMeta.tex}
+metadata to influence the filenames. Except for the \tsFontItalic{TSTemplate-Meta.tex}
 file all other files are used indirect by commands. So there are these
 commands available:
 
@@ -412,88 +412,120 @@ compiling.
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{ | p{0.5\textwidth} | p{0.45\textwidth} | }
         \hline
-        \tsFontBold{Command definition}                                                             & \tsFontBold{Meaning}                             \\
-        % ----------------------------------------------------------------------
-        \hline
-        \tsBackslash{}tsBackslash\{\}                                                               & With \tsBackslash{}tsBackslash\{\} a backslash
-        is output. (\tsBackslash{}).                                                                                                                   \\
+        \tsFontBold{Command definition}                                                             & \tsFontBold{Meaning}                                      \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsBullet\{\}                                                                  & With this command you can to insert a black dot.
-        It looks like this: \tsBullet{}.                                                                                                               \\
+        \tsBackslash{}tsArrowRight\{\}                                                              & \tsBackslash{}tsArrowRight\{\} draws an arrow
+        right (\tsArrowRight{}).                                                                                                                                \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsCaptionLabelFigure\{text\}                                                  & This command is usually used below a mapping.
+        \tsBackslash{}tsArrowRightDouble\{\}                                                        & \tsBackslash{}tsArrowRightDouble\{\} draws a double arrow
+        right (\tsArrowRightDouble{}).                                                                                                                          \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsArrowDown\{\}                                                               & \tsBackslash{}tsArrowDown\{\} draws an arrow
+        down (\tsArrowDown{}).                                                                                                                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsArrowDownDouble\{\}                                                         & \tsBackslash{}tsArrowDownDouble\{\} draws a double arrow
+        down (\tsArrowDownDouble{}).                                                                                                                            \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsArrowLeft\{\}                                                               & \tsBackslash{}tsArrowLeft\{\} draws an arrow
+        left (\tsArrowLeft{}).                                                                                                                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsArrowLeftDouble\{\}                                                         & \tsBackslash{}tsArrowLeftDouble\{\} draws a double arrow
+        left (\tsArrowLeftDouble{}).                                                                                                                            \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsArrowUp\{\}                                                                 & \tsBackslash{}tsArrowUp\{\} draws an arrow
+        up (\tsArrowUp{}).                                                                                                                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsArrowUpDouble\{\}                                                           & \tsBackslash{}tsArrowUpDouble\{\} draws a double arrow
+        up (\tsArrowUpDouble{}).                                                                                                                                \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsBackslash\{\}                                                               & \tsBackslash{}tsBackslash\{\} prints a backslash
+        (\tsBackslash{}).                                                                                                                                       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsBullet\{\}                                                                  & With this command you can to insert a bullet
+        (\tsBullet{}).                                                                                                                                          \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsCaptionLabelFigure\{Figure\}                                                & This command is usually used below a mapping.
         It not only adds a description, but also a so-called label. Thus the figure can be referenced via
-        \tsBackslash{}ref\{fig:Figure\} or via \tsBackslash{}nameref\{fig:Figure\} in the text.                                                        \\
+        \tsBackslash{}ref\{fig:Figure\} or via \tsBackslash{}nameref\{fig:Figure\} in the text.                                                                 \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsCaptionLabelFormula\{text\}                                                 & This command is similar to
+        \tsBackslash{}tsCaptionLabelFormula\{Formula\}                                              & This command is similar to
         \tsBackslash{}tsCaptionLabelFigure, but is referenced via \tsBackslash{}ref\{for:Formula\} or via
-        \tsBackslash{}nameref\{for:Formula\}.                                                                                                          \\
+        \tsBackslash{}nameref\{for:Formula\}.                                                                                                                   \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsCaptionLabelTable\{text\}                                                   & This command is similar to
+        \tsBackslash{}tsCaptionLabelTable\{Table\}                                                  & This command is similar to
         \tsBackslash{}tsCaptionLabelFigure, but is referenced via \tsBackslash{}ref\{tab:Table\} or via
-        \tsBackslash{}nameref\{tab:Table\}.                                                                                                            \\
+        \tsBackslash{}nameref\{tab:Table\}.                                                                                                                     \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsDegree\{zahl\}                                                              & Output of the degree sign with an optional
-        number. Without number \tsDegree{} or with number \tsDegree{715}!                                                                              \\
+        number. Without number \tsDegree{} or with number \tsDegree{715}!                                                                                       \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsFontBold\{text\}                                                            & A text is output with bold font.
-        \tsFontBold{Bold!}                                                                                                                             \\
+        \tsFontBold{Bold!}                                                                                                                                      \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsFontCode\{text\}                                                            & A text is output with a monospaced font.
-        \tsFontCode{Code!}                                                                                                                             \\
+        \tsFontCode{Code!}                                                                                                                                      \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsFontItalic\{text\}                                                          & A text is output with italic font.
-        \tsFontItalic{Italic!}                                                                                                                         \\
+        \tsFontItalic{Italic!}                                                                                                                                  \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsFontUnderline\{text\}                                                       & A text is underlined.
-        \tsFontUnderline{Underlined!}                                                                                                                  \\
+        \tsFontUnderline{Underlined!}                                                                                                                           \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsFootnoteDef\{text\}\{ref\}                                                  & Defines a footnote\tsFootnoteDef{I am a
-        footnote.}{fndef} with label, which can be referenced elsewhere with \tsBackslash{}tsFootnoteRef\{ref\}.                                       \\
+        footnote.}{fndef} with label, which can be referenced elsewhere with \tsBackslash{}tsFootnoteRef\{ref\}.                                                \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsFootnoteRef\{ref\}                                                          & References a footnote\tsFootnoteRef{fndef}
-        which was defined elsewhere with \tsBackslash{}tsFootnoteDef\{text\}\{ref\}.                                                                   \\
+        which was defined elsewhere with \tsBackslash{}tsFootnoteDef\{text\}\{ref\}.                                                                            \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsImage\{filename\}\{description\}\{options\}                                 & With this, an image can be included - it then
         automatically gets a description. It is mandatory to specify three parameter brackets. The first parameter is
         the file name. The second parameter is the signature under the image. The third parameter, the options, are
         optional, that is, the brackets can be empty. These are the parameters that can be used with
-        \tsBackslash{}includegraphics, e.g. \tsFontCode{width=380px}.                                                                                  \\
+        \tsBackslash{}includegraphics, e.g. \tsFontCode{width=380px}.                                                                                           \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsImageF\{filename\}\{description\}\{options\}                                & Like \tsBackslash{}tsImage, but with a frame.    \\
+        \tsBackslash{}tsImageF\{filename\}\{description\}\{options\}                                & Like \tsBackslash{}tsImage, but with a frame.             \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}begin\{tsLTItemize\} \tsBackslash{}item Enum \tsBackslash{}end\{tsLTItemize\} & An enumeration environment for tables.
         \begin{tsLTItemize}
             \item An enumeration list.
-        \end{tsLTItemize}                                                                                                                      \\
+        \end{tsLTItemize}                                                                                                                               \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsTextQuoteF\{\}                                                              & Sets a text in French quotation marks.
-        \tsTextQuoteF{Quoted!}                                                                                                                         \\
+        \tsTextQuoteF{Quoted!}                                                                                                                                  \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsTextQuoteG\{\}                                                              & Sets a text in German quotation marks.
-        \tsTextQuoteG{Quoted!}                                                                                                                         \\
+        \tsTextQuoteG{Quoted!}                                                                                                                                  \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsTextLower\{text\}                                                           & Sets a text lower. \tsTextLower{Lower!}          \\
+        \tsBackslash{}tsTextLower\{text\}                                                           & Sets a text lower. \tsTextLower{Lower!}                   \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsTextUpper\{text\}                                                           & Sets a text raised. \tsTextUpper{Upper!}         \\
+        \tsBackslash{}tsTextUpper\{text\}                                                           & Sets a text raised. \tsTextUpper{Upper!}                  \\
         \hline
         % ----------------------------------------------------------------------
         \tsCaptionLabelTable{Available commands}
@@ -505,7 +537,7 @@ A look into the source code of this document shows the usage of the commands.
 \subsection{Examples to images}
 
 \begin{figure}[H]
-    \scriptsize
+    \small
     \centering
     \begin{BVerbatim}
 % Insert image TSLogo.png
@@ -520,7 +552,7 @@ A look into the source code of this document shows the usage of the commands.
 \tsImage{./Images/TSLogo.png}{Image without parameters}{}
 
 \begin{figure}[H]
-    \scriptsize
+    \small
     \centering
     \begin{BVerbatim}
 % Insert image TSLogo.png
@@ -535,7 +567,7 @@ A look into the source code of this document shows the usage of the commands.
 \tsImage{./Images/TSLogo.png}{Image with parameter}{width=0.5\textwidth}
 
 \begin{figure}[H]
-    \scriptsize
+    \small
     \centering
     \begin{BVerbatim}
 % Insert image TSLogo.png with frame
@@ -600,10 +632,10 @@ the content appropriately among the columns. Here is a sample code how to
 make a table.
 
 \begin{figure}[H]
-    \footnotesize
+    \small
     \centering
     \begin{BVerbatim}
-\begin{footnotesize}
+\begin{small}
     \renewcommand*{\arraystretch}{3}
     \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
         \hline
@@ -613,7 +645,7 @@ make a table.
         \hline
         \tsCaptionLabelTable{Font sizes}
     \end{longtable}
-\end{footnotesize}
+\end{small}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Tables}
 \end{figure}
