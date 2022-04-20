@@ -31,33 +31,8 @@
 This template is published under the \href{https://opensource.org/licenses/mit-license.php}{MIT license}:
 
 \begin{figure}[H]
-    \footnotesize
-    \centering
-    \begin{BVerbatim}
---------------------------------------------------------------------------
-MIT License
-
-Copyright 2022 ThirtySomething
-
-Permission is hereby granted, free of charge, to any person obtaining a
-copy of this software and associated documentation files (the "Software"),
-to deal in the Software without restriction, including without limitation
-the rights to use, copy, modify, merge, publish, distribute, sublicense,
-and/or sell copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-DEALINGS IN THE SOFTWARE.
---------------------------------------------------------------------------
-    \end{BVerbatim}
+    \scriptsize
+    \VerbatimInput{LICENSE}
     \tsCaptionLabelFigure{MIT License}
 \end{figure}
 
@@ -82,6 +57,9 @@ The template is divided into several files, which are listed here below:
         \hline
         % ----------------------------------------------------------------------
         README.md            & Information about the template. \\
+        \hline
+        % ----------------------------------------------------------------------
+        TSAppendix.tex       & The appendices of the document. \\
         \hline
         % ----------------------------------------------------------------------
         TSCommands.tex       & The common predefined commands. \\
@@ -247,12 +225,16 @@ commands available:
         \tsFontBold{Metadefinition}            & \tsFontBold{Meaning}                  \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsContentFile\{\}        & Filename for content,\newline
-        default \tsFontItalic{TSContent.tex}                                           \\
+        \tsBackslash{}tsAppendixFile\{\}       & Filename for appendices, \newline
+        default \tsFontItalic{TSAppendix.tex}                                          \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsCommandsFile\{\}       & Filename for commands, \newline
         default \tsFontItalic{TSCommands.tex}                                          \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsContentFile\{\}        & Filename for content,\newline
+        default \tsFontItalic{TSContent.tex}                                           \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsCustomCommandsFile\{\} & Filename for custom commands,\newline
@@ -267,12 +249,12 @@ commands available:
         default \tsFontItalic{TSHistory.tex}                                           \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsLogoFile\{\}           & Filename for logo,\newline
-        default \tsFontItalic{./Images/TSLogo.png}                                     \\
-        \hline
-        % ----------------------------------------------------------------------
         \tsBackslash{}tsHyphenationFile\{\}    & Filename for hyphenation,\newline
         default \tsFontItalic{TSHyphenation.tex}                                       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsLogoFile\{\}           & Filename for logo,\newline
+        default \tsFontItalic{./Images/TSLogo.png}                                     \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsTitleFile\{\}          & Filename for title,\newline
@@ -413,6 +395,11 @@ compiling.
     \begin{longtable}{ | p{0.5\textwidth} | p{0.45\textwidth} | }
         \hline
         \tsFontBold{Command definition}                                                             & \tsFontBold{Meaning}                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsBackslash{}tsAppendixSection\{Appendix\}                                                 & This command will add an appendix,
+        also a so-called label. Thus the figure can be referenced via
+        \tsBackslash{}ref\{appendix:Appendix\} or via \tsBackslash{}nameref\{appendix:Appendix\} in the text.                                                   \\
         \hline
         % ----------------------------------------------------------------------
         \tsBackslash{}tsArrowRight\{\}                                                              & \tsBackslash{}tsArrowRight\{\} draws an arrow
@@ -734,3 +721,34 @@ Sample code of verbatim environment.
     \end{BVerbatim}
     \tsCaptionLabelFigure{Verbatim Environment Demo}
 \end{figure}
+
+\section{Appendices}
+
+In case you want to have appendices, there are two steps. The first one is
+required to enable the appendices, the second one is the appendix itself.
+For enabling remove the comment sign.
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+% Include appendices
+\input{\tsAppendixFile{}}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Enabling appendices}
+\end{figure}
+
+The second one is the usage of an appendix. You can have a look at the sources
+in \tsFontCode{TSAppendix.tex} or use this example:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+\tsAppendixSection{README.md}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Usage of an appendix}
+\end{figure}
+
+In this example the appendix \tsFontCode{README.md} is added and can be
+referenced either by \ref{appendix:README.md} and/or \nameref{appendix:README.md}.

@@ -31,6 +31,8 @@
 \catcode`_=12
 % New columntype for longtables used for itemize environment
 \newcolumntype{P}[1]{>{\endgraf\vspace*{-\baselineskip}}p{#1}}
+% Definition for convenience usage of appendix
+\newcommand{\tsAppendixSection}[1]{\section{#1}\label{appendix:#1}}
 % Definition of arrow right
 \newcommand{\tsArrowRight}[1]{$\rightarrow$}
 % Definition of arrow down
