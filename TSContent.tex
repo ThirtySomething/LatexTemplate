@@ -39,7 +39,17 @@ This template is published under the \href{https://opensource.org/licenses/mit-l
 \section{Introduction}
 
 This is a template for use with \LaTeX{}. An attempt has been made to make
-this template as simple as possible for the user.
+the usage of this template as simple as possible for the user.
+
+\subsection{Nameing conventions}
+
+For this document some naming conventions are used.
+
+\begin{itemize}
+    \item Text in \tsTextMonospace{monospace} is either a command or
+          \LaTeX{} source code.
+    \item Text in \tsTextItalic{italic} are usually filenames.
+\end{itemize}
 
 \section{Template}
 \label{sec:Template}
@@ -50,66 +60,66 @@ The template is divided into several files, which are listed here below:
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
         \hline
-        \tsFontBold{File}    & \tsFontBold{Meaning}            \\
+        \tsTextBold{File}                   & \tsTextBold{Meaning}            \\
         \hline
         % ----------------------------------------------------------------------
-        LICENSE              & MIT license file.               \\
+        \tsTextItalic{LICENSE}              & MIT license file.               \\
         \hline
         % ----------------------------------------------------------------------
-        README.md            & Information about the template. \\
+        \tsTextItalic{README.md}            & Information about the template. \\
         \hline
         % ----------------------------------------------------------------------
-        TSAppendix.tex       & The appendices of the document. \\
+        \tsTextItalic{TSAppendix.tex}       & The appendices of the document. \\
         \hline
         % ----------------------------------------------------------------------
-        TSCommands.tex       & The common predefined commands. \\
+        \tsTextItalic{TSCommands.tex}       & The common predefined commands. \\
         \hline
         % ----------------------------------------------------------------------
-        TSContent.tex        & The content of the document.    \\
+        \tsTextItalic{TSContent.tex}        & The content of the document.    \\
         \hline
         % ----------------------------------------------------------------------
-        TSCustomCommands.tex & The document specific commands. \\
+        \tsTextItalic{TSCustomCommands.tex} & The document specific commands. \\
         \hline
         % ----------------------------------------------------------------------
-        TSGlossary.tex       & The glossary of the document.   \\
+        \tsTextItalic{TSGlossary.tex}       & The glossary of the document.   \\
         \hline
         % ----------------------------------------------------------------------
-        TSHistory.tex        & Document history.               \\
+        \tsTextItalic{TSHistory.tex}        & Document history.               \\
         \hline
         % ----------------------------------------------------------------------
-        TSHyphenation.tex    & Document-specific hyphenation.  \\
+        \tsTextItalic{TSHyphenation.tex}    & Document-specific hyphenation.  \\
         \hline
         % ----------------------------------------------------------------------
-        TSTemplate-Meta.tex  & The metadata of the document.   \\
+        \tsTextItalic{TSTemplate-Meta.tex}  & The metadata of the document.   \\
         \hline
         % ----------------------------------------------------------------------
-        TSTemplate.pdf       & The result as a PDF file.       \\
+        \tsTextItalic{TSTemplate.pdf}       & The result as a PDF file.       \\
         \hline
         % ----------------------------------------------------------------------
-        TSTemplate.tex       & The framework document.         \\
+        \tsTextItalic{TSTemplate.tex}       & The envelope document.          \\
         \hline
         % ----------------------------------------------------------------------
-        TSTitle.tex          & The title page of the document. \\
+        \tsTextItalic{TSTitlePage.tex}      & The title page of the document. \\
         \hline
         % ----------------------------------------------------------------------
-        Images/TSLogo.png    & The logo used.                  \\
+        \tsTextItalic{Images/TSLogo.png}    & The logo used.                  \\
         \hline
         % ----------------------------------------------------------------------
         \tsCaptionLabelTable{The files of the template}
     \end{longtable}
 \end{small}
 
-Custom commands and formatting have been defined for the template. They all
-have in common that they start with a \tsFontItalic{\tsBackslash{}ts\ldots{}}.
+Some commands and formatting have been predefined for the template. They all
+have in common that they start with a \tsTextMonospace{\tsBackslash{}ts\ldots{}}.
 This serves to distinguish them from the commands otherwise used in \LaTeX{}.
 The available commands are explained in the \nameref{sec:Commands} chapter.
 \bigbreak
 
-\tsFontBold{NOTE:} The file containing the meta data is depending on the name
-of the envelope document \tsFontCode{TSTemplate.tex}. The rule is just simple:
-The name will be \tsFontCode{TSTemplate} followed by \tsFontCode{-Meta.tex}.
-If you name your document \tsFontCode{MyDocument.tex} then the filename of the
-metadata file will be \tsFontCode{MyDocument-Meta.tex}.
+\tsTextBold{NOTE:} The file containing the meta data is depending on the name
+of the envelope document \tsTextItalic{TSTemplate.tex}. The rule is just simple:
+The name will be \tsTextItalic{TSTemplate} followed by \tsTextItalic{-Meta.tex}.
+If you name your document \tsTextItalic{MyDocument.tex} then the filename of the
+metadata file will be \tsTextItalic{MyDocument-Meta.tex}.
 
 \section{Usage}
 
@@ -118,82 +128,51 @@ copies the template, that is, the entire directory with all files and
 subdirectories.
 \bigbreak
 
-Normally the user adjusts the metadata (file \tsFontItalic{TSTemplate-Meta.tex},
-see \nameref{subsec:Metadata}) and the content in the file
-\tsFontItalic{TSContent.tex} according to his needs. The rest is controlled
-by the template.
+Normally the user adjusts the metadata (file \tsTextItalic{TSTemplate-Meta.tex},
+see \nameref{subsec:Metadata-I} and \nameref{subsec:Metadata-II}) and the
+content in the file \tsTextItalic{TSContent.tex} according to his needs.
+Everything else is managed by the template.
 \bigbreak
 
-It is recommended to rename the main template file \tsFontItalic{TSTemplate.tex}
+It is recommended to rename the main template file \tsTextItalic{TSTemplate.tex}
 into a more more descriptive name.
 
-\tsImageF{./Images/Otherpage.png}{Document page}{height=0.5\textheight}
+\tsImageF{./Images/OtherPage.png}{Document page}{height=0.5\textheight}
 
-In principle, nothing needs to be changed in terms of content. Possibly a
-list of figures, a list of tables or a glossary is not desired. These are
-enabled in the framework document \tsFontItalic{TSTemplate.tex}. To disable
-them, place the comment character (\%) in the corresponding lines. The places
-are easy to find. Firstly, they are located quite at the end of the template
-and secondly, they are marked with appropriate comments:
+\subsection{Metadata I}\label{subsec:Metadata-I}
 
-\begin{figure}[H]
-    \scriptsize
-    \centering
-    \begin{BVerbatim}
-% Print list of figures (lof)
-\newpage
-\listoffigures
-
-% Print list of table (lot)
-\newpage
-\listoftables
-
-% Print glossary
-\newpage
-\printglossaries
-    \end{BVerbatim}
-    \tsCaptionLabelFigure{Indexes}
-\end{figure}
-
-If one (or more) of the options is disabled, it will be automatically removed
-from the table of contents.
-
-\subsection{Metadata I}
-\label{subsec:Metadata-I}
-
-There is metadata for each document. This means the following definitions at
-the moment:
+For each document there are some metadata. This means the following definitions:
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
         \hline
-        \tsFontBold{Metadefinition}       & \tsFontBold{Meaning}                                     \\
+        \tsTextBold{Metadefinition}                         & \tsTextBold{Meaning}                                     \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsAuthor\{\}        & The author of the document.                              \\
+        \tsTextMonospace{\tsBackslash{}tsAuthor\{\}}        & The author of the document.                              \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsSubject\{\}       & The subject of the document.                             \\
+        \tsTextMonospace{\tsBackslash{}tsSubject\{\}}       & The subject of the document.                             \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsTitle\{\}         & The title of the document.                               \\
+        \tsTextMonospace{\tsBackslash{}tsTitle\{\}}         & The title of the document.                               \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsURL\{\}           & The url of the author.                                   \\
+        \tsTextMonospace{\tsBackslash{}tsURL\{\}}           & The url of the author.                                   \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsVersionMajor\{\}  & The major version of the document.\tsFootnoteDef{See
-        \href{https://semver.org}{Semantic Versioning} for more details.}{semver}                    \\
+        \tsTextMonospace{\tsBackslash{}tsVersionMajor\{\}}  & The major version of the document.\tsFootnoteDef{See
+        \href{https://semver.org}{Semantic Versioning} for more details.}{semver}                                      \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsVersionMinor\{\}  & The minor version of the document.\tsFootnoteRef{semver} \\
+        \tsTextMonospace{\tsBackslash{}tsVersionMinor\{\}}  & The minor version of the document.\tsFootnoteRef{semver} \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsVersionPatch\{\}  & The patch number of the document.\tsFootnoteRef{semver}  \\
+        \tsTextMonospace{\tsBackslash{}tsVersionPatch\{\}}  & The patch number of the document.\tsFootnoteRef{semver}  \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsVersionString\{\} & Complete version string.\tsFootnoteRef{semver}           \\
+        \tsTextMonospace{\tsBackslash{}tsVersionString\{\}} & Complete version string.\tsFootnoteRef{semver}           \\
         \hline
         % ----------------------------------------------------------------------
         \tsCaptionLabelTable{Metadata I}
@@ -204,78 +183,196 @@ These metadata are referenced in various places in the template. For example,
 they are used in the title page of the document. The version number is based
 on semantic versioning\tsFootnoteRef{semver}.
 
-\tsImageF{./Images/Titlepage.png}{Title page}{height=0.5\textheight}
+\tsImageF{./Images/TitlePage.png}{Title page}{height=0.5\textheight}
 
 They are also used to set metadata in the generated PDF:
 
 \tsImage{./Images/PDF-Properties.png}{PDF properties}{width=0.6\textwidth}
 
-\subsection{Metadata II}
-\label{subsec:Metadata-II}
+\subsection{Metadata II}\label{subsec:Metadata-II}
 
-Additional to the metadata of section \ref{subsec:Metadata-I} there exists
-metadata to influence the filenames. Except for the \tsFontItalic{TSTemplate-Meta.tex}
-file all other files are used indirect by commands. So there are these
-commands available:
+For further control, there are variables that can be used to enable/disable
+which features are active for the document. These variables can be found
+in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+    \begin{longtable}{ | P{0.7\textwidth} | p{0.2\textwidth} | }
         \hline
-        \tsFontBold{Metadefinition}            & \tsFontBold{Meaning}                  \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsBackslash{}tsAppendixFile\{\}       & Filename for appendices, \newline
-        default \tsFontItalic{TSAppendix.tex}                                          \\
+        \tsTextBold{Metadefinition}
+         & \tsTextBold{Beschreibung}         \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsCommandsFile\{\}       & Filename for commands, \newline
-        default \tsFontItalic{TSCommands.tex}                                          \\
+        \begin{BVerbatim}
+% Switch to enable appendix
+\newif\ifUseTsAppendix
+% \UseTsAppendixtrue    % Disable appendix
+\UseTsAppendixtrue      % Enable appendix
+        \end{BVerbatim}
+         & Toggle appendix                   \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsContentFile\{\}        & Filename for content,\newline
-        default \tsFontItalic{TSContent.tex}                                           \\
+        \begin{BVerbatim}
+% Switch to enable glossary
+\newif\ifUseTsGlossary
+% \UseTsGlossarytrue    % Disable glossary
+\UseTsGlossarytrue      % Enable glossary
+        \end{BVerbatim}
+         & Toggle glossary                   \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsCustomCommandsFile\{\} & Filename for custom commands,\newline
-        default \tsFontItalic{TSCustomCommands.tex}                                    \\
+        \begin{BVerbatim}
+% Switch to enable history
+\newif\ifUseTsHistory
+% \UseTsHistorytrue     % Disable history
+\UseTsHistorytrue       % Enable history
+        \end{BVerbatim}
+         & Toggle history                    \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsGlossaryFile\{\}       & Filename for glossary,\newline
-        default \tsFontItalic{TSGlossary.tex}                                          \\
+        \begin{BVerbatim}
+% Switch to enable hyphenation
+\newif\ifUseTsHyphenation
+% \UseTsHyphenationtrue % Disable hyphenation
+\UseTsHyphenationtrue   % Enable hyphenation
+        \end{BVerbatim}
+         & Toggle \newline  hyphenation      \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsHistoryFile\{\}        & Filename for history,\newline
-        default \tsFontItalic{TSHistory.tex}                                           \\
+        \begin{BVerbatim}
+% Switch to enable list of figures
+\newif\ifUseTsLOF
+% \UseTsLOFtrue         % Disable list of figures
+\UseTsLOFtrue           % Enable list of figures
+        \end{BVerbatim}
+         & Toggle list \newline of figures   \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsHyphenationFile\{\}    & Filename for hyphenation,\newline
-        default \tsFontItalic{TSHyphenation.tex}                                       \\
+        \begin{BVerbatim}
+% Switch to enable logo
+\newif\ifUseTsLogo
+% \UseTsLogotrue        % Disable logo
+\UseTsLogotrue          % Enable logo
+        \end{BVerbatim}
+         & Toggle logo                       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsLogoFile\{\}           & Filename for logo,\newline
-        default \tsFontItalic{./Images/TSLogo.png}                                     \\
+        \begin{BVerbatim}
+% Switch to enable list of tables
+\newif\ifUseTsLOT
+% \UseTsLOTtrue         % Disable list of tables
+\UseTsLOTtrue           % Enable list of tables
+        \end{BVerbatim}
+         & Toggle list \newline of tables    \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsTitleFile\{\}          & Filename for title,\newline
-        default \tsFontItalic{TSTitle.tex}                                             \\
+        \begin{BVerbatim}
+% Switch to enable start of section on new page
+\newif\ifUseTsSectionOnNewPage
+% \UseTsSectionOnNewPagetrue % Section on same page
+\UseTsSectionOnNewPagetrue   % Section on new page
+        \end{BVerbatim}
+         & Toggle start \newline of section  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable title page
+\newif\ifUseTsTitlePage
+% \UseTsTitlePagetrue   % Disable title page
+\UseTsTitlePagetrue     % Enable title page
+        \end{BVerbatim}
+         & Toggle title page                 \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable table of contents
+\newif\ifUseTsTOC
+% \UseTsTOCtrue         % Disable table of contents
+\UseTsTOCtrue           % Enable table of contents
+        \end{BVerbatim}
+         & Toggle table \newline of contents \\
         \hline
         % ----------------------------------------------------------------------
         \tsCaptionLabelTable{Metadata II}
     \end{longtable}
 \end{footnotesize}
 
+It should be noted that only one line has an influence on the option. The last
+two lines in the option list show the disabled (with the \% sign at the
+beginning of the line) and the enabled (without the \% sign) state.
+\bigbreak
+
+\tsTextBold{ATTENTION:} Turning options off and/or on will affect the steps
+required for compilation. For example, if the glossary is disabled, no
+\tsTextMonospace{makeglossary} may be used during compilation. Otherwise this will
+result in errors.
+
+\subsection{Metadata III}\label{subsec:Metadata-III}
+
+Additional to the metadata of section \ref{subsec:Metadata-I} there exists
+metadata to influence the filenames. Except for the
+\tsTextItalic{TSTemplate-Meta.tex} file all other files are used indirect
+by commands. So there are these commands available:
+
+\begin{footnotesize}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+        \hline
+        \tsTextBold{Metadefinition}                              & \tsTextBold{Meaning}                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsAppendixFile\{\}}       & Filename for appendices, \newline
+        default \tsTextItalic{TSAppendix.tex}                                                         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsCommandsFile\{\}}       & Filename for commands, \newline
+        default \tsTextItalic{TSCommands.tex}                                                         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsContentFile\{\}}        & Filename for content,\newline
+        default \tsTextItalic{TSContent.tex}                                                          \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsCustomCommandsFile\{\}} & Filename for custom commands,\newline
+        default \tsTextItalic{TSCustomCommands.tex}                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsGlossaryFile\{\}}       & Filename for glossary,\newline
+        default \tsTextItalic{TSGlossary.tex}                                                         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsHistoryFile\{\}}        & Filename for history,\newline
+        default \tsTextItalic{TSHistory.tex}                                                          \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsHyphenationFile\{\}}    & Filename for hyphenation,\newline
+        default \tsTextItalic{TSHyphenation.tex}                                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsLogoFile\{\}}           & Filename for logo,\newline
+        default \tsTextItalic{./Images/TSLogo.png}                                                    \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTitlePageFile\{\}}      & Filename for title page,\newline
+        default \tsTextItalic{TSTitlePage.tex}                                                        \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsCaptionLabelTable{Metadata III}
+    \end{longtable}
+\end{footnotesize}
+
 \subsection{Document content}
 
 The document content is entered like a normal \LaTeX{} document. For this the
-file \tsFontItalic{TSContent.tex} is used, in which the user enters the text.
+file \tsTextItalic{TSContent.tex} is used, in which the user enters the text.
 The basic conditions such as the inclusion of packages are regulated in the file
-\tsFontItalic{TSTemplate.tex}.
+\tsTextItalic{TSTemplate.tex}. Features are enabled/disabled in the file
+\tsTextItalic{TSTemplate-Meta.tex} -- see also \nameref{subsec:Metadata-II}.
 
 \subsection{Glossary}
 
 The user has the option of entering his own glossary. The entries for the
-glossary are made in the file \tsFontItalic{TSGlossary.tex}. \gls{TS}
+glossary are done in the file \tsTextItalic{TSGlossary.tex}. \gls{TS}
 is entered here as an example. This looks like this:
 
 \begin{figure}[H]
@@ -290,18 +387,18 @@ is entered here as an example. This looks like this:
 The values have the following correspondences:
 
 \begin{itemize}
-    \item \tsFontCode{TS} -- This is the abbreviation used to reference the
+    \item \tsTextBold{TS} -- This is the abbreviation used to reference the
           keyword in the document.
-    \item \tsFontCode{ThirtySomething} -- This is the keyword listed in the
+    \item \tsTextBold{ThirtySomething} -- This is the keyword listed in the
           glossary.
-    \item \tsFontCode{Ein Glossareintrag} -- This is the description for the
+    \item \tsTextBold{A glossary entry} -- This is the description for the
           keyword listed in the glossary.
 \end{itemize}
 
 The glossary then lists the keyword, the description and the page number(s)
 where the keyword was used everywhere. A prerequisite for this is, of course,
-the use of the command \tsFontCode{\tsBackslash{}gls\{abbreviation\}} with the
-existing abbreviation. In the above example, the usage looks like this:
+the use of the command \tsTextMonospace{\tsBackslash{}gls\{abbreviation\}} with
+the existing abbreviation. In the above example, the usage looks like this:
 
 \begin{figure}[H]
     \small
@@ -313,7 +410,7 @@ existing abbreviation. In the above example, the usage looks like this:
 \end{figure}
 
 In case a glossary is to be used, the document must be translated with
-\tsFontCode{makeglossaries}.
+\tsTextMonospace{makeglossaries}.
 
 \begin{figure}[H]
     \small
@@ -348,7 +445,7 @@ immediately obvious. For this you can temporarily add the line
 by removing the comment sign (\%). This will display frames in the document
 indicating the text areas -- and you can clearly see the overlong lines. The
 affected words at the end of the line can then be entered in the
-\tsFontItalic{TSHyphenation.tex} file. An entry there follows the following
+\tsTextItalic{TSHyphenation.tex} file. An entry there follows the following
 pattern:
 
 \begin{figure}[H]
@@ -360,10 +457,10 @@ pattern:
     \tsCaptionLabelFigure{Exemplary content of TSHyphenation.tex}
 \end{figure}
 
-An entry corresponds to the word to be separated with a separator after each
+An entry corresponds to the word to be separated with a dash after each
 syllable. If necessary in the different cases, then the words are separated
 by a space. In addition, the following parameter can be changed in the document
-\tsFontItalic{TSTemplate.tex}:
+\tsTextItalic{TSTemplate.tex}:
 
 \begin{figure}[H]
     \small
@@ -376,8 +473,7 @@ by a space. In addition, the following parameter can be changed in the document
     \tsCaptionLabelFigure{Influencing the hyphenation}
 \end{figure}
 
-The permissible values are in the range from 0 to 10000. setting, hyphenation
-is performed earlier or later.
+The permissible values are in the range from 0 to 10000.
 
 \section{Commands}
 \label{sec:Commands}
@@ -385,138 +481,175 @@ is performed earlier or later.
 To simplify things for newcomers, various commands have been defined. The use
 of the commands is optional. However, using them makes it clearer what the
 author wants to achieve with the corresponding command. It is recommended to
-end commands without parameters with \{\}, even if this is not necessary.
-However, it leads to the fact that, for example, after such a command there
-can also be a space character -- otherwise this is removed by \LaTeX{} when
-compiling.
+end commands without parameters with \tsTextMonospace{\{\}}, even if this is
+not necessary. However, it leads to the fact that, for example, after such a
+command there can also be a space character -- otherwise this is removed by
+\LaTeX{} when compiling.
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.5\textwidth} | p{0.45\textwidth} | }
+    \begin{longtable}{ | P{0.55\textwidth} | p{0.4\textwidth} | }
         \hline
-        \tsFontBold{Command definition}                                                             & \tsFontBold{Meaning}                                      \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsBackslash{}tsAppendixSection\{Appendix\}                                                 & This command will add an appendix,
-        also a so-called label. Thus the figure can be referenced via
-        \tsBackslash{}ref\{appendix:Appendix\} or via \tsBackslash{}nameref\{appendix:Appendix\} in the text.                                                   \\
+        \tsTextBold{Command definition}                                                &
+        \tsTextBold{Meaning}                                                                                 \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsArrowRight\{\}                                                              & \tsBackslash{}tsArrowRight\{\} draws an arrow
-        right (\tsArrowRight{}).                                                                                                                                \\
+        \tsTextMonospace{\tsBackslash{}tsAppendixSection\{Appendix\}}                  &
+        This command will add an appendix, also a so-called label. Thus the
+        appendix can be referenced via
+        \tsTextMonospace{\tsBackslash{}ref\{appendix:Appendix\}}
+        or via
+        \tsTextMonospace{\tsBackslash{}nameref\{appendix:Appendix\}}
+        somewhere else.                                                                                      \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsArrowRightDouble\{\}                                                        & \tsBackslash{}tsArrowRightDouble\{\} draws a double arrow
-        right (\tsArrowRightDouble{}).                                                                                                                          \\
+        \tsTextMonospace{\tsBackslash{}tsArrowRight\{\}}                               &
+        \tsArrowRight{}                                                                                      \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsArrowDown\{\}                                                               & \tsBackslash{}tsArrowDown\{\} draws an arrow
-        down (\tsArrowDown{}).                                                                                                                                  \\
+        \tsTextMonospace{\tsBackslash{}tsArrowRightDouble\{\}}                         &
+        \tsArrowRightDouble{}                                                                                \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsArrowDownDouble\{\}                                                         & \tsBackslash{}tsArrowDownDouble\{\} draws a double arrow
-        down (\tsArrowDownDouble{}).                                                                                                                            \\
+        \tsTextMonospace{\tsBackslash{}tsArrowDown\{\}}                                &
+        \tsArrowDown{}                                                                                       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsArrowLeft\{\}                                                               & \tsBackslash{}tsArrowLeft\{\} draws an arrow
-        left (\tsArrowLeft{}).                                                                                                                                  \\
+        \tsTextMonospace{\tsBackslash{}tsArrowDownDouble\{\}}                          &
+        \tsArrowDownDouble{}                                                                                 \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsArrowLeftDouble\{\}                                                         & \tsBackslash{}tsArrowLeftDouble\{\} draws a double arrow
-        left (\tsArrowLeftDouble{}).                                                                                                                            \\
+        \tsTextMonospace{\tsBackslash{}tsArrowLeft\{\}}                                &
+        \tsArrowLeft{}                                                                                       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsArrowUp\{\}                                                                 & \tsBackslash{}tsArrowUp\{\} draws an arrow
-        up (\tsArrowUp{}).                                                                                                                                      \\
+        \tsTextMonospace{\tsBackslash{}tsArrowLeftDouble\{\}}                          &
+        \tsArrowLeftDouble{}                                                                                 \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsArrowUpDouble\{\}                                                           & \tsBackslash{}tsArrowUpDouble\{\} draws a double arrow
-        up (\tsArrowUpDouble{}).                                                                                                                                \\
+        \tsTextMonospace{\tsBackslash{}tsArrowUp\{\}}                                  &
+        \tsArrowUp{}                                                                                         \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsBackslash\{\}                                                               & \tsBackslash{}tsBackslash\{\} prints a backslash
-        (\tsBackslash{}).                                                                                                                                       \\
+        \tsTextMonospace{\tsBackslash{}tsArrowUpDouble\{\}}                            &
+        \tsArrowUpDouble{}                                                                                   \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsBullet\{\}                                                                  & With this command you can to insert a bullet
-        (\tsBullet{}).                                                                                                                                          \\
+        \tsTextMonospace{\tsBackslash{}tsBackslash\{\}}                                &
+        \tsBackslash{}                                                                                       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsCaptionLabelFigure\{Figure\}                                                & This command is usually used below a mapping.
-        It not only adds a description, but also a so-called label. Thus the figure can be referenced via
-        \tsBackslash{}ref\{fig:Figure\} or via \tsBackslash{}nameref\{fig:Figure\} in the text.                                                                 \\
+        \tsTextMonospace{\tsBackslash{}tsBullet\{\}}                                   &
+        \tsBullet{}                                                                                          \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsCaptionLabelFormula\{Formula\}                                              & This command is similar to
-        \tsBackslash{}tsCaptionLabelFigure, but is referenced via \tsBackslash{}ref\{for:Formula\} or via
-        \tsBackslash{}nameref\{for:Formula\}.                                                                                                                   \\
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure\{Figure\}}                 &
+        This command is usually used below a mapping. There is not only a
+        description added, but also a so-called label. Thus the figure can be
+        referenced via
+        \tsTextMonospace{\tsBackslash{}ref\{fig:Figure\}}
+        or via
+        \tsTextMonospace{\tsBackslash{}nameref\{fig:Figure\}}
+        somewhere else.                                                                                      \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsCaptionLabelTable\{Table\}                                                  & This command is similar to
-        \tsBackslash{}tsCaptionLabelFigure, but is referenced via \tsBackslash{}ref\{tab:Table\} or via
-        \tsBackslash{}nameref\{tab:Table\}.                                                                                                                     \\
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFormula\{Formula\}}               &
+        This command is similar to
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure},
+        but is referenced via
+        \tsTextMonospace{\tsBackslash{}ref\{for:Formula\}} or via
+        \tsTextMonospace{\tsBackslash{}nameref\{for:Formula\}}.                                              \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsDegree\{zahl\}                                                              & Output of the degree sign with an optional
-        number. Without number \tsDegree{} or with number \tsDegree{715}!                                                                                       \\
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelTable\{Table\}}                   &
+        This command is similar to
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure}, but is
+        referenced via
+        \tsTextMonospace{\tsBackslash{}ref\{tab:Table\}} or via
+        \tsTextMonospace{\tsBackslash{}nameref\{tab:Table\}}.                                                \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsFontBold\{text\}                                                            & A text is output with bold font.
-        \tsFontBold{Bold!}                                                                                                                                      \\
+        \tsTextMonospace{\tsBackslash{}tsDegree\{zahl\}}                               &
+        Without number \tsDegree{} or with number \tsDegree{715}!                                            \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsFontCode\{text\}                                                            & A text is output with a monospaced font.
-        \tsFontCode{Code!}                                                                                                                                      \\
+        \tsTextMonospace{\tsBackslash{}tsFootnoteDef\{text\}\{ref\}}                   &
+        Defines a footnote\tsFootnoteDef{I am a footnote.}{fndef} with
+        a label, which can be referenced elsewhere using
+        \tsTextMonospace{\tsBackslash{}tsFootnoteRef\{ref\}}.                                                \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsFontItalic\{text\}                                                          & A text is output with italic font.
-        \tsFontItalic{Italic!}                                                                                                                                  \\
+        \tsTextMonospace{\tsBackslash{}tsFootnoteRef\{ref\}}                           &
+        References a footnote\tsFootnoteRef{fndef} which was defined elsewhere
+        using \tsTextMonospace{\tsBackslash{}tsFootnoteDef\{text\}\{ref\}}.                                  \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsFontStrikethrough\{text\}                                                   & A text is striked through.
-        \tsFontStrikethrough{Strikethrough!}                                                                                                                    \\
+        \tsTextMonospace{\tsBackslash{}tsImage\{filename\}\{description\}\{options\}}  &
+        With this, an image can be included -- it then automatically gets a
+        description. It is mandatory to specify three parameter brackets.
+        The first parameter is the file name. The second parameter is the
+        signature under the image. The third parameter, the options, are
+        optional, that is, the brackets can be empty. These are the same
+        parameters that can be used with
+        \tsTextMonospace{\tsBackslash{}includegraphics},
+        e.g. \tsTextMonospace{width=380px}.                                                                  \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsFontUnderline\{text\}                                                       & A text is underlined.
-        \tsFontUnderline{Underlined!}                                                                                                                           \\
+        \tsTextMonospace{\tsBackslash{}tsImageF\{filename\}\{description\}\{options\}} &
+        Like \tsTextMonospace{\tsBackslash{}tsImage}, but with a frame.                                      \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsFootnoteDef\{text\}\{ref\}                                                  & Defines a footnote\tsFootnoteDef{I am a
-        footnote.}{fndef} with label, which can be referenced elsewhere with \tsBackslash{}tsFootnoteRef\{ref\}.                                                \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsBackslash{}tsFootnoteRef\{ref\}                                                          & References a footnote\tsFootnoteRef{fndef}
-        which was defined elsewhere with \tsBackslash{}tsFootnoteDef\{text\}\{ref\}.                                                                            \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsBackslash{}tsImage\{filename\}\{description\}\{options\}                                 & With this, an image can be included - it then
-        automatically gets a description. It is mandatory to specify three parameter brackets. The first parameter is
-        the file name. The second parameter is the signature under the image. The third parameter, the options, are
-        optional, that is, the brackets can be empty. These are the parameters that can be used with
-        \tsBackslash{}includegraphics, e.g. \tsFontCode{width=380px}.                                                                                           \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsBackslash{}tsImageF\{filename\}\{description\}\{options\}                                & Like \tsBackslash{}tsImage, but with a frame.             \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsBackslash{}begin\{tsLTItemize\} \tsBackslash{}item Enum \tsBackslash{}end\{tsLTItemize\} & An enumeration environment for tables.
+        \begin{BVerbatim}
+\begin{tsLTItemize}
+    \item Item I of enumeration list.
+    \item Item B of enumeration list.
+    \item Item 3 of enumeration list.
+\end{tsLTItemize}
+        \end{BVerbatim}
+        &
+        An enumeration list
         \begin{tsLTItemize}
-            \item An enumeration list.
-        \end{tsLTItemize}                                                                                                                               \\
+            \item Item I of enumeration list.
+            \item Item B of enumeration list.
+            \item Item 3 of enumeration list.
+        \end{tsLTItemize}
+        \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsTextQuoteF\{\}                                                              & Sets a text in French quotation marks.
-        \tsTextQuoteF{Quoted!}                                                                                                                                  \\
+        \tsTextMonospace{\tsBackslash{}tsTextBold\{text\}}                             &
+        \tsTextBold{text}                                                                                    \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsTextQuoteG\{\}                                                              & Sets a text in German quotation marks.
-        \tsTextQuoteG{Quoted!}                                                                                                                                  \\
+        \tsTextMonospace{\tsBackslash{}tsTextItalic\{text\}}                           &
+        \tsTextItalic{text}                                                                                  \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsTextLower\{text\}                                                           & Sets a text lower. \tsTextLower{Lower!}                   \\
+        \tsTextMonospace{\tsBackslash{}tsTextLower\{text\}}                            &
+        \tsTextLower{text}                                                                                   \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tsTextUpper\{text\}                                                           & Sets a text raised. \tsTextUpper{Upper!}                  \\
+        \tsTextMonospace{\tsBackslash{}tsTextMonospace\{text\}}                        &
+        \tsTextMonospace{text}                                                                               \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextQuoteF\{text\}}                           &
+        \tsTextQuoteF{text}                                                                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextQuoteG\{text\}}                           &
+        \tsTextQuoteG{text}                                                                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextStrikethrough\{text\}}                    &
+        \tsTextStrikethrough{text}                                                                           \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextUnderline\{text\}}                        &
+        \tsTextUnderline{text}                                                                               \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextUpper\{text\}}                            &
+        \tsTextUpper{text}                                                                                   \\
         \hline
         % ----------------------------------------------------------------------
         \tsCaptionLabelTable{Available commands}
@@ -582,34 +715,34 @@ the following options:
     \renewcommand*{\arraystretch}{3}
     \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
         \hline
-        \tsFontBold{Command}                       & \tsFontBold{Example}              \\
+        \tsTextBold{Command}                             & \tsTextBold{Example}              \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}Huge\{text\}                 & \Huge{Huge}                       \\
+        \tsBackslash{}Huge\{Huge\}                       & \Huge{Huge}                       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}huge\{text\}                 & \huge{huge}                       \\
+        \tsBackslash{}huge\{huge\}                       & \huge{huge}                       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}LARGE\{text\}                & \LARGE{LARGE}                     \\
+        \tsBackslash{}LARGE\{LARGE\}                     & \LARGE{LARGE}                     \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}Large\{text\}                & \Large{Large}                     \\
+        \tsBackslash{}Large\{Large\}                     & \Large{Large}                     \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}normalsize\{text\} (Default) & \normalsize{normalsize (Default)} \\
+        \tsBackslash{}normalsize\{normalsize\} (Default) & \normalsize{normalsize (Default)} \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}small\{text\}                & \small{small}                     \\
+        \tsBackslash{}small\{small\}                     & \small{small}                     \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}footnotesize\{text\}         & \footnotesize{footnotesize}       \\
+        \tsBackslash{}footnotesize\{footnotesize\}       & \footnotesize{footnotesize}       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}scriptsize\{text\}           & \scriptsize{scriptsize}           \\
+        \tsBackslash{}scriptsize\{scriptsize\}           & \scriptsize{scriptsize}           \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tiny\{text\}                 & \tiny{tiny}                       \\
+        \tsBackslash{}tiny\{tiny\}                       & \tiny{tiny}                       \\
         \hline
         % ----------------------------------------------------------------------
         \tsCaptionLabelTable{Font sizes}
@@ -630,7 +763,7 @@ make a table.
     \renewcommand*{\arraystretch}{3}
     \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
         \hline
-        \tsFontBold{Command}       & \tsFontBold{Sample} \\
+        \tsTextBold{Command}       & \tsTextBold{Sample} \\
         \hline
         \tsBackslash{}Huge\{text\} & \Huge{Huge}         \\
         \hline
@@ -656,63 +789,71 @@ overlap or the spacing will be very tight. A good value is
 \end{figure}
 
 The definition of the columns and their widths follows. The total width
-available to a text in a line is \tsFontCode{\tsBackslash{}textwidth}. Due
-to the lines of the table, not quite \tsFontCode{1.0 \tsBackslash{}textwidth}
+available to a text in a line is \tsTextMonospace{\tsBackslash{}textwidth}. Due
+to the lines of the table, not quite \tsTextMonospace{1.0 \tsBackslash{}textwidth}
 is available. So the sum of all individual column widths should not exceed
-\tsFontCode{0.9\tsBackslash{}textwidth}.
+\tsTextMonospace{0.9\tsBackslash{}textwidth}.
 \bigbreak
 
 To slightly separate column headings from the column contents, the\linebreak
-\tsFontCode{\tsBackslash{}tsFontBold\{column name\}} command can be used. Each
-column value is separated from the next column by a \tsFontCode{\&}. The end
-of the row is marked with a \tsFontCode{\tsBackslash{}\tsBackslash{}}.
+\tsTextMonospace{\tsBackslash{}tsTextBold\{column name\}} command can be used. Each
+column value is separated from the next column by a \tsTextMonospace{\&}. The end
+of the row is marked with a \tsTextMonospace{\tsBackslash{}\tsBackslash{}}.
 \bigbreak
 
-For horizontal lines, a \tsFontCode{\tsBackslash{}hline} is inserted.
+For horizontal lines, a \tsTextMonospace{\tsBackslash{}hline} is inserted.
 \bigbreak
 
 The data lines follow the same structure.
 \bigbreak
 
 To give the table a referencable name, add a
-\tsFontCode{\tsBackslash{}tsCaptionLabelTable\{Font sizes\}} at the end. How
-the whole thing looks then, you can look up in the chapter
-\nameref{sec:Font sizes} in the source code or here in the document.
+\tsTextMonospace{\tsBackslash{}tsCaptionLabelTable\{Font sizes\}} at the end.
+Check the source of this document in the section \nameref{sec:Font sizes}
+to see how it works.
+\bigbreak
+
+When using a \tsTextMonospace{verbatim} environment in a table, then the
+column type of the table \tsTextBold{must be} of type \tsTextMonospace{P}!
+Also important is that the column separator \tsTextMonospace{\&} must be on
+the next line after the \tsTextMonospace{\tsBackslash{}end\{tsLTItemize\}}.
 
 \section{The verbatim environment}
 
-With the Verbatim environment text can be displayed in a kind of
-\tsFontCode{Monospace} font. This is used to display source code.
+With the Verbatim environment text can be displayed in a
+\tsTextMonospace{Monospace} font. This is used to display source code.
 
 \begin{figure}[H]
     \centering
     \begin{verbbox}
-        \begin{figure}[H]
-            \small
-            \centering
-            \begin{BVerbatim}
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
 Sample code of verbatim environment.
-            \end{BVerbatim}
-            \tsCaptionLabelFigure{Verbatim Environment Demo}
-        \end{figure}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Verbatim Environment Demo}
+\end{figure}
     \end{verbbox}
     \theverbbox
     \tsCaptionLabelFigure{Verbatim Environment Code}
 \end{figure}
 
 In order for the verbatim environment to get a signature, it is embedded in a
-figure environment. The \tsFontCode{[H]} behind it makes sure that the
-environment stays in the desired place in the text and does not end up
+figure environment. The \tsTextMonospace{[H]} behind it makes sure that the
+environment stays at the desired place in the text and does not end up
 somewhere in the document.
 \bigbreak
 
-The adjustment of the font size is done as needed. So is possible centering,
-which is achieved here using \tsFontCode{\tsBackslash{}centering}.
-\tsFontBold{Note:} If the verbatim environment is to be centered, the text that
-is between \tsFontCode{\tsBackslash{}begin\{BVerbatim\}} and
-\tsFontCode{\tsBackslash{}end\{BVerbatim\}} must be leftmost aligned in the
-source code of the document. Otherwise, the spaces will be included in the
-centering.
+The adjustment of the font size is done as needed. A possible centering  is
+achieved here using \tsTextMonospace{\tsBackslash{}centering}.
+\bigbreak
+
+\tsTextBold{Note:} If the verbatim environment is to be centered, the text that
+is between \tsTextMonospace{\tsBackslash{}begin\{BVerbatim\}} and
+\tsTextMonospace{\tsBackslash{}end\{BVerbatim\}} must be leftmost aligned in the
+source code of the document. Otherwise the spaces will be part of the
+alignment.
 \bigbreak
 
 The example from above then produces this result:
@@ -730,20 +871,22 @@ Sample code of verbatim environment.
 
 In case you want to have appendices, there are two steps. The first one is
 required to enable the appendices, the second one is the appendix itself.
-For enabling remove the comment sign.
+For enabling remove the comment sign in the \tsTextItalic{TSTemplate-Meta.tex}
+file:
 
 \begin{figure}[H]
     \small
     \centering
     \begin{BVerbatim}
-% Include appendices
-\input{\tsAppendixFile{}}
+% Switch to enable appendix
+\newif\ifUseTsAppendix
+\UseTsAppendixtrue
     \end{BVerbatim}
     \tsCaptionLabelFigure{Enabling appendices}
 \end{figure}
 
 The second one is the usage of an appendix. You can have a look at the sources
-in \tsFontCode{TSAppendix.tex} or use this example:
+in \tsTextItalic{TSAppendix.tex} or use this example:
 
 \begin{figure}[H]
     \small
@@ -754,5 +897,5 @@ in \tsFontCode{TSAppendix.tex} or use this example:
     \tsCaptionLabelFigure{Usage of an appendix}
 \end{figure}
 
-In this example the appendix \tsFontCode{README.md} is added and can be
+In this example the appendix \tsTextMonospace{README.md} is added and can be
 referenced either by \ref{appendix:README.md} and/or \nameref{appendix:README.md}.

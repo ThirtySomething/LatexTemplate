@@ -65,18 +65,8 @@
 \newcommand{\tsToday}[1]{\datedot\today}
 % Define convenience command for degree
 \newcommand{\tsDegree}[1]{#1$^\circ$}
-% Define command for bold text
-\newcommand{\tsFontBold}[1]{\textbf{#1}}
-% Define command for verbatim text
-\newcommand{\tsFontCode}[1]{\small \texttt{#1}}
-% Define command for italic text
-% \newcommand{\tsFontItalic}[1]{\textit{#1}}
-% See also https://de.overleaf.com/learn/latex/Bold%2C_italics_and_underlining
-\newcommand{\tsFontItalic}[1]{\emph{#1}}
-% To have strikethrough font
-\newcommand{\tsFontStrikethrough}[1]{\sout{#1}}
 % Define command for underlined text
-\newcommand{\tsFontUnderline}[1]{\underline{#1}}
+\newcommand{\tsTextUnderline}[1]{\underline{#1}}
 % Define a referencable footnote
 \newcommand{\tsFootnoteDef}[2]{\footnote{\label{#2}#1}}
 % Define a referencable footnote
@@ -85,12 +75,20 @@
 \newcommand{\tsImage}[3]{\begin{figure}[H]\centering\includegraphics[#3]{#1}\tsCaptionLabelFigure{#2}\end{figure}}
 % Define command to include an image with a frame
 \newcommand{\tsImageF}[3]{\begin{figure}[H]\centering\fbox{\includegraphics[#3]{#1}}\tsCaptionLabelFigure{#2}\end{figure}}
-% Define command for quoting text on french way
-\newcommand{\tsTextQuoteF}[1]{\guillemotleft{}#1\guillemotright{}}
-% Define command for quoting text on german way
-\newcommand{\tsTextQuoteG}[1]{\glqq{}#1\grqq{}}
+% Define command for text in bold
+\newcommand{\tsTextBold}[1]{\textbf{#1}}
+% Define command for text in italic
+\newcommand{\tsTextItalic}[1]{\emph{#1}}
 % Define command for text in subscript
 \newcommand{\tsTextLower}[1]{\textsubscript{#1}}
+% Define command for text in monospace
+\newcommand{\tsTextMonospace}[1]{\texttt{#1}}
+% Define command for text in french quotes
+\newcommand{\tsTextQuoteF}[1]{\guillemotleft{}#1\guillemotright{}}
+% Define command for text in german quotes
+\newcommand{\tsTextQuoteG}[1]{\glqq{}#1\grqq{}}
+% Define command for text strikethrough
+\newcommand{\tsTextStrikethrough}[1]{\sout{#1}}
 % Define command for text in superscript
 \newcommand{\tsTextUpper}[1]{\textsuperscript{#1}}
 % Define new environment for itemize used in longtables

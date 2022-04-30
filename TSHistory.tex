@@ -35,11 +35,11 @@
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{ | p{0.06\textwidth} | p{0.08\textwidth} | p{0.06\textwidth} | P{0.49\textwidth} | p{0.15\textwidth} | }
         \hline
-        \tsFontBold{Version}     &
-        \tsFontBold{Date}        &
-        \tsFontBold{Section}     &
-        \tsFontBold{Description} &
-        \tsFontBold{Name}          \\
+        \tsTextBold{Version}     &
+        \tsTextBold{Date}        &
+        \tsTextBold{Section}     &
+        \tsTextBold{Description} &
+        \tsTextBold{Name}          \\
         \hline
         % ----------------------------------------------------------------------
         1.0.0                    &
@@ -120,6 +120,19 @@
         --                       &
         \begin{tsLTItemize}
             \item NEW: Added tsFontStrikethrough
+        \end{tsLTItemize}
+                                 &
+        ThirtySomething            \\
+        \hline
+        % ----------------------------------------------------------------------
+        1.0.8                    &
+        30.04.2022               &
+        --                       &
+        \begin{tsLTItemize}
+            \item NEW: Introduce switches for features in meta file
+            \item CHG: Rename TSTitle to TSTitlePage
+            \item CHG: Rename commands, use tsText\ldots instead of tsFont\ldots
+            \item NEW: Add subsection naming conventions
         \end{tsLTItemize}
                                  &
         ThirtySomething            \\
