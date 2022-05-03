@@ -33,9 +33,9 @@
 \documentclass[12pt,a4paper]{book}
 % US spelling
 \usepackage[american]{babel}
-% Logo in header
+% Images and logo in header
 \usepackage{graphicx}
-% To have header/footer
+% To have custom header/footer
 \usepackage{fancyhdr}
 % Enhanced verbatim environments
 \usepackage{fancyvrb}
@@ -71,11 +71,17 @@
 % Multiple watermarks as background images
 % https://tex.stackexchange.com/questions/134717/how-do-you-add-multiple-watermarks
 \usepackage{background}
-% To use compactitem {itemize} inside of longtable
-% \usepackage{paralist}
 % Compact itemize inside longtable
 % https://tex.stackexchange.com/questions/114822/itemize-inside-longtable
 \usepackage{enumitem}
+% Used for overlay of images
+\usepackage[percent]{overpic}
+% Used for overlay of images
+\usepackage{color}
+% Used for overlay of images
+\usepackage{xcolor}
+% Used for overlay of images
+\usepackage[outline]{contour}
 % To see the (page)frames used for hyphenation determination
 % \usepackage{showframe}
 % For glossary usage - do not move these statements up!
