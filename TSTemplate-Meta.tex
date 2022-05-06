@@ -40,12 +40,15 @@
 % Defines the minor version number of the document - see https://semver.org
 \newcommand{\tsVersionMinor}[1]{0}
 % Defines the patch number of the document - see https://semver.org
-\newcommand{\tsVersionPatch}[1]{10}
+\newcommand{\tsVersionPatch}[1]{11}
 % Defines the version string of the document - see https://semver.org
 \newcommand{\tsVersionString}[1]{V\tsVersionMajor{}.\tsVersionMinor{}.\tsVersionPatch{}}
 % ------------------------------------------------------------------------------
 % Definition of document features
 % ------------------------------------------------------------------------------
+% Definition of document type, either article or book
+\newcommand{\tsDocumentType}[1]{article}
+% \newcommand{\tsDocumentType}[1]{book}
 % Switch to enable appendix
 \newif\ifUseTsAppendix
 \UseTsAppendixtrue
@@ -80,20 +83,20 @@
 %% Meta data definition of Latex template files
 %% -----------------------------------------------------------------------------
 % Defines the filename of the content
-\newcommand{\tsAppendixFile}[1]{TSAppendix.tex}
+\newcommand{\tsAppendixFile}[1]{TSTemplate-Appendix.tex}
 % Defines the filename of the commands
-\newcommand{\tsCommandsFile}[1]{TSCommands.tex}
+\newcommand{\tsCommandsFile}[1]{TSTemplate-Commands.tex}
 % Defines the filename of the content
-\newcommand{\tsContentFile}[1]{TSContent.tex}
+\newcommand{\tsContentFile}[1]{TSTemplate-Content.tex}
 % Defines the filename of the custom commands
-\newcommand{\tsCustomCommandsFile}[1]{TSCustomCommands.tex}
+\newcommand{\tsCustomCommandsFile}[1]{TSTemplate-CustomCommands.tex}
 % Defines the filename of the glossary
-\newcommand{\tsGlossaryFile}[1]{TSGlossary.tex}
+\newcommand{\tsGlossaryFile}[1]{TSTemplate-Glossary.tex}
 % Defines the filename of the history
-\newcommand{\tsHistoryFile}[1]{TSHistory.tex}
+\newcommand{\tsHistoryFile}[1]{TSTemplate-History.tex}
 % Defines the filename of the hyphenation
-\newcommand{\tsHyphenationFile}[1]{TSHyphenation.tex}
+\newcommand{\tsHyphenationFile}[1]{TSTemplate-Hyphenation.tex}
 % Defines the filename of the logo
-\newcommand{\tsLogoFile}[1]{./Images/TSLogo.png}
+\newcommand{\tsLogoFile}[1]{TSTemplate-Logo.png}
 % Defines the filename of the title
-\newcommand{\tsTitlePageFile}[1]{TSTitlePage.tex}
+\newcommand{\tsTitlePageFile}[1]{TSTemplate-TitlePage.tex}

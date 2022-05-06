@@ -30,7 +30,7 @@
 \input{\jobname-Meta.tex}
 
 % A4 paper, font size
-\documentclass[12pt,a4paper]{book}
+\documentclass[12pt,a4paper]{\tsDocumentType{}}
 % US spelling
 \usepackage[american]{babel}
 % Images and logo in header
@@ -123,16 +123,7 @@
 \fancypagestyle{plain}{
     \setlength{\headheight}{15pt}
     \fancyhf{}
-    \fancyhead[LO]{\scriptsize \tsTitle{}.pdf}
-    \fancyhead[RE]{\scriptsize \tsTitle{}.pdf}
-    \ifUseTsLogo
-        \fancyhead[RO]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}
-        \fancyhead[LE]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}
-    \fi
-    \fancyfoot[RO]{\scriptsize \tsToday{}}
-    \fancyfoot[LO]{\scriptsize Page \thepage}
-    \fancyfoot[RE]{\scriptsize Page \thepage}
-    \fancyfoot[LE]{\scriptsize \tsToday{}}
+    \tsFancyData{\tsDocumentType{}}
     \renewcommand{\headrulewidth}{0.4pt}
     \renewcommand{\footrulewidth}{0.4pt}
 }

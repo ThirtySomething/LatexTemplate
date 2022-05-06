@@ -31,8 +31,10 @@
 \catcode`_=12
 % New columntype for longtables used for itemize environment
 \newcolumntype{P}[1]{>{\endgraf\vspace*{-\baselineskip}}p{#1}}
+% Definition of a file as appendix
+\newcommand{\tsAppendixIncludeFile}[1]{\tsAppendixSection{#1}\begin{scriptsize}\VerbatimInput{#1}\end{scriptsize}}
 % Definition for convenience usage of appendix
-\newcommand{\tsAppendixSection}[1]{\section{#1}\label{appendix:#1}}
+\newcommand{\tsAppendixSection}[1]{\newpage\section{#1}\label{appendix:#1}}
 % Definition of arrow right
 \newcommand{\tsArrowRight}[1]{$\rightarrow$}
 % Definition of arrow down
@@ -65,8 +67,12 @@
 \newcommand{\tsToday}[1]{\datedot\today}
 % Define convenience command for degree
 \newcommand{\tsDegree}[1]{#1$^\circ$}
-% Define command for underlined text
-\newcommand{\tsTextUnderline}[1]{\underline{#1}}
+% Define new command for header/footer of article
+\newcommand{\tsFancyArticle}[1]{\fancyhead[L]{\scriptsize \tsTitle{}.pdf}\ifUseTsLogo\fancyhead[R]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fi\fancyfoot[L]{\scriptsize \tsToday{}}\fancyfoot[R]{\scriptsize Page \thepage}}
+% Define new command for header/footer of book
+\newcommand{\tsFancyBook}[1]{\fancyhead[LO]{\scriptsize \tsTitle{}.pdf}\fancyhead[RE]{\scriptsize \tsTitle{}.pdf}\ifUseTsLogo\fancyhead[RO]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fancyhead[LE]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fi\fancyfoot[RO]{\scriptsize \tsToday{}}\fancyfoot[LO]{\scriptsize Page \thepage}\fancyfoot[RE]{\scriptsize Page \thepage}\fancyfoot[LE]{\scriptsize \tsToday{}}}
+% Define command to choose header/footer depending on argument
+\newcommand{\tsFancyData}[1]{\ifthenelse{\equal{#1}{article}}{\tsFancyArticle{}}{\tsFancyBook{}}}
 % Define a referencable footnote
 \newcommand{\tsFootnoteDef}[2]{\footnote{\label{#2}#1}}
 % Define a referencable footnote
@@ -93,6 +99,8 @@
 \newcommand{\tsTextQuoteG}[1]{\glqq{}#1\grqq{}}
 % Define command for text strikethrough
 \newcommand{\tsTextStrikethrough}[1]{\sout{#1}}
+% Define command for underlined text
+\newcommand{\tsTextUnderline}[1]{\underline{#1}}
 % Define command for text in superscript
 \newcommand{\tsTextUpper}[1]{\textsuperscript{#1}}
 % Define new environment for itemize used in longtables

@@ -28,7 +28,7 @@
 
 \section{License information}
 
-This template is published under the \href{https://opensource.org/licenses/mit-license.php}{MIT license}:
+This template is subject to the terms of the \href{https://opensource.org/licenses/mit-license.php}{MIT license}:
 
 \begin{figure}[H]
     \scriptsize
@@ -41,7 +41,7 @@ This template is published under the \href{https://opensource.org/licenses/mit-l
 This is a template for use with \LaTeX{}. An attempt has been made to make
 the usage of this template as simple as possible for the user.
 
-\subsection{Nameing conventions}
+\subsection{Naming conventions}
 
 For this document some naming conventions are used.
 
@@ -58,51 +58,51 @@ The template is divided into several files, which are listed here below:
 
 \begin{small}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+    \begin{longtable}{ | p{0.4\textwidth} | p{0.53\textwidth} | }
         \hline
-        \tsTextBold{File}                   & \tsTextBold{Meaning}            \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextItalic{LICENSE}              & MIT license file.               \\
+        \tsTextBold{File}                            & \tsTextBold{Meaning}            \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{README.md}            & Information about the template. \\
+        \tsTextItalic{LICENSE}                       & MIT license file.               \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSAppendix.tex}       & The appendices of the document. \\
+        \tsTextItalic{README.md}                     & Information about the template. \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSCommands.tex}       & The common predefined commands. \\
+        \tsTextItalic{TSTemplate.pdf}                & The result as a PDF file.       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSContent.tex}        & The content of the document.    \\
+        \tsTextItalic{TSTemplate.tex}                & The envelope document.          \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSCustomCommands.tex} & The document specific commands. \\
+        \tsTextItalic{TSTemplate-Appendix.tex}       & The appendices of the document. \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSGlossary.tex}       & The glossary of the document.   \\
+        \tsTextItalic{TSTemplate-Commands.tex}       & The common predefined commands. \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSHistory.tex}        & Document history.               \\
+        \tsTextItalic{TSTemplate-Content.tex}        & The content of the document.    \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSHyphenation.tex}    & Document-specific hyphenation.  \\
+        \tsTextItalic{TSTemplate-CustomCommands.tex} & The document specific commands. \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSTemplate-Meta.tex}  & The metadata of the document.   \\
+        \tsTextItalic{TSTemplate-Glossary.tex}       & The glossary of the document.   \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSTemplate.pdf}       & The result as a PDF file.       \\
+        \tsTextItalic{TSTemplate-History.tex}        & Document history.               \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSTemplate.tex}       & The envelope document.          \\
+        \tsTextItalic{TSTemplate-Hyphenation.tex}    & Document-specific hyphenation.  \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSTitlePage.tex}      & The title page of the document. \\
+        \tsTextItalic{TSTemplate-Logo.png}           & The logo used.                  \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{Images/TSLogo.png}    & The logo used.                  \\
+        \tsTextItalic{TSTemplate-Meta.tex}           & The metadata of the document.   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate-TitlePage.tex}      & The title page of the document. \\
         \hline
         % ----------------------------------------------------------------------
         \tsCaptionLabelTable{The files of the template}
@@ -130,8 +130,8 @@ subdirectories.
 
 Normally the user adjusts the metadata (file \tsTextItalic{TSTemplate-Meta.tex},
 see \nameref{subsec:Metadata-I} and \nameref{subsec:Metadata-II}) and the
-content in the file \tsTextItalic{TSContent.tex} according to his needs.
-Everything else is managed by the template.
+content in the file \tsTextItalic{TSTemplate-Content.tex} according to his
+needs. Everything else is managed by the template.
 \bigbreak
 
 It is recommended to rename the main template file \tsTextItalic{TSTemplate.tex}
@@ -145,7 +145,7 @@ For each document there are some metadata. This means the following definitions:
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+    \begin{longtable}{ | p{0.43\textwidth} | p{0.5\textwidth} | }
         \hline
         \tsTextBold{Metadefinition}                         & \tsTextBold{Meaning}                                     \\
         \hline
@@ -197,10 +197,18 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | P{0.7\textwidth} | p{0.2\textwidth} | }
+    \begin{longtable}{ | P{0.7\textwidth} | p{0.23\textwidth} | }
         \hline
         \tsTextBold{Metadefinition}
          & \tsTextBold{Beschreibung}         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Definition of document type, either article or book
+\newcommand{\tsDocumentType}[1]{article}
+% \newcommand{\tsDocumentType}[1]{book}
+        \end{BVerbatim}
+         & Toggle between one page layout (article) and two page layout (book)  \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
@@ -316,45 +324,45 @@ by commands. So there are these commands available:
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+    \begin{longtable}{ | p{0.43\textwidth} | p{0.5\textwidth} | }
         \hline
         \tsTextBold{Metadefinition}                              & \tsTextBold{Meaning}                  \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsAppendixFile\{\}}       & Filename for appendices, \newline
-        default \tsTextItalic{TSAppendix.tex}                                                         \\
+        default \tsTextItalic{TSTemplate-Appendix.tex}                                                   \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsCommandsFile\{\}}       & Filename for commands, \newline
-        default \tsTextItalic{TSCommands.tex}                                                         \\
+        default \tsTextItalic{TSTemplate-Commands.tex}                                                   \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsContentFile\{\}}        & Filename for content,\newline
-        default \tsTextItalic{TSContent.tex}                                                          \\
+        default \tsTextItalic{TSTemplate-Content.tex}                                                    \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsCustomCommandsFile\{\}} & Filename for custom commands,\newline
-        default \tsTextItalic{TSCustomCommands.tex}                                                   \\
+        default \tsTextItalic{TSTemplate-CustomCommands.tex}                                             \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsGlossaryFile\{\}}       & Filename for glossary,\newline
-        default \tsTextItalic{TSGlossary.tex}                                                         \\
+        default \tsTextItalic{TSTemplate-Glossary.tex}                                                   \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsHistoryFile\{\}}        & Filename for history,\newline
-        default \tsTextItalic{TSHistory.tex}                                                          \\
+        default \tsTextItalic{TSTemplate-History.tex}                                                    \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsHyphenationFile\{\}}    & Filename for hyphenation,\newline
-        default \tsTextItalic{TSHyphenation.tex}                                                      \\
+        default \tsTextItalic{TSTemplate-Hyphenation.tex}                                                \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsLogoFile\{\}}           & Filename for logo,\newline
-        default \tsTextItalic{./Images/TSLogo.png}                                                    \\
+        default \tsTextItalic{TSTemplate-Logo.png}                                                       \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsTitlePageFile\{\}}      & Filename for title page,\newline
-        default \tsTextItalic{TSTitlePage.tex}                                                        \\
+        default \tsTextItalic{TSTemplate-TitlePage.tex}                                                  \\
         \hline
         % ----------------------------------------------------------------------
         \tsCaptionLabelTable{Metadata III}
@@ -364,15 +372,15 @@ by commands. So there are these commands available:
 \subsection{Document content}
 
 The document content is entered like a normal \LaTeX{} document. For this the
-file \tsTextItalic{TSContent.tex} is used, in which the user enters the text.
-The basic conditions such as the inclusion of packages are regulated in the file
-\tsTextItalic{TSTemplate.tex}. Features are enabled/disabled in the file
-\tsTextItalic{TSTemplate-Meta.tex} -- see also \nameref{subsec:Metadata-II}.
+file \tsTextItalic{TSTemplate-Content.tex} is used, in which the user enters
+the text. The basic conditions such as the inclusion of packages are regulated
+in the file \tsTextItalic{TSTemplate.tex}. Features are enabled/disabled in the
+file \tsTextItalic{TSTemplate-Meta.tex} -- see also \nameref{subsec:Metadata-II}.
 
 \subsection{Glossary}
 
 The user has the option of entering his own glossary. The entries for the
-glossary are done in the file \tsTextItalic{TSGlossary.tex}. \gls{TS}
+glossary are done in the file \tsTextItalic{TSTemplate-Glossary.tex}. \gls{TS}
 is entered here as an example. This looks like this:
 
 \begin{figure}[H]
@@ -445,8 +453,8 @@ immediately obvious. For this you can temporarily add the line
 by removing the comment sign (\%). This will display frames in the document
 indicating the text areas -- and you can clearly see the overlong lines. The
 affected words at the end of the line can then be entered in the
-\tsTextItalic{TSHyphenation.tex} file. An entry there follows the following
-pattern:
+\tsTextItalic{TSTemplate-Hyphenation.tex} file. An entry there follows the
+following pattern:
 
 \begin{figure}[H]
     \small
@@ -488,10 +496,17 @@ command there can also be a space character -- otherwise this is removed by
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | P{0.55\textwidth} | p{0.4\textwidth} | }
+    \begin{longtable}{ | P{0.53\textwidth} | p{0.4\textwidth} | }
         \hline
         \tsTextBold{Command definition}                                                                    &
         \tsTextBold{Meaning}                                                                                 \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsAppendixIncludeFile\{Filename\}}                                  &
+        This command will add an appendix section. The section consists of a
+        \tsTextMonospace{tsTextMonospace} section header of \tsTextMonospace{Filename}
+        and will include the file \tsTextMonospace{Filename} in a verbatim
+        environment. See appendix \ref{appendix:README.md} how it looks like.                                \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsAppendixSection\{Appendix\}}                                      &
@@ -571,6 +586,20 @@ command there can also be a space character -- otherwise this is removed by
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsDegree\{zahl\}}                                                   &
         Without number \tsDegree{} or with number \tsDegree{715}!                                            \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsFancyArticle\{\}}                                                 &
+        This is the \href{https://ctan.org/pkg/fancyhdr}{fancy header} definition of an article.             \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsFancyBook\{\}}                                                    &
+        This is the \href{https://ctan.org/pkg/fancyhdr}{fancy header} definition of a book.                 \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsFancyData\{\tsBackslash{}tsDocumentType\{\}\}}                    &
+        Deping on the setting of \tsTextMonospace{\tsBackslash{}tsDocumentType\{\}} either the fancy
+        header \tsTextMonospace{\tsBackslash{}tsFancyArticle\{\}} or the fancy header
+        \tsTextMonospace{\tsBackslash{}tsFancyBook\{\}} is set for the document.                             \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsFootnoteDef\{text\}\{ref\}}                                       &
@@ -672,55 +701,51 @@ A look into the source code of this document shows the usage of the commands.
     \small
     \centering
     \begin{BVerbatim}
-% Insert image TSLogo.png
-% File is in subdirectory Images
+% Insert image TSTemplate-Logo.png
 % Signature is 'Image without parameters'
 % Optional parameters are empty
-\tsImage{./Images/TSLogo.png}{Image without parameters}{}
+\tsImage{TSTemplate-Logo.png}{Image without parameters}{}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Code of image without parameters}
 \end{figure}
 
-\tsImage{./Images/TSLogo.png}{Image without parameters}{}
+\tsImage{TSTemplate-Logo.png}{Image without parameters}{}
 
 \begin{figure}[H]
     \small
     \centering
     \begin{BVerbatim}
-% Insert image TSLogo.png
-% File is in subdirectory Images
+% Insert image TSTemplate-Logo.png
 % Signature is 'Image with parameter'
 % Parameter: width=0.5\textwidth => scale the image to half page width
-\tsImage{./Images/TSLogo.png}{Image with parameter}{width=0.5\textwidth}
+\tsImage{TSTemplate-Logo.png}{Image with parameter}{width=0.5\textwidth}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Code of image with parameter}
 \end{figure}
 
-\tsImage{./Images/TSLogo.png}{Image with parameter}{width=0.5\textwidth}
+\tsImage{TSTemplate-Logo.png}{Image with parameter}{width=0.5\textwidth}
 
 \begin{figure}[H]
     \small
     \centering
     \begin{BVerbatim}
-% Insert image TSLogo.png with frame
-% File is in subdirectory Images
+% Insert image TSTemplate-Logo.png with frame
 % Signature is 'Image without parameters, with frame'
 % Optional parameters are empty
-\tsImageF{./Images/TSLogo.png}{Image without parameters, with frame}{}
+\tsImageF{TSTemplate-Logo.png}{Image without parameters, with frame}{}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Code of image without parameters, with frame}
 \end{figure}
 
-\tsImageF{./Images/TSLogo.png}{Image without parameters, with frame}{}
+\tsImageF{TSTemplate-Logo.png}{Image without parameters, with frame}{}
 
 \begin{figure}[H]
     \small
     \centering
     \begin{BVerbatim}
 % Insert image Garden.jpg with frame
-% File is in subdirectory Images
 % Signature is 'Image with frame, overlay and parameters'
-% Optional parameters are empty
+% Optional parameters are 'width=0.9\textwidth
 \tsImageO{./Images/Garden.jpg}{Image with frame, overlay and parameters}
     {\tsTextUpper{(C)} 2008, ThirtySomething}{width=0.9\textwidth}
     \end{BVerbatim}
@@ -737,36 +762,36 @@ the following options:
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{3}
-    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+    \begin{longtable}{ | p{0.43\textwidth} | p{0.5\textwidth} | }
         \hline
-        \tsTextBold{Command}                             & \tsTextBold{Example}              \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsBackslash{}Huge\{Huge\}                       & \Huge{Huge}                       \\
+        \tsTextBold{Command}                                               & \tsTextBold{Example}              \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}huge\{huge\}                       & \huge{huge}                       \\
+        \tsTextMonospace{\tsBackslash{}Huge\{Huge\}}                       & \Huge{Huge}                       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}LARGE\{LARGE\}                     & \LARGE{LARGE}                     \\
+        \tsTextMonospace{\tsBackslash{}huge\{huge\}}                       & \huge{huge}                       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}Large\{Large\}                     & \Large{Large}                     \\
+        \tsTextMonospace{\tsBackslash{}LARGE\{LARGE\}}                     & \LARGE{LARGE}                     \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}normalsize\{normalsize\} (Default) & \normalsize{normalsize (Default)} \\
+        \tsTextMonospace{\tsBackslash{}Large\{Large\}}                     & \Large{Large}                     \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}small\{small\}                     & \small{small}                     \\
+        \tsTextMonospace{\tsBackslash{}normalsize\{normalsize\}} (Default) & \normalsize{normalsize} (Default) \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}footnotesize\{footnotesize\}       & \footnotesize{footnotesize}       \\
+        \tsTextMonospace{\tsBackslash{}small\{small\}}                     & \small{small}                     \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}scriptsize\{scriptsize\}           & \scriptsize{scriptsize}           \\
+        \tsTextMonospace{\tsBackslash{}footnotesize\{footnotesize\}}       & \footnotesize{footnotesize}       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsBackslash{}tiny\{tiny\}                       & \tiny{tiny}                       \\
+        \tsTextMonospace{\tsBackslash{}scriptsize\{scriptsize\}}           & \scriptsize{scriptsize}           \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tiny\{tiny\}}                       & \tiny{tiny}                       \\
         \hline
         % ----------------------------------------------------------------------
         \tsCaptionLabelTable{Font sizes}
@@ -785,7 +810,7 @@ make a table.
     \begin{BVerbatim}
 \begin{small}
     \renewcommand*{\arraystretch}{3}
-    \begin{longtable}{ | p{0.45\textwidth} | p{0.5\textwidth} | }
+    \begin{longtable}{ | p{0.43\textwidth} | p{0.5\textwidth} | }
         \hline
         \tsTextBold{Command}       & \tsTextBold{Sample} \\
         \hline
@@ -814,7 +839,7 @@ overlap or the spacing will be very tight. A good value is
 
 The definition of the columns and their widths follows. The total width
 available to a text in a line is \tsTextMonospace{\tsBackslash{}textwidth}. Due
-to the lines of the table, not quite \tsTextMonospace{1.0 \tsBackslash{}textwidth}
+to the lines of the table, not quite \tsTextMonospace{1.0\tsBackslash{}textwidth}
 is available. So the sum of all individual column widths should not exceed
 \tsTextMonospace{0.9\tsBackslash{}textwidth}.
 \bigbreak
@@ -910,7 +935,7 @@ file:
 \end{figure}
 
 The second one is the usage of an appendix. You can have a look at the sources
-in \tsTextItalic{TSAppendix.tex} or use this example:
+in \tsTextItalic{TSTemplate-Appendix.tex} or use this example:
 
 \begin{figure}[H]
     \small
@@ -918,8 +943,25 @@ in \tsTextItalic{TSAppendix.tex} or use this example:
     \begin{BVerbatim}
 \tsAppendixSection{README.md}
     \end{BVerbatim}
-    \tsCaptionLabelFigure{Usage of an appendix}
+    \tsCaptionLabelFigure{Usage of tsAppendixSection}
 \end{figure}
 
 In this example the appendix \tsTextMonospace{README.md} is added and can be
-referenced either by \ref{appendix:README.md} and/or \nameref{appendix:README.md}.
+referenced either by \tsTextMonospace{\tsBackslash{}nameref\{appendix:README.md\}}
+(\nameref{appendix:README.md}) and/or
+\tsTextMonospace{\tsBackslash{}ref\{appendix:README.md\}} (\ref{appendix:README.md}).
+\bigbreak
+
+In case you want to add a file to the appendix, you can also use the
+\tsTextMonospace{\tsBackslash{}tsAppendixIncludeFile\{filename\}} command.
+You can see the result in appendix \ref{appendix:vscode-latex-workshop.json},
+which is done by
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+\tsAppendixIncludeFile{vscode-latex-workshop.json}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Usage of tsAppendixIncludeFile}
+\end{figure}
