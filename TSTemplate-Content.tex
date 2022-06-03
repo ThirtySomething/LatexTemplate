@@ -58,7 +58,7 @@ The template is divided into several files, which are listed here below:
 
 \begin{small}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.4\textwidth} | p{0.53\textwidth} | }
+    \begin{longtable}{ | p{0.4\linewidth} | p{0.53\linewidth} | }
         \hline
         \tsTextBold{File}                            & \tsTextBold{Meaning}            \\
         \hline
@@ -145,7 +145,7 @@ For each document there are some metadata. This means the following definitions:
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.43\textwidth} | p{0.5\textwidth} | }
+    \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
         \hline
         \tsTextBold{Metadefinition}                         & \tsTextBold{Meaning}                                     \\
         \hline
@@ -187,7 +187,7 @@ on semantic versioning\tsFootnoteRef{semver}.
 
 They are also used to set metadata in the generated PDF:
 
-\tsImage{./Images/PDF-Properties.png}{PDF properties}{width=0.6\textwidth}
+\tsImage{./Images/PDF-Properties.png}{PDF properties}{width=0.6\linewidth}
 
 \subsection{Metadata II}\label{subsec:Metadata-II}
 
@@ -197,7 +197,7 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | P{0.7\textwidth} | p{0.23\textwidth} | }
+    \begin{longtable}{ | P{0.7\linewidth} | p{0.23\linewidth} | }
         \hline
         \tsTextBold{Metadefinition}
          & \tsTextBold{Beschreibung}         \\
@@ -324,7 +324,7 @@ by commands. So there are these commands available:
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.43\textwidth} | p{0.5\textwidth} | }
+    \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
         \hline
         \tsTextBold{Metadefinition}                              & \tsTextBold{Meaning}                  \\
         \hline
@@ -496,7 +496,7 @@ command there can also be a space character -- otherwise this is removed by
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | P{0.53\textwidth} | p{0.4\textwidth} | }
+    \begin{longtable}{ | P{0.53\linewidth} | p{0.4\linewidth} | }
         \hline
         \tsTextBold{Command definition}                                                                    &
         \tsTextBold{Meaning}                                                                                 \\
@@ -632,9 +632,9 @@ command there can also be a space character -- otherwise this is removed by
         Like \tsTextMonospace{\tsBackslash{}tsImage}, but with an overlaid text.                             \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsImageOF\{filename\}\{description\}\newline\{overlay\}\{options\}} &
-        Like \tsTextMonospace{\tsBackslash{}tsImageF}, but with an overlaid text.                            \\
-        \hline
+        % \tsTextMonospace{\tsBackslash{}tsImageOF\{filename\}\{description\}\newline\{overlay\}\{options\}} &
+        % Like \tsTextMonospace{\tsBackslash{}tsImageF}, but with an overlaid text.                            \\
+        % \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
 \begin{tsLTItemize}
@@ -717,13 +717,13 @@ A look into the source code of this document shows the usage of the commands.
     \begin{BVerbatim}
 % Insert image TSTemplate-Logo.png
 % Signature is 'Image with parameter'
-% Parameter: width=0.5\textwidth => scale the image to half page width
-\tsImage{TSTemplate-Logo.png}{Image with parameter}{width=0.5\textwidth}
+% Parameter: width=0.5\linewidth => scale the image to half page width
+\tsImage{TSTemplate-Logo.png}{Image with parameter}{width=0.5\linewidth}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Code of image with parameter}
 \end{figure}
 
-\tsImage{TSTemplate-Logo.png}{Image with parameter}{width=0.5\textwidth}
+\tsImage{TSTemplate-Logo.png}{Image with parameter}{width=0.5\linewidth}
 
 \begin{figure}[H]
     \small
@@ -744,15 +744,16 @@ A look into the source code of this document shows the usage of the commands.
     \centering
     \begin{BVerbatim}
 % Insert image Garden.jpg with frame
-% Signature is 'Image with frame, overlay and parameters'
-% Optional parameters are 'width=0.9\textwidth
-\tsImageO{./Images/Garden.jpg}{Image with frame, overlay and parameters}
-    {\tsTextUpper{(C)} 2008, ThirtySomething}{width=0.9\textwidth}
+% Signature is 'Image with overlay and parameters'
+% Optional parameters are 'width=0.9\linewidth
+\tsImageO{./Images/Garden.jpg}{Image with overlay
+    and parameters}{\tsTextUpper{(C)} 2008, ThirtySomething}
+    {width=0.9\linewidth}
     \end{BVerbatim}
-    \tsCaptionLabelFigure{Code image with frame, overlay and parameters}
+    \tsCaptionLabelFigure{Code image with overlay and parameters}
 \end{figure}
 
-\tsImageO{./Images/Garden.jpg}{Image with frame, overlay and parameters}{\tsTextUpper{(C)} 2008, ThirtySomething}{{width=0.9\textwidth}}
+\tsImageO{./Images/Garden.jpg}{Image with overlay and parameters}{\tsTextUpper{(C)} 2008, ThirtySomething}{width=0.9\linewidth}
 
 \section{Font sizes}
 \label{sec:Font sizes}
@@ -762,7 +763,7 @@ the following options:
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{3}
-    \begin{longtable}{ | p{0.43\textwidth} | p{0.5\textwidth} | }
+    \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
         \hline
         \tsTextBold{Command}                                               & \tsTextBold{Example}              \\
         \hline
@@ -810,7 +811,7 @@ make a table.
     \begin{BVerbatim}
 \begin{small}
     \renewcommand*{\arraystretch}{3}
-    \begin{longtable}{ | p{0.43\textwidth} | p{0.5\textwidth} | }
+    \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
         \hline
         \tsTextBold{Command}       & \tsTextBold{Sample} \\
         \hline
