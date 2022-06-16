@@ -68,9 +68,9 @@
 % Define convenience command for degree
 \newcommand{\tsDegree}[1]{#1$^\circ$}
 % Define new command for header/footer of article
-\newcommand{\tsFancyArticle}[1]{\fancyhead[L]{\scriptsize \tsTitle{}.pdf}\ifUseTsLogo\fancyhead[R]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fi\fancyfoot[L]{\scriptsize \tsToday{}}\fancyfoot[R]{\scriptsize Page \thepage}}
+\newcommand{\tsFancyArticle}[1]{\fancyhead[L]{\scriptsize \tsTitle{}.pdf}\ifUseTsLogo\fancyhead[R]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fi\fancyfoot[L]{\scriptsize \tsToday{}}\fancyfoot[R]{\scriptsize \tsDocumentPage{} \thepage}}
 % Define new command for header/footer of book
-\newcommand{\tsFancyBook}[1]{\fancyhead[LO]{\scriptsize \tsTitle{}.pdf}\fancyhead[RE]{\scriptsize \tsTitle{}.pdf}\ifUseTsLogo\fancyhead[RO]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fancyhead[LE]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fi\fancyfoot[RO]{\scriptsize \tsToday{}}\fancyfoot[LO]{\scriptsize Page \thepage}\fancyfoot[RE]{\scriptsize Page \thepage}\fancyfoot[LE]{\scriptsize \tsToday{}}}
+\newcommand{\tsFancyBook}[1]{\fancyhead[LO]{\scriptsize \tsTitle{}.pdf}\fancyhead[RE]{\scriptsize \tsTitle{}.pdf}\ifUseTsLogo\fancyhead[RO]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fancyhead[LE]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fi\fancyfoot[RO]{\scriptsize \tsToday{}}\fancyfoot[LO]{\scriptsize \tsDocumentPage{} \thepage}\fancyfoot[RE]{\scriptsize \tsDocumentPage{} \thepage}\fancyfoot[LE]{\scriptsize \tsToday{}}}
 % Define command to choose header/footer depending on argument
 \newcommand{\tsFancyData}[1]{\ifthenelse{\equal{#1}{article}}{\tsFancyArticle{}}{\tsFancyBook{}}}
 % Define a referencable footnote
