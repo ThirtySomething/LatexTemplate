@@ -39,8 +39,12 @@
 \usepackage{fancyhdr}
 % Enhanced verbatim environments
 \usepackage{fancyvrb}
-% To have figures and other don't fly around
+% To have figures and other environments don't fly around
 \usepackage{float}
+% List of cites/bibliographies
+\usepackage[fixlanguage]{babelbib}
+% To enable the index
+\usepackage{imakeidx}
 % Get filename
 \usepackage{currfile}
 % Dottet lines in toc
@@ -76,6 +80,8 @@
 \usepackage{enumitem}
 % Used for overlay of images
 \usepackage[percent]{overpic}
+% Used to enable diameter
+\usepackage[nointegrals]{wasysym}
 % Used for overlay of images
 \usepackage{color}
 % Used for overlay of images
@@ -216,12 +222,17 @@
     \input{\tsAppendixFile{}}
 \fi
 
-% Start toc on new page
+% Start post document on new page
 \newpage
 
 % Start non content pages with roman numbering
 \setcounter{page}{1}
 \pagenumbering{Roman}
+
+\ifUseTsIndex
+    \newpage
+    \printindex{}
+\fi
 
 % Print list of figures (lof)
 \ifUseTsLOF
@@ -239,6 +250,16 @@
 \ifUseTsGlossary
     \newpage
     \printglossaries
+\fi
+
+% Print bibliography
+\ifUseTsCitation
+{
+    \newpage
+    \footnotesize
+    \bibliography{\tsReferencesFile{}}{}
+    \bibliographystyle{babplain}
+}
 \fi
 
 \end{document}

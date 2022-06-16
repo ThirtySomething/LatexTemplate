@@ -61,18 +61,20 @@
 \newcommand{\tsCaptionLabelFormula}[1]{\caption{#1}\label{for:#1}}
 % Define command for caption including label for tables
 \newcommand{\tsCaptionLabelTable}[1]{\caption{#1}\label{tab:#1}}
-% Define common date format: DD.MM.YYYY
-\newdateformat{datedot}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
-% Definition of today in new date format
-\newcommand{\tsToday}[1]{\datedot\today}
+% Define convenience command for citations
+\newcommand{\tsCitation}[1]{~\cite{#1}}
 % Define convenience command for degree
 \newcommand{\tsDegree}[1]{#1$^\circ$}
+% Define convenience command for diameter
+\newcommand{\tsDiameter}[1]{\diameter}
 % Define new command for header/footer of article
 \newcommand{\tsFancyArticle}[1]{\fancyhead[L]{\scriptsize \tsTitle{}.pdf}\ifUseTsLogo\fancyhead[R]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fi\fancyfoot[L]{\scriptsize \tsToday{}}\fancyfoot[R]{\scriptsize \tsDocumentPage{} \thepage}}
 % Define new command for header/footer of book
 \newcommand{\tsFancyBook}[1]{\fancyhead[LO]{\scriptsize \tsTitle{}.pdf}\fancyhead[RE]{\scriptsize \tsTitle{}.pdf}\ifUseTsLogo\fancyhead[RO]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fancyhead[LE]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fi\fancyfoot[RO]{\scriptsize \tsToday{}}\fancyfoot[LO]{\scriptsize \tsDocumentPage{} \thepage}\fancyfoot[RE]{\scriptsize \tsDocumentPage{} \thepage}\fancyfoot[LE]{\scriptsize \tsToday{}}}
 % Define command to choose header/footer depending on argument
 \newcommand{\tsFancyData}[1]{\ifthenelse{\equal{#1}{article}}{\tsFancyArticle{}}{\tsFancyBook{}}}
+% Define command of a frac like 1/2
+\newcommand{\tsFrac}[2]{\textsuperscript{#1}\kern-.06em/\kern-0.06em\textsubscript{#2}}
 % Define a referencable footnote
 \newcommand{\tsFootnoteDef}[2]{\footnote{\label{#2}#1}}
 % Define a referencable footnote
@@ -103,5 +105,9 @@
 \newcommand{\tsTextUnderline}[1]{\underline{#1}}
 % Define command for text in superscript
 \newcommand{\tsTextUpper}[1]{\textsuperscript{#1}}
+% Define common date format: DD.MM.YYYY
+\newdateformat{datedot}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
+% Definition of today in new date format
+\newcommand{\tsToday}[1]{\datedot\today}
 % Define new environment for itemize used in longtables
 \newenvironment{tsLTItemize}{\begin{itemize}[noitemsep,leftmargin=*,topsep=0pt,partopsep=0pt]}{\vspace*{-\baselineskip}\end{itemize}}

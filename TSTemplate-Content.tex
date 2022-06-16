@@ -26,7 +26,7 @@
 %% Content definition of Latex template
 %% -----------------------------------------------------------------------------
 
-\section{License information}
+\section{License information}\index{License information}
 
 This template is subject to the terms of the \href{https://opensource.org/licenses/mit-license.php}{MIT license}:
 
@@ -36,12 +36,12 @@ This template is subject to the terms of the \href{https://opensource.org/licens
     \tsCaptionLabelFigure{MIT License}
 \end{figure}
 
-\section{Introduction}
+\section{Introduction}\index{Introduction}
 
 This is a template for use with \LaTeX{}. An attempt has been made to make
 the usage of this template as simple as possible for the user.
 
-\subsection{Naming conventions}
+\subsection{Naming conventions}\index{Naming conventions}
 
 For this document some naming conventions are used.
 
@@ -200,7 +200,7 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
     \begin{longtable}{ | P{0.7\linewidth} | p{0.23\linewidth} | }
         \hline
         \tsTextBold{Metadefinition}
-         & \tsTextBold{Beschreibung}         \\
+         & \tsTextBold{Beschreibung}                                             \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
@@ -212,12 +212,37 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
+% Definition of document language
+\newcommand{\tsDocumentLanguage}[1]{american}
+% \newcommand{\tsDocumentLanguage}[1]{ngerman}
+        \end{BVerbatim}
+         & Setup of used language of document                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Definition of page label
+\newcommand{\tsDocumentPage}[1]{Page}
+% \newcommand{\tsDocumentPage}[1]{Seite}
+        \end{BVerbatim}
+         & Setup of used label in front of the page number                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
 % Switch to enable appendix
 \newif\ifUseTsAppendix
 % \UseTsAppendixtrue    % Disable appendix
 \UseTsAppendixtrue      % Enable appendix
         \end{BVerbatim}
-         & Toggle appendix                   \\
+         & Toggle appendix                                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable bibliography and cites
+\newif\ifUseTsCitation
+% \UseTsCitationtrue    % Disable references
+\UseTsCitationtrue      % Enable references
+        \end{BVerbatim}
+         & Toggle references                                                    \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
@@ -226,7 +251,16 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 % \UseTsGlossarytrue    % Disable glossary
 \UseTsGlossarytrue      % Enable glossary
         \end{BVerbatim}
-         & Toggle glossary                   \\
+         & Toggle glossary                                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable index
+\newif\ifUseTsIndex
+% \UseTsIndextrue       % Disable index
+\UseTsIndextrue         % Enable index
+        \end{BVerbatim}
+         & Toggle index                                                         \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
@@ -235,7 +269,7 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 % \UseTsHistorytrue     % Disable history
 \UseTsHistorytrue       % Enable history
         \end{BVerbatim}
-         & Toggle history                    \\
+         & Toggle history                                                       \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
@@ -244,7 +278,7 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 % \UseTsHyphenationtrue % Disable hyphenation
 \UseTsHyphenationtrue   % Enable hyphenation
         \end{BVerbatim}
-         & Toggle \newline  hyphenation      \\
+         & Toggle \newline hyphenation                                          \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
@@ -253,7 +287,7 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 % \UseTsLOFtrue         % Disable list of figures
 \UseTsLOFtrue           % Enable list of figures
         \end{BVerbatim}
-         & Toggle list \newline of figures   \\
+         & Toggle list \newline of figures                                      \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
@@ -262,7 +296,7 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 % \UseTsLogotrue        % Disable logo
 \UseTsLogotrue          % Enable logo
         \end{BVerbatim}
-         & Toggle logo                       \\
+         & Toggle logo                                                          \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
@@ -271,7 +305,7 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 % \UseTsLOTtrue         % Disable list of tables
 \UseTsLOTtrue           % Enable list of tables
         \end{BVerbatim}
-         & Toggle list \newline of tables    \\
+         & Toggle list \newline of tables                                       \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
@@ -280,7 +314,7 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 % \UseTsSectionOnNewPagetrue % Section on same page
 \UseTsSectionOnNewPagetrue   % Section on new page
         \end{BVerbatim}
-         & Toggle start \newline of section  \\
+         & Toggle start \newline of section                                     \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
@@ -289,7 +323,7 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 % \UseTsTitlePagetrue   % Disable title page
 \UseTsTitlePagetrue     % Enable title page
         \end{BVerbatim}
-         & Toggle title page                 \\
+         & Toggle title page                                                    \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
@@ -298,7 +332,7 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 % \UseTsTOCtrue         % Disable table of contents
 \UseTsTOCtrue           % Enable table of contents
         \end{BVerbatim}
-         & Toggle table \newline of contents \\
+         & Toggle table \newline of contents                                    \\
         \hline
         % ----------------------------------------------------------------------
         \tsCaptionLabelTable{Metadata II}
@@ -359,6 +393,10 @@ by commands. So there are these commands available:
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsLogoFile\{\}}           & Filename for logo,\newline
         default \tsTextItalic{TSTemplate-Logo.png}                                                       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsReferencesFile\{\}}     & Filename for references,\newline
+        default \tsTextItalic{TSTemplate.bib}                                                            \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsTitlePageFile\{\}}      & Filename for title page,\newline
@@ -483,6 +521,41 @@ by a space. In addition, the following parameter can be changed in the document
 
 The permissible values are in the range from 0 to 10000.
 
+\subsection{Bibliography references}\label{subsec:Bibliography references}
+
+In case you want to have some bibliography references and want to cite, you
+have to enable the citations in \tsTextItalic{TSTemplate-Meta.tex}:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+% Switch to enable bibliography and cites
+\newif\ifUseTsCitation
+\UseTsCitationtrue
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Enabled citations}
+\end{figure}
+
+Fill up your bibliography reference file:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+@misc{lfc,
+    title        = {{Latex Font Catalogue}},
+    author       = {},
+    year         = {},
+    note         = {Online checked on 16.06.2022},
+    howpublished = {\url{https://tug.org/FontCatalogue/}}
+}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Reference example}
+\end{figure}
+
+And to use it in the text.\tsCitation{lfc}
+
 \section{Commands}
 \label{sec:Commands}
 
@@ -584,8 +657,16 @@ command there can also be a space character -- otherwise this is removed by
         \tsTextMonospace{\tsBackslash{}nameref\{tab:Table\}}.                                                \\
         \hline
         % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsCitation\{ref\}}                                                  &
+        References citation in bibliography, see also \nameref{subsec:Bibliography references} for details.  \\
+        \hline
+        % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsDegree\{zahl\}}                                                   &
         Without number \tsDegree{} or with number \tsDegree{715}!                                            \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsDiameter\{\}}                                                     &
+        \tsDiameter{}                                                                                        \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsFancyArticle\{\}}                                                 &
@@ -606,6 +687,10 @@ command there can also be a space character -- otherwise this is removed by
         Defines a footnote\tsFootnoteDef{I am a footnote.}{fndef} with
         a label, which can be referenced elsewhere using
         \tsTextMonospace{\tsBackslash{}tsFootnoteRef\{ref\}}.                                                \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsFrac\{num1\}\{num2\}}                                             &
+        Defines a frac like \tsFrac{1}{2}.                                                                   \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsFootnoteRef\{ref\}}                                               &

@@ -52,12 +52,15 @@
 % Definition of document language
 \newcommand{\tsDocumentLanguage}[1]{american}
 % \newcommand{\tsDocumentLanguage}[1]{ngerman}
-% Definition of page
+% Definition of page label
 \newcommand{\tsDocumentPage}[1]{Page}
 % \newcommand{\tsDocumentPage}[1]{Seite}
 % Switch to enable appendix
 \newif\ifUseTsAppendix
 \UseTsAppendixtrue
+% Switch to enable bibliography and cites
+\newif\ifUseTsCitation
+\UseTsCitationtrue
 % Switch to enable glossary
 \newif\ifUseTsGlossary
 \UseTsGlossarytrue
@@ -67,6 +70,9 @@
 % Switch to enable hyphenation
 \newif\ifUseTsHyphenation
 \UseTsHyphenationtrue
+% Switch to enable index
+\newif\ifUseTsIndex
+\UseTsIndextrue
 % Switch to enable list of figures
 \newif\ifUseTsLOF
 \UseTsLOFtrue
@@ -104,5 +110,7 @@
 \newcommand{\tsHyphenationFile}[1]{TSTemplate-Hyphenation.tex}
 % Defines the filename of the logo
 \newcommand{\tsLogoFile}[1]{TSTemplate-Logo.png}
+% Defines the filename of the references
+\newcommand{\tsReferencesFile}[1]{TSTemplate.bib}
 % Defines the filename of the title
 \newcommand{\tsTitlePageFile}[1]{TSTemplate-TitlePage.tex}
