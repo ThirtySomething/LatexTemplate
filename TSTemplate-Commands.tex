@@ -45,6 +45,8 @@
 % Command for enabling dottet lines in table of content only for books
 % https://tex.stackexchange.com/questions/53898/how-to-get-lines-with-dots-in-the-table-of-contents-for-sections
 \newcommand{\tsTOCDottedLine}[1]{\ifthenelse{\equal{#1}{book}}{\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}}{}}
+% Enable numeric footnote inside tables
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
 
 %% -----------------------------------------------------------------------------
 %% Definition of public commands
