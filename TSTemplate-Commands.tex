@@ -37,14 +37,49 @@
 % New columntype for longtables used for itemize environment
 \newcolumntype{P}[1]{>{\endgraf\vspace*{-\baselineskip}}p{#1}}
 % Define new command for header/footer of article
-\newcommand{\tsFancyArticle}[1]{\fancyhead[L]{\scriptsize \tsTitle{}}\ifUseTsLogo\fancyhead[R]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fi\fancyfoot[L]{\scriptsize \tsToday{}}\fancyfoot[R]{\scriptsize \tsDocumentPage{} \thepage}}
+\newcommand{\tsFancyArticle}[1]
+{
+    \fancyhead[L]{\scriptsize\tsTitle{}}
+    \ifUseTsLogo
+        \fancyhead[R]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}
+    \else
+        \fancyhead[R]{\scriptsize\tsURL{}}
+    \fi
+    \fancyfoot[L]{\scriptsize\tsToday{}}
+    \fancyfoot[R]{\scriptsize\tsDocumentPage{} \thepage}
+}
 % Define new command for header/footer of book
-\newcommand{\tsFancyBook}[1]{\fancyhead[LO]{\scriptsize \tsTitle{}}\fancyhead[RE]{\scriptsize \tsTitle{}}\ifUseTsLogo\fancyhead[RO]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fancyhead[LE]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}\fi\fancyfoot[RO]{\scriptsize \tsToday{}}\fancyfoot[LO]{\scriptsize \tsDocumentPage{} \thepage}\fancyfoot[RE]{\scriptsize \tsDocumentPage{} \thepage}\fancyfoot[LE]{\scriptsize \tsToday{}}}
+\newcommand{\tsFancyBook}[1]
+{
+    \fancyhead[LO]{\scriptsize\tsTitle{}}
+    \fancyhead[RE]{\scriptsize\tsTitle{}}
+    \ifUseTsLogo
+        \fancyhead[RO]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}
+        \fancyhead[LE]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}
+    \else
+        \fancyhead[RO]{\scriptsize\tsURL{}}
+        \fancyhead[LE]{\scriptsize\tsURL{}}
+    \fi
+    \fancyfoot[RO]{\scriptsize\tsToday{}}
+    \fancyfoot[LO]{\scriptsize\tsDocumentPage{} \thepage}
+    \fancyfoot[RE]{\scriptsize\tsDocumentPage{} \thepage}
+    \fancyfoot[LE]{\scriptsize\tsToday{}}
+}
 % Define command to choose header/footer depending on argument
 \newcommand{\tsFancyData}[1]{\ifthenelse{\equal{#1}{article}}{\tsFancyArticle{}}{\tsFancyBook{}}}
 % Command for enabling dottet lines in table of content only for books
 % https://tex.stackexchange.com/questions/53898/how-to-get-lines-with-dots-in-the-table-of-contents-for-sections
-\newcommand{\tsTOCDottedLine}[1]{\ifthenelse{\equal{#1}{book}}{\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}}{}}
+\newcommand{\tsTOCDottedLine}[1]
+{
+    \ifthenelse{\equal{#1}{book}}
+    {
+        \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+        \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+        \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+    }
+    {
+    }
+}
 % Enable numeric footnote inside tables
 \renewcommand{\thempfootnote}{\arabic{mpfootnote}}
 
@@ -53,9 +88,19 @@
 %% -----------------------------------------------------------------------------
 
 % Definition of a file as appendix
-\newcommand{\tsAppendixIncludeFile}[1]{\tsAppendixSection{#1}\begin{scriptsize}\VerbatimInput{#1}\end{scriptsize}}
+\newcommand{\tsAppendixIncludeFile}[1]
+{
+    \tsAppendixSection{#1}
+    \begin{scriptsize}
+        \VerbatimInput{#1}
+    \end{scriptsize}
+}
 % Definition for convenience usage of appendix
-\newcommand{\tsAppendixSection}[1]{\newpage\section{#1}\label{appendix:#1}}
+\newcommand{\tsAppendixSection}[1]
+{
+    \newpage
+    \section{#1}\label{appendix:#1}
+}
 % Definition of arrow right
 \newcommand{\tsArrowRight}[1]{$\rightarrow$}
 % Definition of arrow down
@@ -95,13 +140,47 @@
 % Define a referencable footnote
 \newcommand{\tsFootnoteRef}[1]{\tsTextUpper{\ref{#1}}}
 % Define command to include an image without a frame
-\newcommand{\tsImage}[3]{\begin{figure}[H]\centering\includegraphics[#3]{#1}\tsCaptionLabelFigure{#2}\end{figure}}
+\newcommand{\tsImage}[3]
+{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[#3]{#1}
+        \tsCaptionLabelFigure{#2}
+    \end{figure}
+}
 % Define command to include an image with a frame
-\newcommand{\tsImageF}[3]{\begin{figure}[H]\centering\fbox{\includegraphics[#3]{#1}}\tsCaptionLabelFigure{#2}\end{figure}}
+\newcommand{\tsImageF}[3]
+{
+    \begin{figure}[H]
+        \centering
+        \fbox{\includegraphics[#3]{#1}}
+        \tsCaptionLabelFigure{#2}
+    \end{figure}
+}
 % Define command to include an image without a frame but an overlaid text
-\newcommand{\tsImageO}[4]{\begin{figure}[H]\centering\begin{overpic}[permil,#4]{#1}\put(10,10){\textcolor{white}{\scriptsize\contour{black}{#3}}}\end{overpic}\tsCaptionLabelFigure{#2}\end{figure}}
+\newcommand{\tsImageO}[4]
+{
+    \begin{figure}[H]
+        \centering
+        \begin{overpic}[permil,#4]{#1}
+            \put(10,10){\textcolor{white}{\scriptsize\contour{black}{#3}}}
+        \end{overpic}
+        \tsCaptionLabelFigure{#2}
+    \end{figure}
+}
 % Define command to include an image with a frame and an overlaid text
-\newcommand{\tsImageOF}[4]{\begin{figure}[H]\centering\fbox{\begin{overpic}[permil,#4]{#1}\put(10,10){\textcolor{white}{\scriptsize\contour{black}{#3}}}\end{overpic}}\tsCaptionLabelFigure{#2}\end{figure}}
+\newcommand{\tsImageOF}[4]
+{
+    \begin{figure}[H]
+        \centering
+        \fbox{
+            \begin{overpic}[permil,#4]{#1}
+                \put(10,10){\textcolor{white}{\scriptsize\contour{black}{#3}}}
+            \end{overpic}
+        }
+        \tsCaptionLabelFigure{#2}
+    \end{figure}
+}
 % Define command for text in bold
 \newcommand{\tsTextBold}[1]{\textbf{#1}}
 % Define command for text in italic
@@ -123,4 +202,8 @@
 % Definition of today in new date format
 \newcommand{\tsToday}[1]{\datedot\today}
 % Define new environment for itemize used in longtables
-\newenvironment{tsLTItemize}{\begin{itemize}[noitemsep,leftmargin=*,topsep=0pt,partopsep=0pt]}{\vspace*{-\baselineskip}\end{itemize}}
+\newenvironment{tsLTItemize}
+{
+    \begin{itemize}[noitemsep,leftmargin=*,topsep=0pt,partopsep=0pt]}{\vspace*{-\baselineskip}
+    \end{itemize}
+}
