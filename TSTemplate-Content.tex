@@ -309,6 +309,15 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
+% Switch to disable indentation of paragraphs
+\newif\ifUseTsParagraphNoIndentation
+% \UseTsParagraphNoIndentationtrue  % Indentation yes
+\UseTsParagraphNoIndentationtrue    % Indentation no
+        \end{BVerbatim}
+         & Toggle indentation \newline of paragraphs                            \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
 % Switch to enable start of section on new page
 \newif\ifUseTsSectionOnNewPage
 % \UseTsSectionOnNewPagetrue % Section on same page
@@ -551,10 +560,21 @@ Fill up your bibliography reference file:
     howpublished = {\url{https://tug.org/FontCatalogue/}}
 }
     \end{BVerbatim}
-    \tsCaptionLabelFigure{Reference example}
+    \tsCaptionLabelFigure{Reference definition}
 \end{figure}
 
-And to use it in the text.\tsCitation{lfc}
+And to use it in the text.
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+ Fonts can be viewed at Latex Font Cataloge.\tsCitation{lfc}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Reference usage}
+\end{figure}
+
+Fonts can be viewed at Latex Font Cataloge.\tsCitation{lfc}
 
 \section{Commands}
 \label{sec:Commands}
@@ -669,20 +689,6 @@ command there can also be a space character -- otherwise this is removed by
         \tsDiameter{}                                                                                        \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsFancyArticle\{\}}                                                 &
-        This is the \href{https://ctan.org/pkg/fancyhdr}{fancy header} definition of an article.             \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsFancyBook\{\}}                                                    &
-        This is the \href{https://ctan.org/pkg/fancyhdr}{fancy header} definition of a book.                 \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsFancyData\{\tsBackslash{}tsDocumentType\{\}\}}                    &
-        Deping on the setting of \tsTextMonospace{\tsBackslash{}tsDocumentType\{\}} either the fancy
-        header \tsTextMonospace{\tsBackslash{}tsFancyArticle\{\}} or the fancy header
-        \tsTextMonospace{\tsBackslash{}tsFancyBook\{\}} is set for the document.                             \\
-        \hline
-        % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsFootnoteDef\{text\}\{ref\}}                                       &
         Defines a footnote\tsFootnoteDef{I am a footnote.}{fndef} with
         a label, which can be referenced elsewhere using
@@ -717,9 +723,9 @@ command there can also be a space character -- otherwise this is removed by
         Like \tsTextMonospace{\tsBackslash{}tsImage}, but with an overlaid text.                             \\
         \hline
         % ----------------------------------------------------------------------
-        % \tsTextMonospace{\tsBackslash{}tsImageOF\{filename\}\{description\}\newline\{overlay\}\{options\}} &
-        % Like \tsTextMonospace{\tsBackslash{}tsImageF}, but with an overlaid text.                            \\
-        % \hline
+        \tsTextMonospace{\tsBackslash{}tsImageOF\{filename\}\{description\}\newline\{overlay\}\{options\}} &
+        Like \tsTextMonospace{\tsBackslash{}tsImageF}, but with an overlaid text.                            \\
+        \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
 \begin{tsLTItemize}
@@ -831,14 +837,14 @@ A look into the source code of this document shows the usage of the commands.
 % Insert image Garden.jpg with frame
 % Signature is 'Image with overlay and parameters'
 % Optional parameters are 'width=0.9\linewidth
-\tsImageO{./Images/Garden.jpg}{Image with overlay
+\tsImageOF{./Images/Garden.jpg}{Image with frame, overlay
     and parameters}{\tsTextUpper{(C)} 2008, ThirtySomething}
     {width=0.9\linewidth}
     \end{BVerbatim}
-    \tsCaptionLabelFigure{Code image with overlay and parameters}
+    \tsCaptionLabelFigure{Code image with frame, overlay and parameters}
 \end{figure}
 
-\tsImageO{./Images/Garden.jpg}{Image with overlay and parameters}{\tsTextUpper{(C)} 2008, ThirtySomething}{width=0.9\linewidth}
+\tsImageOF{./Images/Garden.jpg}{Image with frame, overlay and parameters}{\copyright{} 2008, ThirtySomething}{width=0.9\linewidth}
 
 \section{Font sizes}
 \label{sec:Font sizes}

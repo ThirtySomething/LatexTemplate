@@ -1,3 +1,4 @@
+// --- Latex workshop settings
 "latex-workshop.chktex.enabled": true,
 "latex-workshop.latex.clean.fileTypes": [
     "*.acn",
@@ -30,23 +31,27 @@
 "latex-workshop.latex.autoClean.run": "onBuilt",
 "latex-workshop.latex.recipes": [
     {
-        "env": {
-            "PATH": "${env:PATH}",
-        },
-        "name": "pdflatex",
+        "name": "pdflatex*2",
         "tools": [
             "pdflatex",
             "pdflatex"
         ]
     },
     {
-        "env": {
-            "PATH": "${env:PATH}",
-        },
         "name": "pdflatex -> bibtex -> pdflatex*2",
         "tools": [
             "pdflatex",
             "bibtex",
+            "pdflatex",
+            "pdflatex"
+        ]
+    },
+    {
+        "name": "pdflatex, bibtex, makeglossaries, pdflatex*2",
+        "tools": [
+            "pdflatex",
+            "bibtex",
+            "makeglossaries",
             "pdflatex",
             "pdflatex"
         ]

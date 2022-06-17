@@ -80,6 +80,9 @@
 \usepackage{enumitem}
 % Used for overlay of images
 \usepackage[percent]{overpic}
+% To enable word wrap in bibliography for oversized urls
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
 % Used to enable diameter
 \usepackage[nointegrals]{wasysym}
 % Used for overlay of images
@@ -105,8 +108,13 @@
 % Include custom command definition file
 \input{\tsCustomCommandsFile{}}
 
+% Activate dottet lines in table of contents for books
+\tsTOCDottedLine{\tsDocumentType{}}
+
 % No indent of paragraphs
-\setlength{\parindent}{0pt}
+\ifUseTsParagraphNoIndentation
+    \setlength{\parindent}{0pt}
+\fi
 
 % Setting of document meta information
 \author{\tsAuthor{}}

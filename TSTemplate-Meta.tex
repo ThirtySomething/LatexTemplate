@@ -40,7 +40,7 @@
 % Defines the minor version number of the document - see https://semver.org
 \newcommand{\tsVersionMinor}[1]{0}
 % Defines the patch number of the document - see https://semver.org
-\newcommand{\tsVersionPatch}[1]{13}
+\newcommand{\tsVersionPatch}[1]{14}
 % Defines the version string of the document - see https://semver.org
 \newcommand{\tsVersionString}[1]{V\tsVersionMajor{}.\tsVersionMinor{}.\tsVersionPatch{}}
 % ------------------------------------------------------------------------------
@@ -82,6 +82,9 @@
 % Switch to enable list of tables
 \newif\ifUseTsLOT
 \UseTsLOTtrue
+% Switch to disable indentation of paragraphs
+\newif\ifUseTsParagraphNoIndentation
+\UseTsParagraphNoIndentationtrue
 % Switch to enable start of section on new page
 \newif\ifUseTsSectionOnNewPage
 \UseTsSectionOnNewPagetrue
