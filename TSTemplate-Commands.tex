@@ -36,6 +36,16 @@
 \newdateformat{datedot}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
 % New columntype for longtables used for itemize environment
 \newcolumntype{P}[1]{>{\endgraf\vspace*{-\baselineskip}}p{#1}}
+% For books insert an empty page after title page
+\newcommand{\tsEmptyPage}[1]
+{
+    \ifthenelse{\equal{#1}{book}}
+    {
+        \newpage\null\thispagestyle{empty}\newpage
+    }
+    {
+    }
+}
 % Define new command for header/footer of article
 \newcommand{\tsFancyArticle}[1]
 {
@@ -60,10 +70,10 @@
         \fancyhead[RO]{\scriptsize\tsURL{}}
         \fancyhead[LE]{\scriptsize\tsURL{}}
     \fi
-    \fancyfoot[RO]{\scriptsize\tsToday{}}
-    \fancyfoot[LO]{\scriptsize\tsDocumentPage{} \thepage}
-    \fancyfoot[RE]{\scriptsize\tsDocumentPage{} \thepage}
-    \fancyfoot[LE]{\scriptsize\tsToday{}}
+    \fancyfoot[LE]{\scriptsize\tsDocumentPage{} \thepage}
+    \fancyfoot[LO]{\scriptsize\tsToday{}}
+    \fancyfoot[RE]{\scriptsize\tsToday{}}
+    \fancyfoot[RO]{\scriptsize\tsDocumentPage{} \thepage}
 }
 % Define command to choose header/footer depending on argument
 \newcommand{\tsFancyData}[1]{\ifthenelse{\equal{#1}{article}}{\tsFancyArticle{}}{\tsFancyBook{}}}

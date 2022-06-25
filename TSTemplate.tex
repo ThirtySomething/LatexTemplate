@@ -171,6 +171,9 @@
 % Start document here
 \begin{document}
 
+% The order of the parts of a book
+% https://www.thebalancecareers.com/the-parts-of-book-content-2799968
+
 % Define version number as overlay on all pages
 % Version number
 \SetBgContents{\begin{footnotesize}\tsVersionString{}\end{footnotesize}}
@@ -237,11 +240,6 @@
 \setcounter{page}{1}
 \pagenumbering{Roman}
 
-\ifUseTsIndex
-    \newpage
-    \printindex{}
-\fi
-
 % Print list of figures (lof)
 \ifUseTsLOF
     \newpage
@@ -268,6 +266,11 @@
     \bibliography{\tsReferencesFile{}}{}
     \bibliographystyle{babplain}
 }
+\fi
+
+\ifUseTsIndex
+    \newpage
+    \printindex{}
 \fi
 
 \end{document}
