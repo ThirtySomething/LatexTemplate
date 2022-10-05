@@ -1,0 +1,168 @@
+\subsection{Metadata II}\label{subsec:Metadata-II}
+
+For further control, there are variables that can be used to enable/disable
+which features are active for the document. These variables can be found
+in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
+
+\begin{footnotesize}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | P{0.7\linewidth} | p{0.23\linewidth} | }
+        \hline
+        \tsTextBold{Metadefinition}
+         & \tsTextBold{Beschreibung}                                           \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Definition of document type, either article or book
+\newcommand{\tsDocumentType}[1]{article}
+% \newcommand{\tsDocumentType}[1]{book}
+        \end{BVerbatim}
+         & Toggle between one page layout (article) and two page layout (book) \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Definition of document language
+\newcommand{\tsDocumentLanguage}[1]{american}
+% \newcommand{\tsDocumentLanguage}[1]{ngerman}
+        \end{BVerbatim}
+         & Setup of used language of document                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Definition of page label
+\newcommand{\tsDocumentPage}[1]{Page}
+% \newcommand{\tsDocumentPage}[1]{Seite}
+        \end{BVerbatim}
+         & Setup of used label in front of the page number                     \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable appendix
+\newif\ifUseTsAppendix
+% \UseTsAppendixtrue    % Disable appendix
+\UseTsAppendixtrue      % Enable appendix
+        \end{BVerbatim}
+         & Toggle appendix                                                     \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable bibliography and cites
+\newif\ifUseTsCitation
+% \UseTsCitationtrue    % Disable references
+\UseTsCitationtrue      % Enable references
+        \end{BVerbatim}
+         & Toggle references                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable glossary
+\newif\ifUseTsGlossary
+% \UseTsGlossarytrue    % Disable glossary
+\UseTsGlossarytrue      % Enable glossary
+        \end{BVerbatim}
+         & Toggle glossary                                                     \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable index
+\newif\ifUseTsIndex
+% \UseTsIndextrue       % Disable index
+\UseTsIndextrue         % Enable index
+        \end{BVerbatim}
+         & Toggle index                                                        \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable history
+\newif\ifUseTsHistory
+% \UseTsHistorytrue     % Disable history
+\UseTsHistorytrue       % Enable history
+        \end{BVerbatim}
+         & Toggle history                                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable hyphenation
+\newif\ifUseTsHyphenation
+% \UseTsHyphenationtrue % Disable hyphenation
+\UseTsHyphenationtrue   % Enable hyphenation
+        \end{BVerbatim}
+         & Toggle \newline hyphenation                                         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable list of figures
+\newif\ifUseTsLOF
+% \UseTsLOFtrue         % Disable list of figures
+\UseTsLOFtrue           % Enable list of figures
+        \end{BVerbatim}
+         & Toggle list \newline of figures                                     \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable logo
+\newif\ifUseTsLogo
+% \UseTsLogotrue        % Disable logo
+\UseTsLogotrue          % Enable logo
+        \end{BVerbatim}
+         & Toggle logo                                                         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable list of tables
+\newif\ifUseTsLOT
+% \UseTsLOTtrue         % Disable list of tables
+\UseTsLOTtrue           % Enable list of tables
+        \end{BVerbatim}
+         & Toggle list \newline of tables                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to disable indentation of paragraphs
+\newif\ifUseTsParagraphNoIndentation
+% \UseTsParagraphNoIndentationtrue  % Indentation yes
+\UseTsParagraphNoIndentationtrue    % Indentation no
+        \end{BVerbatim}
+         & Toggle indentation \newline of paragraphs                           \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable start of section on new page
+\newif\ifUseTsSectionOnNewPage
+% \UseTsSectionOnNewPagetrue % Section on same page
+\UseTsSectionOnNewPagetrue   % Section on new page
+        \end{BVerbatim}
+         & Toggle start \newline of section                                    \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable title page
+\newif\ifUseTsTitlePage
+% \UseTsTitlePagetrue   % Disable title page
+\UseTsTitlePagetrue     % Enable title page
+        \end{BVerbatim}
+         & Toggle title page                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+% Switch to enable table of contents
+\newif\ifUseTsTOC
+% \UseTsTOCtrue         % Disable table of contents
+\UseTsTOCtrue           % Enable table of contents
+        \end{BVerbatim}
+         & Toggle table \newline of contents                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsCaptionLabelTable{Metadata II}
+    \end{longtable}
+\end{footnotesize}
+
+It should be noted that only one line has an influence on the option. The last
+two lines in the option list show the disabled (with the \% sign at the
+beginning of the line) and the enabled (without the \% sign) state.
+\bigbreak
+
+\tsTextBold{ATTENTION:} Turning options off and/or on will affect the steps
+required for compilation. For example, if the glossary is disabled, no
+\tsTextMonospace{makeglossary} may be used during compilation. Otherwise this will
+result in errors.

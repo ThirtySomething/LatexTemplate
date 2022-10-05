@@ -189,174 +189,7 @@ They are also used to set metadata in the generated PDF:
 
 \tsImage{./Images/PDF-Properties.png}{PDF properties}{width=0.6\linewidth}
 
-\subsection{Metadata II}\label{subsec:Metadata-II}
-
-For further control, there are variables that can be used to enable/disable
-which features are active for the document. These variables can be found
-in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
-
-\begin{footnotesize}
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | P{0.7\linewidth} | p{0.23\linewidth} | }
-        \hline
-        \tsTextBold{Metadefinition}
-         & \tsTextBold{Beschreibung}                                             \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Definition of document type, either article or book
-\newcommand{\tsDocumentType}[1]{article}
-% \newcommand{\tsDocumentType}[1]{book}
-        \end{BVerbatim}
-         & Toggle between one page layout (article) and two page layout (book)  \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Definition of document language
-\newcommand{\tsDocumentLanguage}[1]{american}
-% \newcommand{\tsDocumentLanguage}[1]{ngerman}
-        \end{BVerbatim}
-         & Setup of used language of document                                   \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Definition of page label
-\newcommand{\tsDocumentPage}[1]{Page}
-% \newcommand{\tsDocumentPage}[1]{Seite}
-        \end{BVerbatim}
-         & Setup of used label in front of the page number                      \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable appendix
-\newif\ifUseTsAppendix
-% \UseTsAppendixtrue    % Disable appendix
-\UseTsAppendixtrue      % Enable appendix
-        \end{BVerbatim}
-         & Toggle appendix                                                      \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable bibliography and cites
-\newif\ifUseTsCitation
-% \UseTsCitationtrue    % Disable references
-\UseTsCitationtrue      % Enable references
-        \end{BVerbatim}
-         & Toggle references                                                    \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable glossary
-\newif\ifUseTsGlossary
-% \UseTsGlossarytrue    % Disable glossary
-\UseTsGlossarytrue      % Enable glossary
-        \end{BVerbatim}
-         & Toggle glossary                                                      \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable index
-\newif\ifUseTsIndex
-% \UseTsIndextrue       % Disable index
-\UseTsIndextrue         % Enable index
-        \end{BVerbatim}
-         & Toggle index                                                         \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable history
-\newif\ifUseTsHistory
-% \UseTsHistorytrue     % Disable history
-\UseTsHistorytrue       % Enable history
-        \end{BVerbatim}
-         & Toggle history                                                       \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable hyphenation
-\newif\ifUseTsHyphenation
-% \UseTsHyphenationtrue % Disable hyphenation
-\UseTsHyphenationtrue   % Enable hyphenation
-        \end{BVerbatim}
-         & Toggle \newline hyphenation                                          \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable list of figures
-\newif\ifUseTsLOF
-% \UseTsLOFtrue         % Disable list of figures
-\UseTsLOFtrue           % Enable list of figures
-        \end{BVerbatim}
-         & Toggle list \newline of figures                                      \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable logo
-\newif\ifUseTsLogo
-% \UseTsLogotrue        % Disable logo
-\UseTsLogotrue          % Enable logo
-        \end{BVerbatim}
-         & Toggle logo                                                          \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable list of tables
-\newif\ifUseTsLOT
-% \UseTsLOTtrue         % Disable list of tables
-\UseTsLOTtrue           % Enable list of tables
-        \end{BVerbatim}
-         & Toggle list \newline of tables                                       \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to disable indentation of paragraphs
-\newif\ifUseTsParagraphNoIndentation
-% \UseTsParagraphNoIndentationtrue  % Indentation yes
-\UseTsParagraphNoIndentationtrue    % Indentation no
-        \end{BVerbatim}
-         & Toggle indentation \newline of paragraphs                            \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable start of section on new page
-\newif\ifUseTsSectionOnNewPage
-% \UseTsSectionOnNewPagetrue % Section on same page
-\UseTsSectionOnNewPagetrue   % Section on new page
-        \end{BVerbatim}
-         & Toggle start \newline of section                                     \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable title page
-\newif\ifUseTsTitlePage
-% \UseTsTitlePagetrue   % Disable title page
-\UseTsTitlePagetrue     % Enable title page
-        \end{BVerbatim}
-         & Toggle title page                                                    \\
-        \hline
-        % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Switch to enable table of contents
-\newif\ifUseTsTOC
-% \UseTsTOCtrue         % Disable table of contents
-\UseTsTOCtrue           % Enable table of contents
-        \end{BVerbatim}
-         & Toggle table \newline of contents                                    \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsCaptionLabelTable{Metadata II}
-    \end{longtable}
-\end{footnotesize}
-
-It should be noted that only one line has an influence on the option. The last
-two lines in the option list show the disabled (with the \% sign at the
-beginning of the line) and the enabled (without the \% sign) state.
-\bigbreak
-
-\tsTextBold{ATTENTION:} Turning options off and/or on will affect the steps
-required for compilation. For example, if the glossary is disabled, no
-\tsTextMonospace{makeglossary} may be used during compilation. Otherwise this will
-result in errors.
+\input{./TSTemplate-Content-Metadata-II.tex}
 
 \subsection{Metadata III}\label{subsec:Metadata-III}
 
@@ -434,7 +267,7 @@ is entered here as an example. This looks like this:
     \scriptsize
     \centering
     \begin{BVerbatim}
-\newglossaryentry{TS}{name={ThirtySomething},description={A glossary entry}}
+        \newglossaryentry{TS}{name={ThirtySomething},description={A glossary entry}}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Definition of a glossary entry}
 \end{figure}
@@ -459,7 +292,7 @@ the existing abbreviation. In the above example, the usage looks like this:
     \small
     \centering
     \begin{BVerbatim}
-\gls{TS}
+        \gls{TS}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Use of a glossary entry}
 \end{figure}
@@ -471,10 +304,10 @@ In case a glossary is to be used, the document must be translated with
     \small
     \centering
     \begin{BVerbatim}
-pdflatex
-makeglossaries
-pdflatex
-pdflatex
+        pdflatex
+        makeglossaries
+        pdflatex
+        pdflatex
     \end{BVerbatim}
     \tsCaptionLabelFigure{Translate with glossary}
 \end{figure}
@@ -491,8 +324,8 @@ immediately obvious. For this you can temporarily add the line
     \small
     \centering
     \begin{BVerbatim}
-% To see the (page)frames used for hyphenation determination
-% \usepackage{showframe}
+        % To see the (page)frames used for hyphenation determination
+        % \usepackage{showframe}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Preamble -- Package showframe}
 \end{figure}
@@ -507,7 +340,7 @@ following pattern:
     \small
     \centering
     \begin{BVerbatim}
-\hyphenation{Thir-ty-Some-thing}
+        \hyphenation{Thir-ty-Some-thing}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Exemplary content of TSHyphenation.tex}
 \end{figure}
@@ -521,9 +354,9 @@ by a space. In addition, the following parameter can be changed in the document
     \small
     \centering
     \begin{BVerbatim}
-% Setting tolerance for word wrap
-% See also: https://texfaq.org/FAQ-overfull
-\tolerance=3000
+        % Setting tolerance for word wrap
+        % See also: https://texfaq.org/FAQ-overfull
+        \tolerance=3000
     \end{BVerbatim}
     \tsCaptionLabelFigure{Influencing the hyphenation}
 \end{figure}
@@ -539,9 +372,9 @@ have to enable the citations in \tsTextItalic{TSTemplate-Meta.tex}:
     \small
     \centering
     \begin{BVerbatim}
-% Switch to enable bibliography and cites
-\newif\ifUseTsCitation
-\UseTsCitationtrue
+        % Switch to enable bibliography and cites
+        \newif\ifUseTsCitation
+        \UseTsCitationtrue
     \end{BVerbatim}
     \tsCaptionLabelFigure{Enabled citations}
 \end{figure}
@@ -552,13 +385,13 @@ Fill up your bibliography reference file:
     \small
     \centering
     \begin{BVerbatim}
-@misc{lfc,
-    title        = {{Latex Font Catalogue}},
-    author       = {},
-    year         = {},
-    note         = {Online checked on 16.06.2022},
-    howpublished = {\url{https://tug.org/FontCatalogue/}}
-}
+        @misc{lfc,
+            title        = {{Latex Font Catalogue}},
+            author       = {},
+            year         = {},
+            note         = {Online checked on 16.06.2022},
+            howpublished = {\url{https://tug.org/FontCatalogue/}}
+        }
     \end{BVerbatim}
     \tsCaptionLabelFigure{Reference definition}
 \end{figure}
@@ -569,7 +402,7 @@ And to use it in the text.
     \small
     \centering
     \begin{BVerbatim}
- Fonts can be viewed at Latex Font Cataloge.\tsCitation{lfc}
+        Fonts can be viewed at Latex Font Cataloge.\tsCitation{lfc}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Reference usage}
 \end{figure}
@@ -728,11 +561,11 @@ command there can also be a space character -- otherwise this is removed by
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
-\begin{tsLTItemize}
-    \item Item I of enumeration list.
-    \item Item B of enumeration list.
-    \item Item 3 of enumeration list.
-\end{tsLTItemize}
+            \begin{tsLTItemize}
+                \item Item I of enumeration list.
+                \item Item B of enumeration list.
+                \item Item 3 of enumeration list.
+            \end{tsLTItemize}
         \end{BVerbatim}
                                                                                                            &
         An enumeration list
@@ -742,6 +575,10 @@ command there can also be a space character -- otherwise this is removed by
             \item Item 3 of enumeration list.
         \end{tsLTItemize}
         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsNP\{\}}                                                           &
+        This is used to start a new paragraph.                                                               \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsTextBold\{text\}}                                                 &
@@ -792,10 +629,10 @@ A look into the source code of this document shows the usage of the commands.
     \small
     \centering
     \begin{BVerbatim}
-% Insert image TSTemplate-Logo.png
-% Signature is 'Image without parameters'
-% Optional parameters are empty
-\tsImage{TSTemplate-Logo.png}{Image without parameters}{}
+        % Insert image TSTemplate-Logo.png
+        % Signature is 'Image without parameters'
+        % Optional parameters are empty
+        \tsImage{TSTemplate-Logo.png}{Image without parameters}{}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Code of image without parameters}
 \end{figure}
@@ -806,10 +643,10 @@ A look into the source code of this document shows the usage of the commands.
     \small
     \centering
     \begin{BVerbatim}
-% Insert image TSTemplate-Logo.png
-% Signature is 'Image with parameter'
-% Parameter: width=0.5\linewidth => scale the image to half page width
-\tsImage{TSTemplate-Logo.png}{Image with parameter}{width=0.5\linewidth}
+        % Insert image TSTemplate-Logo.png
+        % Signature is 'Image with parameter'
+        % Parameter: width=0.5\linewidth => scale the image to half page width
+        \tsImage{TSTemplate-Logo.png}{Image with parameter}{width=0.5\linewidth}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Code of image with parameter}
 \end{figure}
@@ -820,10 +657,10 @@ A look into the source code of this document shows the usage of the commands.
     \small
     \centering
     \begin{BVerbatim}
-% Insert image TSTemplate-Logo.png with frame
-% Signature is 'Image without parameters, with frame'
-% Optional parameters are empty
-\tsImageF{TSTemplate-Logo.png}{Image without parameters, with frame}{}
+        % Insert image TSTemplate-Logo.png with frame
+        % Signature is 'Image without parameters, with frame'
+        % Optional parameters are empty
+        \tsImageF{TSTemplate-Logo.png}{Image without parameters, with frame}{}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Code of image without parameters, with frame}
 \end{figure}
@@ -834,12 +671,12 @@ A look into the source code of this document shows the usage of the commands.
     \small
     \centering
     \begin{BVerbatim}
-% Insert image Garden.jpg with frame
-% Signature is 'Image with overlay and parameters'
-% Optional parameters are 'width=0.9\linewidth
-\tsImageOF{./Images/Garden.jpg}{Image with frame, overlay
-    and parameters}{\tsTextUpper{(C)} 2008, ThirtySomething}
-    {width=0.9\linewidth}
+        % Insert image Garden.jpg with frame
+        % Signature is 'Image with overlay and parameters'
+        % Optional parameters are 'width=0.9\linewidth
+        \tsImageOF{./Images/Garden.jpg}{Image with frame, overlay
+            and parameters}{\tsTextUpper{(C)} 2008, ThirtySomething}
+        {width=0.9\linewidth}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Code image with frame, overlay and parameters}
 \end{figure}
@@ -900,17 +737,17 @@ make a table.
     \small
     \centering
     \begin{BVerbatim}
-\begin{small}
-    \renewcommand*{\arraystretch}{3}
-    \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
-        \hline
-        \tsTextBold{Command}       & \tsTextBold{Sample} \\
-        \hline
-        \tsBackslash{}Huge\{text\} & \Huge{Huge}         \\
-        \hline
-        \tsCaptionLabelTable{Font sizes}
-    \end{longtable}
-\end{small}
+        \begin{small}
+            \renewcommand*{\arraystretch}{3}
+            \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
+                \hline
+                \tsTextBold{Command}       & \tsTextBold{Sample} \\
+                \hline
+                \tsBackslash{}Huge\{text\} & \Huge{Huge}         \\
+                \hline
+                \tsCaptionLabelTable{Font sizes}
+            \end{longtable}
+        \end{small}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Tables}
 \end{figure}
@@ -924,7 +761,7 @@ overlap or the spacing will be very tight. A good value is
     \small
     \centering
     \begin{BVerbatim}
-\renewcommand*{\arraystretch}{1.5}
+        \renewcommand*{\arraystretch}{1.5}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Row height in tables}
 \end{figure}
@@ -967,14 +804,14 @@ With the Verbatim environment text can be displayed in a
 \begin{figure}[H]
     \centering
     \begin{verbbox}
-\begin{figure}[H]
-    \small
-    \centering
-    \begin{BVerbatim}
-Sample code of verbatim environment.
-    \end{BVerbatim}
-    \tsCaptionLabelFigure{Verbatim Environment Demo}
-\end{figure}
+        \begin{figure}[H]
+            \small
+            \centering
+            \begin{BVerbatim}
+                Sample code of verbatim environment.
+            \end{BVerbatim}
+            \tsCaptionLabelFigure{Verbatim Environment Demo}
+        \end{figure}
     \end{verbbox}
     \theverbbox
     \tsCaptionLabelFigure{Verbatim Environment Code}
@@ -1003,7 +840,7 @@ The example from above then produces this result:
     \small
     \centering
     \begin{BVerbatim}
-Sample code of verbatim environment.
+        Sample code of verbatim environment.
     \end{BVerbatim}
     \tsCaptionLabelFigure{Verbatim Environment Demo}
 \end{figure}
@@ -1019,9 +856,9 @@ file:
     \small
     \centering
     \begin{BVerbatim}
-% Switch to enable appendix
-\newif\ifUseTsAppendix
-\UseTsAppendixtrue
+        % Switch to enable appendix
+        \newif\ifUseTsAppendix
+        \UseTsAppendixtrue
     \end{BVerbatim}
     \tsCaptionLabelFigure{Enabling appendices}
 \end{figure}
@@ -1033,7 +870,7 @@ in \tsTextItalic{TSTemplate-Appendix.tex} or use this example:
     \small
     \centering
     \begin{BVerbatim}
-\tsAppendixSection{README.md}
+        \tsAppendixSection{README.md}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Usage of tsAppendixSection}
 \end{figure}
@@ -1053,7 +890,7 @@ which is done by
     \small
     \centering
     \begin{BVerbatim}
-\tsAppendixIncludeFile{vscode-latex-workshop.json}
+        \tsAppendixIncludeFile{vscode-latex-workshop.json}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Usage of tsAppendixIncludeFile}
 \end{figure}
