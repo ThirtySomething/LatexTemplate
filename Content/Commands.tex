@@ -1,0 +1,297 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+\section{Commands}
+\label{sec:Commands}
+
+To simplify things for newcomers, various commands have been defined. The use
+of the commands is optional. However, using them makes it clearer what the
+author wants to achieve with the corresponding command. It is recommended to
+end commands without parameters with \tsTextMonospace{\{\}}, even if this is
+not necessary. However, it leads to the fact that, for example, after such a
+command there can also be a space character -- otherwise this is removed by
+\LaTeX{} when compiling.
+
+\begin{footnotesize}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | P{0.53\linewidth} | p{0.4\linewidth} | }
+        \hline
+        \tsTextBold{Command definition}                                                                    &
+        \tsTextBold{Meaning}                                                                                 \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsAppendixIncludeFile\{Filename\}}                                  &
+        This command will add an appendix section. The section consists of a
+        \tsTextMonospace{tsTextMonospace} section header of \tsTextMonospace{Filename}
+        and will include the file \tsTextMonospace{Filename} in a verbatim
+        environment. See appendix \ref{appendix:README.md} how it looks like.                                \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsAppendixSection\{Appendix\}}                                      &
+        This command will add an appendix, also a so-called label. Thus the
+        appendix can be referenced via
+        \tsTextMonospace{\tsBackslash{}ref\{appendix:Appendix\}}
+        or via
+        \tsTextMonospace{\tsBackslash{}nameref\{appendix:Appendix\}}
+        somewhere else.                                                                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsArrowRight\{\}}                                                   &
+        \tsArrowRight{}                                                                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsArrowRightDouble\{\}}                                             &
+        \tsArrowRightDouble{}                                                                                \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsArrowDown\{\}}                                                    &
+        \tsArrowDown{}                                                                                       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsArrowDownDouble\{\}}                                              &
+        \tsArrowDownDouble{}                                                                                 \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsArrowLeft\{\}}                                                    &
+        \tsArrowLeft{}                                                                                       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsArrowLeftDouble\{\}}                                              &
+        \tsArrowLeftDouble{}                                                                                 \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsArrowUp\{\}}                                                      &
+        \tsArrowUp{}                                                                                         \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsArrowUpDouble\{\}}                                                &
+        \tsArrowUpDouble{}                                                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsBackslash\{\}}                                                    &
+        \tsBackslash{}                                                                                       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsBullet\{\}}                                                       &
+        \tsBullet{}                                                                                          \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure\{Figure\}}                                     &
+        This command is usually used below a mapping. There is not only a
+        description added, but also a so-called label. Thus the figure can be
+        referenced via
+        \tsTextMonospace{\tsBackslash{}ref\{fig:Figure\}}
+        or via
+        \tsTextMonospace{\tsBackslash{}nameref\{fig:Figure\}}
+        somewhere else.                                                                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFormula\{Formula\}}                                   &
+        This command is similar to
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure},
+        but is referenced via
+        \tsTextMonospace{\tsBackslash{}ref\{for:Formula\}} or via
+        \tsTextMonospace{\tsBackslash{}nameref\{for:Formula\}}.                                              \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelTable\{Table\}}                                       &
+        This command is similar to
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure}, but is
+        referenced via
+        \tsTextMonospace{\tsBackslash{}ref\{tab:Table\}} or via
+        \tsTextMonospace{\tsBackslash{}nameref\{tab:Table\}}.                                                \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsCitation\{ref\}}                                                  &
+        References citation in bibliography, see also \nameref{subsec:Bibliography references} for details.  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsDegree\{zahl\}}                                                   &
+        Without number \tsDegree{} or with number \tsDegree{715}!                                            \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsDiameter\{\}}                                                     &
+        \tsDiameter{}                                                                                        \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsFootnoteDef\{text\}\{ref\}}                                       &
+        Defines a footnote\tsFootnoteDef{I am a footnote.}{fndef} with
+        a label, which can be referenced elsewhere using
+        \tsTextMonospace{\tsBackslash{}tsFootnoteRef\{ref\}}.                                                \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsFrac\{num1\}\{num2\}}                                             &
+        Defines a frac like \tsFrac{1}{2}.                                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsFootnoteRef\{ref\}}                                               &
+        References a footnote\tsFootnoteRef{fndef} which was defined elsewhere
+        using \tsTextMonospace{\tsBackslash{}tsFootnoteDef\{text\}\{ref\}}.                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsImage\{filename\}\{description\}\newline\{options\}}              &
+        With this, an image can be included -- it then automatically gets a
+        description. It is mandatory to specify three parameter brackets.
+        The first parameter is the file name. The second parameter is the
+        signature under the image. The third parameter, the options, are
+        optional, that is, the brackets can be empty. These are the same
+        parameters that can be used with
+        \tsTextMonospace{\tsBackslash{}includegraphics},
+        e.g. \tsTextMonospace{width=380px}.                                                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsImageF\{filename\}\{description\}\newline\{options\}}             &
+        Like \tsTextMonospace{\tsBackslash{}tsImage}, but with a frame.                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsImageO\{filename\}\{description\}\newline\{overlay\}\{options\}}  &
+        Like \tsTextMonospace{\tsBackslash{}tsImage}, but with an overlaid text.                             \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsImageOF\{filename\}\{description\}\newline\{overlay\}\{options\}} &
+        Like \tsTextMonospace{\tsBackslash{}tsImageF}, but with an overlaid text.                            \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
+\begin{tsLTItemize}
+    \item Item I of enumeration list.
+    \item Item B of enumeration list.
+    \item Item 3 of enumeration list.
+\end{tsLTItemize}
+        \end{BVerbatim}
+                                                                                                           &
+        An enumeration list
+        \begin{tsLTItemize}
+            \item Item I of enumeration list.
+            \item Item B of enumeration list.
+            \item Item 3 of enumeration list.
+        \end{tsLTItemize}
+        \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsNP\{\}}                                                           &
+        This is used to start a new paragraph.                                                               \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextBold\{text\}}                                                 &
+        \tsTextBold{text}                                                                                    \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextItalic\{text\}}                                               &
+        \tsTextItalic{text}                                                                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextLower\{text\}}                                                &
+        \tsTextLower{text}                                                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextMonospace\{text\}}                                            &
+        \tsTextMonospace{text}                                                                               \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextQuoteF\{text\}}                                               &
+        \tsTextQuoteF{text}                                                                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextQuoteG\{text\}}                                               &
+        \tsTextQuoteG{text}                                                                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextStrikethrough\{text\}}                                        &
+        \tsTextStrikethrough{text}                                                                           \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextUnderline\{text\}}                                            &
+        \tsTextUnderline{text}                                                                               \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTextUpper\{text\}}                                                &
+        \tsTextUpper{text}                                                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsCaptionLabelTable{Available commands}
+    \end{longtable}
+\end{footnotesize}
+
+A look into the source code of this document shows the usage of the commands.
+
+\subsection{Examples to images}
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+% Insert image TSTemplate-Logo.png
+% Signature is 'Image without parameters'
+% Optional parameters are empty
+\tsImage{Images/TSTemplate-Logo.png}{Image without parameters}{}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Code of image without parameters}
+\end{figure}
+
+\tsImage{Images/TSTemplate-Logo.png}{Image without parameters}{}
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+% Insert image TSTemplate-Logo.png
+% Signature is 'Image with parameter'
+% Parameter: width=0.5\linewidth => scale the image to half page width
+\tsImage{Images/TSTemplate-Logo.png}{Image with parameter}{width=0.5\linewidth}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Code of image with parameter}
+\end{figure}
+
+\tsImage{Images/TSTemplate-Logo.png}{Image with parameter}{width=0.5\linewidth}
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+% Insert image TSTemplate-Logo.png with frame
+% Signature is 'Image without parameters, with frame'
+% Optional parameters are empty
+\tsImageF{Images/TSTemplate-Logo.png}{Image without parameters, with frame}{}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Code of image without parameters, with frame}
+\end{figure}
+
+\tsImageF{Images/TSTemplate-Logo.png}{Image without parameters, with frame}{}
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+% Insert image Garden.jpg with frame
+% Signature is 'Image with overlay and parameters'
+% Optional parameters are 'width=0.9\linewidth
+\tsImageOF{./Images/Garden.jpg}{Image with frame, overlay
+	and parameters}{\tsTextUpper{(C)} 2008, ThirtySomething}
+{width=0.9\linewidth}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Code image with frame, overlay and parameters}
+\end{figure}
+
+\tsImageOF{./Images/Garden.jpg}{Image with frame, overlay and parameters}{\copyright{} 2008, ThirtySomething}{width=0.9\linewidth}

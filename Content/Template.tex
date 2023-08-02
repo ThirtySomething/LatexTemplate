@@ -1,0 +1,93 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+\section{Template}
+\label{sec:Template}
+
+The template is divided into several files, which are listed here below:
+
+\begin{small}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | p{0.4\linewidth} | p{0.53\linewidth} | }
+        \hline
+        \tsTextBold{File}                            & \tsTextBold{Meaning}            \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{LICENSE}                       & MIT license file.               \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{README.md}                     & Information about the template. \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate.pdf}                & The result as a PDF file.       \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate.tex}                & The envelope document.          \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate-Appendix.tex}       & The appendices of the document. \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate-Commands.tex}       & The common predefined commands. \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate-Content.tex}        & The content of the document.    \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate-CustomCommands.tex} & The document specific commands. \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate-Glossary.tex}       & The glossary of the document.   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate-History.tex}        & Document history.               \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate-Hyphenation.tex}    & Document-specific hyphenation.  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate-Logo.png}           & The logo used.                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate-Meta.tex}           & The metadata of the document.   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{TSTemplate-TitlePage.tex}      & The title page of the document. \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsCaptionLabelTable{The files of the template}
+    \end{longtable}
+\end{small}
+
+Some commands and formatting have been predefined for the template. They all
+have in common that they start with a \tsTextMonospace{\tsBackslash{}ts\ldots{}}.
+This serves to distinguish them from the commands otherwise used in \LaTeX{}.
+The available commands are explained in the \nameref{sec:Commands} chapter.
+\bigbreak
+
+\tsTextBold{NOTE:} The file containing the meta data is depending on the name
+of the envelope document \tsTextItalic{TSTemplate.tex}. The rule is just simple:
+The name will be \tsTextItalic{TSTemplate} followed by \tsTextItalic{-Meta.tex}.
+If you name your document \tsTextItalic{MyDocument.tex} then the filename of the
+metadata file will be \tsTextItalic{MyDocument-Meta.tex}.

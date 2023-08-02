@@ -1,0 +1,72 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+\section{The verbatim environment}
+
+With the Verbatim environment text can be displayed in a
+\tsTextMonospace{Monospace} font. This is used to display source code.
+
+\begin{figure}[H]
+    \centering
+    \begin{verbbox}
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+        Sample code of verbatim environment.
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Verbatim Environment Demo}
+\end{figure}
+    \end{verbbox}
+    \theverbbox
+    \tsCaptionLabelFigure{Verbatim Environment Code}
+\end{figure}
+
+In order for the verbatim environment to get a signature, it is embedded in a
+figure environment. The \tsTextMonospace{[H]} behind it makes sure that the
+environment stays at the desired place in the text and does not end up
+somewhere in the document.
+\bigbreak
+
+The adjustment of the font size is done as needed. A possible centering  is
+achieved here using \tsTextMonospace{\tsBackslash{}centering}.
+\bigbreak
+
+\tsTextBold{Note:} If the verbatim environment is to be centered, the text that
+is between \tsTextMonospace{\tsBackslash{}begin\{BVerbatim\}} and
+\tsTextMonospace{\tsBackslash{}end\{BVerbatim\}} must be leftmost aligned in the
+source code of the document. Otherwise the spaces will be part of the
+alignment.
+\bigbreak
+
+The example from above then produces this result:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+Sample code of verbatim environment.
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Verbatim Environment Demo}
+\end{figure}

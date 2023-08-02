@@ -1,0 +1,92 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+\section{Tables}
+
+Font sizes play a role in the use of tables when it comes to distributing
+the content appropriately among the columns. Here is a sample code how to
+make a table.
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+\begin{small}
+    \renewcommand*{\arraystretch}{3}
+    \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
+        \hline
+        \tsTextBold{Command}       & \tsTextBold{Sample} \\
+        \hline
+        \tsBackslash{}Huge\{text\} & \Huge{Huge}         \\
+        \hline
+        \tsCaptionLabelTable{Font sizes}
+    \end{longtable}
+\end{small}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Tables}
+\end{figure}
+
+It is started with a block in one of the desired \nameref{sec:Font sizes}.
+The first command within the font environment changes the spacing between the
+text lines. If you do not do this, the table content and the table grid will
+overlap or the spacing will be very tight. A good value is
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+\renewcommand*{\arraystretch}{1.5}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Row height in tables}
+\end{figure}
+
+The definition of the columns and their widths follows. The total width
+available to a text in a line is \tsTextMonospace{\tsBackslash{}textwidth}. Due
+to the lines of the table, not quite \tsTextMonospace{1.0\tsBackslash{}textwidth}
+is available. So the sum of all individual column widths should not exceed
+\tsTextMonospace{0.9\tsBackslash{}textwidth}.
+\bigbreak
+
+To slightly separate column headings from the column contents, the\linebreak
+\tsTextMonospace{\tsBackslash{}tsTextBold\{column name\}} command can be used. Each
+column value is separated from the next column by a \tsTextMonospace{\&}. The end
+of the row is marked with a \tsTextMonospace{\tsBackslash{}\tsBackslash{}}.
+\bigbreak
+
+For horizontal lines, a \tsTextMonospace{\tsBackslash{}hline} is inserted.
+\bigbreak
+
+The data lines follow the same structure.
+\bigbreak
+
+To give the table a referencable name, add a
+\tsTextMonospace{\tsBackslash{}tsCaptionLabelTable\{Font sizes\}} at the end.
+Check the source of this document in the section \nameref{sec:Font sizes}
+to see how it works.
+\bigbreak
+
+When using a \tsTextMonospace{verbatim} environment in a table, then the
+column type of the table \tsTextBold{must be} of type \tsTextMonospace{P}!
+Also important is that the column separator \tsTextMonospace{\&} must be on
+the next line after the \tsTextMonospace{\tsBackslash{}end\{tsLTItemize\}}.

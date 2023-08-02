@@ -1,0 +1,311 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+\section{Usage}
+
+As already described, the use of the template should be simple. So the user
+copies the template, that is, the entire directory with all files and
+subdirectories.
+\bigbreak
+
+Normally the user adjusts the metadata (file \tsTextItalic{TSTemplate-Meta.tex},
+see \nameref{subsec:Metadata-I} and \nameref{subsec:Metadata-II}) and the
+content in the file \tsTextItalic{TSTemplate-Content.tex} according to his
+needs. Everything else is managed by the template.
+\bigbreak
+
+It is recommended to rename the main template file \tsTextItalic{TSTemplate.tex}
+into a more more descriptive name.
+
+\tsImageF{./Images/OtherPage.png}{Document page}{height=0.5\textheight}
+
+\subsection{Metadata I}\label{subsec:Metadata-I}
+
+For each document there are some metadata. This means the following definitions:
+
+\begin{footnotesize}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
+        \hline
+        \tsTextBold{Metadefinition}                         & \tsTextBold{Meaning}                                     \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsAuthor\{\}}        & The author of the document.                              \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsSubject\{\}}       & The subject of the document.                             \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTitle\{\}}         & The title of the document.                               \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsURL\{\}}           & The url of the author.                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsVersionMajor\{\}}  & The major version of the document.\tsFootnoteDef{See
+        \href{https://semver.org}{Semantic Versioning} for more details.}{semver}                                      \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsVersionMinor\{\}}  & The minor version of the document.\tsFootnoteRef{semver} \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsVersionPatch\{\}}  & The patch number of the document.\tsFootnoteRef{semver}  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsVersionString\{\}} & Complete version string.\tsFootnoteRef{semver}           \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsCaptionLabelTable{Metadata I}
+    \end{longtable}
+\end{footnotesize}
+
+These metadata are referenced in various places in the template. For example,
+they are used in the title page of the document. The version number is based
+on semantic versioning\tsFootnoteRef{semver}.
+
+\tsImageF{./Images/TitlePage.png}{Title page}{height=0.5\textheight}
+
+They are also used to set metadata in the generated PDF:
+
+\tsImage{./Images/PDF-Properties.png}{PDF properties}{width=0.6\linewidth}
+
+\input{./TSTemplate-Content-Metadata-II.tex}
+
+\subsection{Metadata III}\label{subsec:Metadata-III}
+
+Additional to the metadata of section \ref{subsec:Metadata-I} there exists
+metadata to influence the filenames. Except for the
+\tsTextItalic{TSTemplate-Meta.tex} file all other files are used indirect
+by commands. So there are these commands available:
+
+\begin{footnotesize}
+    \renewcommand*{\arraystretch}{1.5}
+    \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
+        \hline
+        \tsTextBold{Metadefinition}                              & \tsTextBold{Meaning}                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsAppendixFile\{\}}       & Filename for appendices, \newline
+        default \tsTextItalic{TSTemplate-Appendix.tex}                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsCommandsFile\{\}}       & Filename for commands, \newline
+        default \tsTextItalic{TSTemplate-Commands.tex}                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsContentFile\{\}}        & Filename for content,\newline
+        default \tsTextItalic{TSTemplate-Content.tex}                                                    \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsCustomCommandsFile\{\}} & Filename for custom commands,\newline
+        default \tsTextItalic{TSTemplate-CustomCommands.tex}                                             \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsGlossaryFile\{\}}       & Filename for glossary,\newline
+        default \tsTextItalic{TSTemplate-Glossary.tex}                                                   \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsHistoryFile\{\}}        & Filename for history,\newline
+        default \tsTextItalic{TSTemplate-History.tex}                                                    \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsHyphenationFile\{\}}    & Filename for hyphenation,\newline
+        default \tsTextItalic{TSTemplate-Hyphenation.tex}                                                \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsLogoFile\{\}}           & Filename for logo,\newline
+        default \tsTextItalic{Images/TSTemplate-Logo.png}                                                \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsReferencesFile\{\}}     & Filename for references,\newline
+        default \tsTextItalic{TSTemplate.bib}                                                            \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextMonospace{\tsBackslash{}tsTitlePageFile\{\}}      & Filename for title page,\newline
+        default \tsTextItalic{TSTemplate-TitlePage.tex}                                                  \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsCaptionLabelTable{Metadata III}
+    \end{longtable}
+\end{footnotesize}
+
+\subsection{Document content}
+
+The document content is entered like a normal \LaTeX{} document. For this the
+file \tsTextItalic{TSTemplate-Content.tex} is used, in which the user enters
+the text. The basic conditions such as the inclusion of packages are regulated
+in the file \tsTextItalic{TSTemplate.tex}. Features are enabled/disabled in the
+file \tsTextItalic{TSTemplate-Meta.tex} -- see also \nameref{subsec:Metadata-II}.
+
+\subsection{Glossary}
+
+The user has the option of entering his own glossary. The entries for the
+glossary are done in the file \tsTextItalic{TSTemplate-Glossary.tex}. \gls{TS}
+is entered here as an example. This looks like this:
+
+\begin{figure}[H]
+    \scriptsize
+    \centering
+    \begin{BVerbatim}
+\newglossaryentry{TS}{name={ThirtySomething},description={A glossary entry}}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Definition of a glossary entry}
+\end{figure}
+
+The values have the following correspondences:
+
+\begin{itemize}
+    \item \tsTextBold{TS} -- This is the abbreviation used to reference the
+          keyword in the document.
+    \item \tsTextBold{ThirtySomething} -- This is the keyword listed in the
+          glossary.
+    \item \tsTextBold{A glossary entry} -- This is the description for the
+          keyword listed in the glossary.
+\end{itemize}
+
+The glossary then lists the keyword, the description and the page number(s)
+where the keyword was used everywhere. A prerequisite for this is, of course,
+the use of the command \tsTextMonospace{\tsBackslash{}gls\{abbreviation\}} with
+the existing abbreviation. In the above example, the usage looks like this:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+\gls{TS}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Use of a glossary entry}
+\end{figure}
+
+In case a glossary is to be used, the document must be translated with
+\tsTextMonospace{makeglossaries}.
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+pdflatex
+makeglossaries
+pdflatex
+pdflatex
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Translate with glossary}
+\end{figure}
+
+\subsection{Hyphenation}
+
+In some circumstances, hyphenation is not performed for some words. This may
+be because these words are very specific and \LaTeX{} does not know them and
+therefore cannot hyphenate them. The result may be overlong lines, which are
+clearly visible in most cases. In some cases this overlength is not
+immediately obvious. For this you can temporarily add the line
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+% To see the (page)frames used for hyphenation determination
+% \usepackage{showframe}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Preamble -- Package showframe}
+\end{figure}
+
+by removing the comment sign (\%). This will display frames in the document
+indicating the text areas -- and you can clearly see the overlong lines. The
+affected words at the end of the line can then be entered in the
+\tsTextItalic{TSTemplate-Hyphenation.tex} file. An entry there follows the
+following pattern:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+\hyphenation{Thir-ty-Some-thing}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Exemplary content of TSHyphenation.tex}
+\end{figure}
+
+An entry corresponds to the word to be separated with a dash after each
+syllable. If necessary in the different cases, then the words are separated
+by a space. In addition, the following parameter can be changed in the document
+\tsTextItalic{TSTemplate.tex}:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+% Setting tolerance for word wrap
+% See also: https://texfaq.org/FAQ-overfull
+\tolerance=3000
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Influencing the hyphenation}
+\end{figure}
+
+The permissible values are in the range from 0 to 10000.
+
+\subsection{Bibliography references}\label{subsec:Bibliography references}
+
+In case you want to have some bibliography references and want to cite, you
+have to enable the citations in \tsTextItalic{TSTemplate-Meta.tex}:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+% Switch to enable bibliography and cites
+\newif\ifUseTsCitation
+\UseTsCitationtrue
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Enabled citations}
+\end{figure}
+
+Fill up your bibliography reference file:
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+@misc{lfc,
+    title        = {{Latex Font Catalogue}},
+    author       = {},
+    year         = {},
+    note         = {Online checked on 16.06.2022},
+    howpublished = {\url{https://tug.org/FontCatalogue/}}
+}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Reference definition}
+\end{figure}
+
+And to use it in the text.
+
+\begin{figure}[H]
+    \small
+    \centering
+    \begin{BVerbatim}
+Fonts can be viewed at Latex Font Cataloge.\tsCitation{lfc}
+    \end{BVerbatim}
+    \tsCaptionLabelFigure{Reference usage}
+\end{figure}
+
+Fonts can be viewed at Latex Font Cataloge.\tsCitation{lfc}
