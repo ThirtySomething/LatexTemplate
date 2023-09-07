@@ -106,7 +106,9 @@
 \input{\tsCommandsFile{}}
 
 % Include custom command definition file
-\input{\tsCustomCommandsFile{}}
+\ifUseTsCustomCommands
+    \input{\tsCustomCommandsFile{}}
+\fi
 
 % Activate dottet lines in table of contents for books
 \tsTOCDottedLine{\tsDocumentType{}}

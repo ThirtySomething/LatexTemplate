@@ -46,6 +46,15 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
+% Switch to enable custom commands
+\newif\ifUseTsCustomCommands
+% \UseTsCustomCommandstrue % Disable custom commands
+\UseTsCustomCommandstrue   % Enable custom commands
+        \end{BVerbatim}
+         & Toggle custom commands                                              \\
+        \hline
+        % ----------------------------------------------------------------------
+        \begin{BVerbatim}
 % Switch to enable bibliography and cites
 \newif\ifUseTsCitation
 % \UseTsCitationtrue    % Disable references

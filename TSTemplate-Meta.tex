@@ -40,7 +40,7 @@
 % Defines the minor version number of the document - see https://semver.org
 \newcommand{\tsVersionMinor}[1]{0}
 % Defines the patch number of the document - see https://semver.org
-\newcommand{\tsVersionPatch}[1]{17}
+\newcommand{\tsVersionPatch}[1]{18}
 % Defines the version string of the document - see https://semver.org
 \newcommand{\tsVersionString}[1]{V\tsVersionMajor{}.\tsVersionMinor{}.\tsVersionPatch{}}
 
@@ -59,6 +59,9 @@
 % Switch to enable appendix
 \newif\ifUseTsAppendix
 \UseTsAppendixtrue
+% Switch to enable custom commands
+\newif\ifUseTsCustomCommands
+\UseTsCustomCommandstrue
 % Switch to enable bibliography and cites
 \newif\ifUseTsCitation
 \UseTsCitationtrue
