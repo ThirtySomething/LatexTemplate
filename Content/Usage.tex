@@ -40,115 +40,11 @@ into a more more descriptive name.
 
 \tsImageF{./Images/OtherPage.png}{Document page}{height=0.5\textheight}
 
-\subsection{Metadata I}\label{subsec:Metadata-I}
-
-For each document there are some metadata. This means the following definitions:
-
-\begin{footnotesize}
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
-        \hline
-        \tsTextBold{Metadefinition}                         & \tsTextBold{Meaning}                                     \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsAuthor\{\}}        & The author of the document.                              \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsSubject\{\}}       & The subject of the document.                             \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsTitle\{\}}         & The title of the document.                               \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsURL\{\}}           & The url of the author.                                   \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsVersionMajor\{\}}  & The major version of the document.\tsFootnoteDef{See
-        \href{https://semver.org}{Semantic Versioning} for more details.}{semver}                                      \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsVersionMinor\{\}}  & The minor version of the document.\tsFootnoteRef{semver} \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsVersionPatch\{\}}  & The patch number of the document.\tsFootnoteRef{semver}  \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsVersionString\{\}} & Complete version string.\tsFootnoteRef{semver}           \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsCaptionLabelTable{Metadata I}
-    \end{longtable}
-\end{footnotesize}
-
-These metadata are referenced in various places in the template. For example,
-they are used in the title page of the document. The version number is based
-on semantic versioning\tsFootnoteRef{semver}.
-
-\tsImageF{./Images/TitlePage.png}{Title page}{height=0.5\textheight}
-
-They are also used to set metadata in the generated PDF:
-
-\tsImage{./Images/PDF-Properties.png}{PDF properties}{width=0.6\linewidth}
+\input{Content/Metadata-I.tex}
 
 \input{Content/Metadata-II.tex}
 
-\subsection{Metadata III}\label{subsec:Metadata-III}
-
-Additional to the metadata of section \ref{subsec:Metadata-I} there exists
-metadata to influence the filenames. Except for the
-\tsTextItalic{TSTemplate-Meta.tex} file all other files are used indirect
-by commands. So there are these commands available:
-
-\begin{footnotesize}
-    \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
-        \hline
-        \tsTextBold{Metadefinition}                              & \tsTextBold{Meaning}                  \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsAppendixFile\{\}}       & Filename for appendices, \newline
-        default \tsTextItalic{TSTemplate-Appendix.tex}                                                   \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsCommandsFile\{\}}       & Filename for commands, \newline
-        default \tsTextItalic{TSTemplate-Commands.tex}                                                   \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsContentFile\{\}}        & Filename for content,\newline
-        default \tsTextItalic{TSTemplate-Content.tex}                                                    \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsCustomCommandsFile\{\}} & Filename for custom commands,\newline
-        default \tsTextItalic{TSTemplate-CustomCommands.tex}                                             \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsGlossaryFile\{\}}       & Filename for glossary,\newline
-        default \tsTextItalic{TSTemplate-Glossary.tex}                                                   \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsHistoryFile\{\}}        & Filename for history,\newline
-        default \tsTextItalic{TSTemplate-History.tex}                                                    \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsHyphenationFile\{\}}    & Filename for hyphenation,\newline
-        default \tsTextItalic{TSTemplate-Hyphenation.tex}                                                \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsLogoFile\{\}}           & Filename for logo,\newline
-        default \tsTextItalic{Images/TSTemplate-Logo.png}                                                \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsReferencesFile\{\}}     & Filename for references,\newline
-        default \tsTextItalic{TSTemplate.bib}                                                            \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsTitlePageFile\{\}}      & Filename for title page,\newline
-        default \tsTextItalic{TSTemplate-TitlePage.tex}                                                  \\
-        \hline
-        % ----------------------------------------------------------------------
-        \tsCaptionLabelTable{Metadata III}
-    \end{longtable}
-\end{footnotesize}
+\input{Content/Metadata-III.tex}
 
 \subsection{Document content}
 

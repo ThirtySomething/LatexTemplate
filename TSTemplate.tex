@@ -94,19 +94,16 @@
 % To see the (page)frames used for hyphenation determination
 % \usepackage{showframe}
 % For glossary usage - do not move these statements up!
-\ifUseTsGlossary
-    \usepackage[automake,toc]{glossaries}
-    \usepackage[automake]{glossaries-extra}
+\ifUseTsGlossary%
+    \usepackage[automake,toc]{glossaries}%
+    \usepackage[automake]{glossaries-extra}%
 \fi
-
-% Lore ipsum blind text
-\usepackage{lipsum}
 
 % Include command definition file
 \input{\tsCommandsFile{}}
 
 % Include custom command definition file
-\ifUseTsCustomCommands
+\ifUseTsCustomCommands%
     \input{\tsCustomCommandsFile{}}
 \fi
 
@@ -114,8 +111,8 @@
 \tsTOCDottedLine{\tsDocumentType{}}
 
 % No indent of paragraphs
-\ifUseTsParagraphNoIndentation
-    \setlength{\parindent}{0pt}
+\ifUseTsParagraphNoIndentation%
+    \setlength{\parindent}{0pt}%
 \fi
 
 % Setting of document meta information
@@ -136,24 +133,24 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 % Re-definition of own page style
-\fancypagestyle{plain}{
-    \setlength{\headheight}{15pt}
-    \fancyhf{}
-    \tsFancyData{\tsDocumentType{}}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \renewcommand{\footrulewidth}{0.4pt}
+\fancypagestyle{plain}{%
+    \setlength{\headheight}{15pt}%
+    \fancyhf{}%
+    \tsFancyData{\tsDocumentType{}}%
+    \renewcommand{\headrulewidth}{0.4pt}%
+    \renewcommand{\footrulewidth}{0.4pt}%
 }
 
 % Include hyphenation definition file
-\ifUseTsHyphenation
-    \input{\tsHyphenationFile{}}
+\ifUseTsHyphenation%
+    \input{\tsHyphenationFile{}}%
 \fi
 
 % Include glossary definition file and build it
-\ifUseTsGlossary
-    \makeglossaries
-    \input{\tsGlossaryFile{}}
-    \renewcommand*{\glspostdescription}{}
+\ifUseTsGlossary%
+    \makeglossaries%
+    \input{\tsGlossaryFile{}}%
+    \renewcommand*{\glspostdescription}{}%
 \fi
 
 % Setting tolerance for word wrap
@@ -161,13 +158,13 @@
 \tolerance=3000
 
 % Create toc content
-\ifUseTsTOC
-    \makeindex
+\ifUseTsTOC%
+    \makeindex%
 \fi
 
 % Start each section on new page
-\ifUseTsSectionOnNewPage
-    \AddToHook{cmd/section/before}{\clearpage}
+\ifUseTsSectionOnNewPage%
+    \AddToHook{cmd/section/before}{\clearpage}%
 \fi
 
 % Start document here
@@ -207,8 +204,8 @@
 \pagestyle{plain}
 
 % Include title page
-\ifUseTsTitlePage
-    \input{\tsTitlePageFile{}}
+\ifUseTsTitlePage%
+    \input{\tsTitlePageFile{}}%
 \fi
 
 % Re-start numbering of content pages with arabic numbers
@@ -216,14 +213,14 @@
 \pagenumbering{arabic}
 
 % Toc page - table of content
-\ifUseTsTOC
-    \tableofcontents
+\ifUseTsTOC%
+    \tableofcontents%
 \fi
 
 % Include change history
-\ifUseTsHistory
-    \newpage
-    \input{\tsHistoryFile{}}
+\ifUseTsHistory%
+    \newpage%
+    \input{\tsHistoryFile{}}%
 \fi
 
 % Include content
@@ -231,8 +228,8 @@
 \input{\tsContentFile{}}
 
 % Include appendices
-\ifUseTsAppendix
-    \input{\tsAppendixFile{}}
+\ifUseTsAppendix%
+    \input{\tsAppendixFile{}}%
 \fi
 
 % Start post document on new page
@@ -243,36 +240,36 @@
 \pagenumbering{Roman}
 
 % Print list of figures (lof)
-\ifUseTsLOF
-    \newpage
-    \listoffigures
+\ifUseTsLOF%
+    \newpage%
+    \listoffigures%
 \fi
 
 % Print list of table (lot)
-\ifUseTsLOT
-    \newpage
-    \listoftables
+\ifUseTsLOT%
+    \newpage%
+    \listoftables%
 \fi
 
 % Print glossary
-\ifUseTsGlossary
-    \newpage
-    \printglossaries
+\ifUseTsGlossary%
+    \newpage%
+    \printglossaries%
 \fi
 
 % Print bibliography
-\ifUseTsCitation
-{
-    \newpage
-    \footnotesize
-    \bibliography{\tsReferencesFile{}}{}
-    \bibliographystyle{babplain}
-}
+\ifUseTsCitation%
+{%
+    \newpage%
+    \footnotesize%
+    \bibliography{\tsReferencesFile{}}{}%
+    \bibliographystyle{babplain}%
+}%
 \fi
 
-\ifUseTsIndex
-    \newpage
-    \printindex{}
+\ifUseTsIndex%
+    \newpage%
+    \printindex{}%
 \fi
 
 \end{document}
