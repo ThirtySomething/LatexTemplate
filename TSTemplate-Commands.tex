@@ -143,7 +143,8 @@
 % Define convenience command for diameter
 \newcommand{\tsDiameter}[1]{\diameter}
 % Define command of a frac like 1/2
-\newcommand{\tsFrac}[2]{\tsTextUpper{#1}\kern-.06em/\kern-0.06em\tsTextLower{#2}}
+%  \newcommand{\tsFrac}[2]{\tsTextUpper{#1}\kern-.06em/\kern-0.06em\tsTextLower{#2}}
+\newcommand{\tsFrac}[2]{\nicefrac{#1}{#2}}
 % Define a referencable footnote
 \newcommand{\tsFootnoteDef}[2]{\footnote{\label{#2}#1}}
 % Define a referencable footnote
