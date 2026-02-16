@@ -1,5 +1,9 @@
 // --- Latex workshop settings
-"latex-workshop.chktex.enabled": true,
+"latex-workshop.bibtex-format.sort.enabled": true,
+"latex-workshop.bibtex-format.tab": "3 spaces",
+"latex-workshop.formatting.latex": "latexindent",
+"latex-workshop.latex.autoBuild.run": "never",
+"latex-workshop.latex.autoClean.run": "onSucceeded",
 "latex-workshop.latex.clean.fileTypes": [
     "*.acn",
     "*.acr",
@@ -26,16 +30,16 @@
     "*.synctex.gz",
     "*.synctex.gz(busy)",
     "*.toc",
-    "*.vrb"
+    "*.vrb",
 ],
-"latex-workshop.latex.autoClean.run": "onBuilt",
+"latex-workshop.latex.clean.method": "glob",
 "latex-workshop.latex.recipes": [
     {
         "name": "pdflatex*2",
         "tools": [
             "pdflatex",
             "pdflatex"
-        ]
+        ],
     },
     {
         "name": "pdflatex -> bibtex -> pdflatex*2",
@@ -44,7 +48,7 @@
             "bibtex",
             "pdflatex",
             "pdflatex"
-        ]
+        ],
     },
     {
         "name": "pdflatex, bibtex, makeglossaries, pdflatex*2",
@@ -54,16 +58,51 @@
             "makeglossaries",
             "pdflatex",
             "pdflatex"
-        ]
+        ],
     },
     {
-        "name": "pdflatex, makeglossaries, pdflatex (2x)",
+        "name": "pdflatex, makeglossaries, pdflatex*2",
         "tools": [
             "pdflatex",
             "makeglossaries",
             "pdflatex",
             "pdflatex"
-        ]
+        ],
+    },
+    {
+        "name": "lualatex*2",
+        "tools": [
+            "lualatex",
+            "lualatex"
+        ],
+    },
+    {
+        "name": "lualatex -> bibtex -> lualatex*2",
+        "tools": [
+            "lualatex",
+            "bibtex",
+            "lualatex",
+            "lualatex"
+        ],
+    },
+    {
+        "name": "lualatex, bibtex, makeglossaries, lualatex*2",
+        "tools": [
+            "lualatex",
+            "bibtex",
+            "makeglossaries",
+            "lualatex",
+            "lualatex"
+        ],
+    },
+    {
+        "name": "lualatex, makeglossaries, lualatex*2",
+        "tools": [
+            "lualatex",
+            "makeglossaries",
+            "lualatex",
+            "lualatex"
+        ],
     },
 ],
 "latex-workshop.latex.tools": [
@@ -76,9 +115,9 @@
             "-file-line-error",
             "-pdf",
             "-outdir=%OUTDIR%",
-            "%DOC%"
+            "%DOC%",
         ],
-        "env": {}
+        "env": {},
     },
     {
         "name": "lualatexmk",
@@ -89,9 +128,9 @@
             "-file-line-error",
             "-lualatex",
             "-outdir=%OUTDIR%",
-            "%DOC%"
+            "%DOC%",
         ],
-        "env": {}
+        "env": {},
     },
     {
         "name": "latexmk_rconly",
@@ -99,7 +138,7 @@
         "args": [
             "%DOC%"
         ],
-        "env": {}
+        "env": {},
     },
     {
         "name": "pdflatex",
@@ -108,9 +147,9 @@
             "-synctex=1",
             "-interaction=nonstopmode",
             "-file-line-error",
-            "%DOC%"
+            "%DOC%",
         ],
-        "env": {}
+        "env": {},
     },
     {
         "name": "bibtex",
@@ -118,16 +157,16 @@
         "args": [
             "%DOCFILE%"
         ],
-        "env": {}
+        "env": {},
     },
     {
         "name": "rnw2tex",
         "command": "Rscript",
         "args": [
             "-e",
-            "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+            "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')",
         ],
-        "env": {}
+        "env": {},
     },
     {
         "name": "jnw2tex",
@@ -136,16 +175,16 @@
             "-e",
             "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
         ],
-        "env": {}
+        "env": {},
     },
     {
         "name": "jnw2texmintex",
         "command": "julia",
         "args": [
             "-e",
-            "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
+            "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")",
         ],
-        "env": {}
+        "env": {},
     },
     {
         "name": "tectonic",
@@ -155,14 +194,26 @@
             "--keep-logs",
             "%DOC%.tex"
         ],
-        "env": {}
+        "env": {},
     },
     {
         "name": "makeglossaries",
         "command": "makeglossaries",
         "args": [
             "%DOCFILE%"
-        ]
-    }
+        ],
+    },
+    {
+        "name": "lualatex",
+        "command": "lualatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "-outdir=%OUTDIR%",
+            "%DOC%",
+        ],
+    },
 ],
+"latex-workshop.linting.chktex.enabled": true,
 "latex-workshop.view.pdf.viewer": "browser",
