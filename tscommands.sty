@@ -25,18 +25,18 @@
 \NeedsTeXFormat{LaTeX2e}[2021/06/01]
 \ProvidesPackage{tscommands}[2026/11/05 v1.0.0 Beginner-friendly LaTeX commands]
 
-\RequirePackage{babel}
-\RequirePackage{graphicx}
-\RequirePackage{fancyvrb}
-\RequirePackage{float}
-\RequirePackage{datetime}
-\RequirePackage{ifthen}
+\@ifpackageloaded{babel}{}{\RequirePackage{babel}}
+\@ifpackageloaded{graphicx}{}{\RequirePackage{graphicx}}
+\@ifpackageloaded{fancyvrb}{}{\RequirePackage{fancyvrb}}
+\@ifpackageloaded{float}{}{\RequirePackage{float}}
+\@ifpackageloaded{datetime}{}{\RequirePackage{datetime}}
+\@ifpackageloaded{ifthen}{}{\RequirePackage{ifthen}}
 \@ifpackageloaded{ulem}{}{\RequirePackage[normalem]{ulem}}
-\RequirePackage{enumitem}
+\@ifpackageloaded{enumitem}{}{\RequirePackage{enumitem}}
 \@ifpackageloaded{overpic}{}{\RequirePackage[percent]{overpic}}
-\RequirePackage{nicefrac}
+\@ifpackageloaded{nicefrac}{}{\RequirePackage{nicefrac}}
 \@ifpackageloaded{wasysym}{}{\RequirePackage[nointegrals]{wasysym}}
-\RequirePackage{xcolor}
+\@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}
 \@ifpackageloaded{contour}{}{\RequirePackage[outline]{contour}}
 
 \newdateformat{tscommands@dategerman}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
