@@ -99,8 +99,7 @@
 % \usepackage{showframe}
 % For glossary usage - do not move these statements up!
 \ifUseTsGlossary%
-    \usepackage[automake,toc]{glossaries}%
-    \usepackage[automake]{glossaries-extra}%
+    \usepackage[automake,toc]{glossaries-extra}%
 \fi
 
 % Include command definition file
@@ -111,7 +110,7 @@
     \input{\tsCustomCommandsFile{}}
 \fi
 
-% Activate dotted lines in table of contents for books
+% Configure dotted lines in the table of contents
 \tsTOCDottedLine{\tsDocumentType{}}
 
 % No indent of paragraphs
@@ -131,10 +130,6 @@
 
 % Set font type
 \renewcommand{\familydefault}{\sfdefault}
-
-% Settings for dotted line in table of content
-\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 % Re-definition of own page style
 \fancypagestyle{plain}{%
