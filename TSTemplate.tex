@@ -47,7 +47,7 @@
 \usepackage{imakeidx}
 % Get filename
 \usepackage{currfile}
-% Dottet lines in toc
+% Dotted lines in toc
 \usepackage{tocloft}
 % Equivalent to Arial
 \usepackage{helvet}
@@ -70,7 +70,7 @@
 \usepackage{longtable}
 % For font strike through
 \usepackage[normalem]{ulem}
-% To enable \begin{BVerbatim} inside a verbtatim box
+% To enable \begin{BVerbatim} inside a verbatim box
 \usepackage{verbatimbox}
 % Multiple watermarks as background images
 % https://tex.stackexchange.com/questions/134717/how-do-you-add-multiple-watermarks
@@ -111,7 +111,7 @@
     \input{\tsCustomCommandsFile{}}
 \fi
 
-% Activate dottet lines in table of contents for books
+% Activate dotted lines in table of contents for books
 \tsTOCDottedLine{\tsDocumentType{}}
 
 % No indent of paragraphs
@@ -161,8 +161,8 @@
 % See also: https://texfaq.org/FAQ-overfull
 \tolerance=3000
 
-% Create toc content
-\ifUseTsTOC%
+% Create index
+\ifUseTsIndex%
     \makeindex%
 \fi
 
