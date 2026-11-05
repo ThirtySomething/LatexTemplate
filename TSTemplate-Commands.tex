@@ -100,9 +100,7 @@
 \newcommand{\tsAppendixIncludeFile}[1]%
 {%
     \tsAppendixSection{#1}%
-    \begin{scriptsize}%
-        \VerbatimInput{#1}%
-    \end{scriptsize}%
+    \VerbatimInput[fontsize=\scriptsize]{#1}%
 }%
 % Definition for convenience usage of appendix
 \newcommand{\tsAppendixSection}[1]%
