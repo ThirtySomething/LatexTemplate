@@ -51,11 +51,12 @@ command there can also be a space character -- otherwise this is removed by
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | P{0.53\linewidth} | p{0.4\linewidth} | }
+    \begin{longtable}{ | p{0.53\linewidth} | p{0.4\linewidth} | }
         \hline
         \tsTextBold{Command definition}                                                                    &
         \tsTextBold{Meaning}                                                                                 \\
         \hline
+        \endhead
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsAppendixIncludeFile[id]\newline\{Filename\}}                      &
         This command will add an appendix section. The section consists of a
@@ -201,7 +202,7 @@ command there can also be a space character -- otherwise this is removed by
         Like \tsTextMonospace{\tsBackslash{}tsImageF}, but with an overlaid text.                            \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 \begin{tsLTItemize}
     \item Item I of enumeration list.
     \item Item B of enumeration list.
@@ -219,7 +220,9 @@ command there can also be a space character -- otherwise this is removed by
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsNP\{\}}                                                           &
-        This is used to start a new paragraph.                                                               \\
+        Ends the current paragraph and requests extra vertical separation
+        using \tsTextMonospace{\tsBackslash{}bigbreak}. For an ordinary
+        paragraph, use a blank source line or \tsTextMonospace{\tsBackslash{}par}.                            \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsTextBold\{text\}}                                                 &
@@ -267,9 +270,8 @@ For a numbered formula, write
 \tsTextMonospace{\tsBackslash{}tsCaptionLabelFormula[energy]\{E = mc\^{}2\}}.
 The result is
 \tsCaptionLabelFormula[energy]{E = mc^2}
-and can be referenced as equation \ref{for:energy}.
-
-A look into the source code of this document shows the usage of the commands.
+and can be referenced as equation \ref{for:energy}. A look into the source
+code of this document shows the usage of the commands.
 
 \newpage
 \subsection{Examples to images}
@@ -294,8 +296,9 @@ A look into the source code of this document shows the usage of the commands.
     \begin{BVerbatim}
 % Insert image TSTemplate-Logo.png
 % Signature is 'Image with parameter'
-% Parameter: width=0.5\linewidth => scale the image to half page width
-\tsImage{Images/TSTemplate-Logo.png}{Image with parameter}{width=0.5\linewidth}
+% Scale the image to half the local line width:
+\tsImage{Images/TSTemplate-Logo.png}
+    {Image with parameter}{width=0.5\linewidth}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Code of image with parameter}
 \end{figure}
@@ -309,7 +312,8 @@ A look into the source code of this document shows the usage of the commands.
 % Insert image TSTemplate-Logo.png with frame
 % Signature is 'Image without parameters, with frame'
 % Optional parameters are empty
-\tsImageF{Images/TSTemplate-Logo.png}{Image without parameters, with frame}{}
+\tsImageF{Images/TSTemplate-Logo.png}
+    {Image without parameters, with frame}{}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Code of image without parameters, with frame}
 \end{figure}
@@ -323,9 +327,9 @@ A look into the source code of this document shows the usage of the commands.
 % Insert image Garden.jpg with frame
 % Signature is 'Image with overlay and parameters'
 % Optional parameters are 'width=0.9\linewidth
-\tsImageOF{./Images/Garden.jpg}{Image with frame, overlay
-	and parameters}{\tsTextUpper{(C)} 2008, ThirtySomething}
-{width=0.9\linewidth}
+\tsImageOF{./Images/Garden.jpg}
+    {Image with frame, overlay and parameters}
+    {\copyright{} 2008, ThirtySomething}{width=0.9\linewidth}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Code image with frame, overlay and parameters}
 \end{figure}

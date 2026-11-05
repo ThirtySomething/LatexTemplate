@@ -41,21 +41,22 @@ switches control list output only, not their underlying content.
 
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
-    \begin{longtable}{ | P{0.7\linewidth} | p{0.23\linewidth} | }
+    \begin{longtable}{ | p{0.7\linewidth} | p{0.23\linewidth} | }
         \hline
         \tsTextBold{Metadefinition}
          & \tsTextBold{Beschreibung}                                           \\
         \hline
+        \endhead
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
-% Definition of document type, either article or book
+        \begin{BVerbatim}[baseline=t]
+% Document type: article or book
 \newcommand{\tsDocumentType}{article}
 % \newcommand{\tsDocumentType}{book}
         \end{BVerbatim}
          & Toggle between one page layout (article) and two page layout (book) \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Definition of document language
 \newcommand{\tsDocumentLanguage}{american}
 % \newcommand{\tsDocumentLanguage}{ngerman}
@@ -63,7 +64,7 @@ switches control list output only, not their underlying content.
          & Setup of used language of document                                  \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable appendix
 \newif\ifUseTsAppendix
 % \UseTsAppendixtrue    % Disable appendix
@@ -72,7 +73,7 @@ switches control list output only, not their underlying content.
          & Toggle appendix                                                     \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable custom commands
 \newif\ifUseTsCustomCommands
 % \UseTsCustomCommandstrue % Disable custom commands
@@ -81,7 +82,7 @@ switches control list output only, not their underlying content.
          & Toggle custom commands                                              \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable bibliography and cites
 \newif\ifUseTsCitation
 % \UseTsCitationtrue    % Disable references
@@ -90,7 +91,7 @@ switches control list output only, not their underlying content.
          & Toggle references                                                   \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable glossary
 \newif\ifUseTsGlossary
 % \UseTsGlossarytrue    % Disable glossary
@@ -99,7 +100,7 @@ switches control list output only, not their underlying content.
          & Toggle glossary                                                     \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable index
 \newif\ifUseTsIndex
 % \UseTsIndextrue       % Disable index
@@ -108,7 +109,7 @@ switches control list output only, not their underlying content.
          & Toggle index                                                        \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable history
 \newif\ifUseTsHistory
 % \UseTsHistorytrue     % Disable history
@@ -117,7 +118,7 @@ switches control list output only, not their underlying content.
          & Toggle history                                                      \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable hyphenation
 \newif\ifUseTsHyphenation
 % \UseTsHyphenationtrue % Disable hyphenation
@@ -126,7 +127,7 @@ switches control list output only, not their underlying content.
          & Toggle \newline hyphenation                                         \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable list of figures
 \newif\ifUseTsLOF
 % \UseTsLOFtrue         % Disable list of figures
@@ -135,7 +136,7 @@ switches control list output only, not their underlying content.
          & Toggle list \newline of figures                                     \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable logo
 \newif\ifUseTsLogo
 % \UseTsLogotrue        % Disable logo
@@ -144,7 +145,7 @@ switches control list output only, not their underlying content.
          & Toggle logo                                                         \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable list of tables
 \newif\ifUseTsLOT
 % \UseTsLOTtrue         % Disable list of tables
@@ -153,16 +154,18 @@ switches control list output only, not their underlying content.
          & Toggle list \newline of tables                                      \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to disable indentation of paragraphs
 \newif\ifUseTsParagraphNoIndentation
-% \UseTsParagraphNoIndentationtrue  % Indentation yes
-\UseTsParagraphNoIndentationtrue    % Indentation no
+% Enable indentation:
+% \UseTsParagraphNoIndentationfalse
+% Disable indentation:
+\UseTsParagraphNoIndentationtrue
         \end{BVerbatim}
          & Toggle indentation \newline of paragraphs                           \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable start of section on new page
 \newif\ifUseTsSectionOnNewPage
 % \UseTsSectionOnNewPagetrue % Section on same page
@@ -171,7 +174,7 @@ switches control list output only, not their underlying content.
          & Toggle start \newline of section                                    \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable title page
 \newif\ifUseTsTitlePage
 % \UseTsTitlePagetrue   % Disable title page
@@ -180,7 +183,7 @@ switches control list output only, not their underlying content.
          & Toggle title page                                                   \\
         \hline
         % ----------------------------------------------------------------------
-        \begin{BVerbatim}
+        \begin{BVerbatim}[baseline=t]
 % Switch to enable table of contents
 \newif\ifUseTsTOC
 % \UseTsTOCtrue         % Disable table of contents

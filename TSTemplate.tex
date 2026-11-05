@@ -27,10 +27,13 @@
 %% -----------------------------------------------------------------------------
 
 % Include meta variables for document
+\NeedsTeXFormat{LaTeX2e}[2021/06/01]
 \input{\jobname-Meta.tex}
 
 % A4 paper, font size
 \documentclass[12pt,a4paper]{\tsDocumentType}
+% Retain the existing Type 1 fonts across all supported engines.
+\usepackage[OT1]{fontenc}
 % US spelling
 \usepackage[\tsDocumentLanguage]{babel}
 % Reusable beginner-friendly commands and their dependencies
@@ -51,7 +54,6 @@
 \usepackage{helvet}
 % Used for hyperlinks in document
 \usepackage[
-    pdftex,
     colorlinks=true,
     linkcolor=blue,
     urlcolor=blue
@@ -103,6 +105,9 @@
 \date{\tsToday{}}
 
 % Setting of pdf meta information
+\pdfstringdefDisableCommands{%
+    \def\linebreak{}%
+}
 \hypersetup{pdfauthor={\tsAuthor -- \tsURL}}
 \hypersetup{pdftitle={\tsTitle}}
 \hypersetup{pdfsubject={\tsSubject}}
@@ -190,7 +195,6 @@
 \fi
 
 % Re-start numbering of content pages with arabic numbers
-\setcounter{page}{1}
 \pagenumbering{arabic}
 
 % Toc page - table of content
@@ -200,12 +204,12 @@
 
 % Include change history
 \ifUseTsHistory%
-    \newpage%
+    \clearpage%
     \input{\tsHistoryFile}%
 \fi
 
 % Include content
-\newpage
+\clearpage
 \input{\tsContentFile}
 
 % Include appendices
@@ -214,34 +218,33 @@
 \fi
 
 % Start post document on new page
-\newpage
+\clearpage
 
 % Start non content pages with roman numbering
-\setcounter{page}{1}
 \pagenumbering{Roman}
 
 % Print list of figures (lof)
 \ifUseTsLOF%
-    \newpage%
+    \clearpage%
     \listoffigures%
 \fi
 
 % Print list of table (lot)
 \ifUseTsLOT%
-    \newpage%
+    \clearpage%
     \listoftables%
 \fi
 
 % Print glossary
 \ifUseTsGlossary%
-    \newpage%
+    \clearpage%
     \printglossaries%
 \fi
 
 % Print bibliography
 \ifUseTsCitation%
 {%
-    \newpage%
+    \clearpage%
     \footnotesize%
     \bibliography{\tsReferencesFile}{}%
     \bibliographystyle{babplain}%
@@ -249,7 +252,7 @@
 \fi
 
 \ifUseTsIndex%
-    \newpage%
+    \clearpage%
     \printindex{}%
 \fi
 

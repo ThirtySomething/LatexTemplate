@@ -2,6 +2,32 @@
 
 A basic template for latex documents. See the [PDF][pdf] for more details.
 
+## Engine and format requirements
+
+The template and `tscommands` require LaTeX2e dated 2021-06-01 or newer and
+support pdfLaTeX, LuaLaTeX, and XeLaTeX. Install the dependencies listed below,
+along with BibTeX and makeindex for the default bibliography, index, and
+glossary features. The default document has been built with all three engines
+on the available TeX Live installation; the minimum kernel date is a required
+API floor, not a claim that every historical distribution was tested.
+
+Run one of these commands from the template directory:
+
+```sh
+latexmk -pdf TSTemplate.tex
+latexmk -lualatex TSTemplate.tex
+latexmk -xelatex TSTemplate.tex
+```
+
+Use a clean output directory when switching engines. Hyperref and the graphics
+packages select their drivers automatically. The template explicitly retains
+OT1 encoding and its existing Type 1 font setup across engines; choosing a
+Unicode engine does not automatically switch to system
+fonts or `fontspec`.
+
+The sample `vscode-latex-workshop.json` provides corresponding latexmk recipes.
+Its settings must be incorporated into your VS Code configuration to use them.
+
 ## Reusable commands
 
 [tscommands.sty](./tscommands.sty) provides the beginner-friendly commands
@@ -36,8 +62,8 @@ does not change subsequent `\today` or `\formatdate` output.
 Babel's `english` language name is treated as American in standalone usage,
 since Babel can report `english` when loaded with the `american` alias.
 
-Document metadata, header/footer configuration, TOC leaders, the custom `P`
-column type, and numeric minipage footnotes remain in
+Document metadata, header/footer configuration, TOC leaders, the compatibility
+`P` column alias (equivalent to `p`), and numeric minipage footnotes remain in
 [TSTemplate-Commands.tex](./TSTemplate-Commands.tex). The package does not enable
 appendix mode, build a bibliography, or set the document's layout; these remain
 the document author's responsibility.
@@ -46,21 +72,21 @@ the document author's responsibility.
 
 `tscommands` loads the following direct dependencies:
 
-| Dependency | Used for | Fresh-load options |
-|---|---|---|
-| `babel` | Explicit quotation symbols and active-language detection | None |
-| `graphicx` | Image inclusion | None |
-| `fancyvrb` | Verbatim appendix files | None |
-| `float` | Exact `H` figure placement | None |
-| `datetime` | Numeric date formats | None |
-| `ifthen` | Language and label selection | None |
-| `ulem` | Strikethrough text | `normalem` |
-| `enumitem` | Compact table lists | None |
-| `overpic` | Image overlays | `percent` |
-| `nicefrac` | Fractions | None |
-| `wasysym` | Diameter symbol | `nointegrals` |
-| `xcolor` | Overlay text colors | None |
-| `contour` | Outlined overlay text | `outline` |
+| Dependency | Used for                                                 | Fresh-load options |
+| ---------- | -------------------------------------------------------- | ------------------ |
+| `babel`    | Explicit quotation symbols and active-language detection | None               |
+| `graphicx` | Image inclusion                                          | None               |
+| `fancyvrb` | Verbatim appendix files                                  | None               |
+| `float`    | Exact `H` figure placement                               | None               |
+| `datetime` | Numeric date formats                                     | None               |
+| `ifthen`   | Language and label selection                             | None               |
+| `ulem`     | Strikethrough text                                       | `normalem`         |
+| `enumitem` | Compact table lists                                      | None               |
+| `overpic`  | Image overlays                                           | `percent`          |
+| `nicefrac` | Fractions                                                | None               |
+| `wasysym`  | Diameter symbol                                          | `nointegrals`      |
+| `xcolor`   | Overlay text colors                                      | None               |
+| `contour`  | Outlined overlay text                                    | `outline`          |
 
 Dependencies may load additional packages themselves. All command families
 remain available by default; there is no lightweight mode.

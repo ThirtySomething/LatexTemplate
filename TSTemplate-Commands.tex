@@ -29,8 +29,8 @@
 %% -----------------------------------------------------------------------------
 %% Definition of internal commands
 %% -----------------------------------------------------------------------------
-% New columntype for longtables used for itemize environment
-\newcolumntype{P}[1]{>{\endgraf\vspace*{-\baselineskip}}p{#1}}
+% Compatibility alias; verbatim boxes select their own baseline.
+\newcolumntype{P}[1]{p{#1}}
 % Label for page depending on language
 \newcommand{\tsPageLabel}[1]{\ifthenelse{\equal{#1}{ngerman}}{Seite}{Page}}
 % For books insert an empty page after title page

@@ -26,38 +26,24 @@
 %% Common title page definition of Latex template
 %% -----------------------------------------------------------------------------
 
-\thispagestyle{empty}
 \begin{titlepage}
+    \thispagestyle{empty}
     {
-        \begin{center}
-            \ifUseTsLogo
-                \includegraphics{\tsLogoFile}
-            \fi
-        \end{center}
-    }
-    {\Large
-        \begin{center}
-            \tsTextBold{\tsTitle}
-        \end{center}
-    }
-    {\normalsize
-        \begin{center}
-            \parbox{0.6\linewidth}{
-                \begin{center}
-                    \tsSubject
-                \end{center}
-            }
-        \end{center}
-    }
-    {\normalsize
-        \begin{center}
-            \tsAuthor
-        \end{center}
-    }
-    {\normalsize
-        \begin{center}
-            \tsToday{}
-        \end{center}
+        \centering
+        \ifUseTsLogo
+            \includegraphics{\tsLogoFile}\par
+            \vspace{2\baselineskip}
+        \fi
+        {\Large\tsTextBold{\tsTitle}\par}
+        \vspace{2\baselineskip}
+        \parbox{0.6\linewidth}{%
+            \centering
+            \tsSubject\par
+        }\par
+        \vspace{2\baselineskip}
+        \tsAuthor\par
+        \vspace{2\baselineskip}
+        \tsToday{}\par
     }
     \tsEmptyPage{\tsDocumentType}
 \end{titlepage}

@@ -38,6 +38,7 @@ make a table.
         \hline
         \tsTextBold{Command}       & \tsTextBold{Sample} \\
         \hline
+        \endhead
         \{\tsBackslash{}Huge text\} & {\Huge Huge}       \\
         \hline
         \tsCaptionLabelTable{Font sizes}
@@ -61,11 +62,22 @@ overlap or the spacing will be very tight. A good value is
     \tsCaptionLabelFigure{Row height in tables}
 \end{figure}
 
-The definition of the columns and their widths follows. The total width
-available to a text in a line is \tsTextMonospace{\tsBackslash{}textwidth}. Due
-to the lines of the table, not quite \tsTextMonospace{1.0\tsBackslash{}textwidth}
-is available. So the sum of all individual column widths should not exceed
-\tsTextMonospace{0.9\tsBackslash{}textwidth}.
+The definition of the columns and their widths follows. Use
+\tsTextMonospace{\tsBackslash{}linewidth} for the locally available width.
+For a table with paragraph columns, its total width includes the sum of the
+column widths, twice \tsTextMonospace{\tsBackslash{}tabcolsep} per column,
+and \tsTextMonospace{\tsBackslash{}arrayrulewidth} per single vertical rule.
+This total must not exceed the available width.
+
+For example, a two-column table with three single vertical rules has a
+column-width budget calculated as follows:
+\begin{quote}
+    \tsTextMonospace{\tsBackslash{}linewidth - 4\tsBackslash{}tabcolsep -
+    3\tsBackslash{}arrayrulewidth}
+\end{quote}
+This calculation assumes ordinary column padding; custom intercolumn material
+or double rules require their own allowance. A percentage such as
+\tsTextMonospace{0.9\tsBackslash{}linewidth} is only a rule of thumb.
 \bigbreak
 
 To slightly separate column headings from the column contents, the\linebreak
@@ -75,6 +87,11 @@ of the row is marked with a \tsTextMonospace{\tsBackslash{}\tsBackslash{}}.
 \bigbreak
 
 For horizontal lines, a \tsTextMonospace{\tsBackslash{}hline} is inserted.
+Place \tsTextMonospace{\tsBackslash{}endhead} after the column-heading row
+and its horizontal rule to repeat those headings on every page.
+When the first page needs a different heading, define it separately with
+\tsTextMonospace{\tsBackslash{}endfirsthead}, followed by the continuation
+heading ending with \tsTextMonospace{\tsBackslash{}endhead}.
 \bigbreak
 
 The data lines follow the same structure.
@@ -86,8 +103,11 @@ Check the source of this document in the section \nameref{sec:Font sizes}
 to see how it works.
 \bigbreak
 
-When using a \tsTextMonospace{verbatim} environment in a table, then the
-column type of the table \tsTextBold{must be} of type \tsTextMonospace{P}!
+For verbatim source in a table, use a regular \tsTextMonospace{p} column.
+Select \tsTextMonospace{BVerbatim[baseline=t]} for the code. FancyVerb's top-aligned box
+aligns the first code line with adjacent text without negative vertical spacing.
+The template retains \tsTextMonospace{P} as an alias for
+\tsTextMonospace{p} for compatibility, not as a special alignment mechanism.
 For a \tsTextMonospace{tsLTItemize} list, use a regular
 \tsTextMonospace{p} column. The list is top-aligned with the text in adjacent
 cells and stays together within its table row.

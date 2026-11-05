@@ -35,6 +35,18 @@
 "latex-workshop.latex.clean.method": "glob",
 "latex-workshop.latex.recipes": [
     {
+        "name": "latexmk (pdfLaTeX)",
+        "tools": ["latexmk"],
+    },
+    {
+        "name": "latexmk (LuaLaTeX)",
+        "tools": ["lualatexmk"],
+    },
+    {
+        "name": "latexmk (XeLaTeX)",
+        "tools": ["xelatexmk"],
+    },
+    {
         "name": "pdflatex*2",
         "tools": [
             "pdflatex",
@@ -106,6 +118,19 @@
     },
 ],
 "latex-workshop.latex.tools": [
+    {
+        "name": "xelatexmk",
+        "command": "latexmk",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "-xelatex",
+            "-outdir=%OUTDIR%",
+            "%DOC%",
+        ],
+        "env": {},
+    },
     {
         "name": "latexmk",
         "command": "latexmk",

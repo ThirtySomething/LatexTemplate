@@ -33,9 +33,9 @@ file:
     \small
     \centering
     \begin{BVerbatim}
-% Switch to enable appendix
-\newif\ifUseTsAppendix
-\UseTsAppendixtrue
+        % Switch to enable appendix
+        \newif\ifUseTsAppendix
+        \UseTsAppendixtrue
     \end{BVerbatim}
     \tsCaptionLabelFigure{Enabling appendices}
 \end{figure}
@@ -47,7 +47,7 @@ in \tsTextItalic{TSTemplate-Appendix.tex} or use this example:
     \small
     \centering
     \begin{BVerbatim}
-\tsAppendixSection{README.md}
+        \tsAppendixSection{README.md}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Usage of tsAppendixSection}
 \end{figure}
@@ -79,12 +79,12 @@ The source is
     \small
     \centering
     \begin{BVerbatim}
-\tsAppendixIncludeFile{vscode-latex-workshop.json}
+        \tsAppendixIncludeFile{vscode-latex-workshop.json}
     \end{BVerbatim}
     \tsCaptionLabelFigure{Usage of tsAppendixIncludeFile}
 \end{figure}
 
-An optional identifier keeps the reference independent of the filename:
-\tsTextMonospace{\tsBackslash{}tsAppendixIncludeFile[readme]\{README.md\}}
-creates \tsTextMonospace{appendix:readme}. The same optional identifier is
+An optional identifier keeps the reference independent of the filename.
+Use \tsTextMonospace{\tsBackslash{}tsAppendixIncludeFile[readme]\{README.md\}}.
+This creates \tsTextMonospace{appendix:readme}. The same optional identifier is
 supported by \tsTextMonospace{\tsBackslash{}tsAppendixSection}.
