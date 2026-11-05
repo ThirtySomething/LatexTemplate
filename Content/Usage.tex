@@ -57,8 +57,13 @@ file \tsTextItalic{TSTemplate-Meta.tex} -- see also \nameref{subsec:Metadata-II}
 \subsection{Glossary}
 
 The user has the option of entering his own glossary. The entries for the
-glossary are done in the file \tsTextItalic{TSTemplate-Glossary.tex}. \gls{TS}
-is entered here as an example. This looks like this:
+glossary are done in the file \tsTextItalic{TSTemplate-Glossary.tex}.
+\ifUseTsGlossary
+    \gls{TS} is entered here as an example.
+\else
+    The live glossary example is disabled; its definition is shown below.
+\fi
+This looks like this:
 
 \begin{figure}[H]
     \scriptsize
@@ -204,4 +209,8 @@ Fonts can be viewed at Latex Font Catalogue.\tsCitation{lfc}
     \tsCaptionLabelFigure{Reference usage}
 \end{figure}
 
-Fonts can be viewed at Latex Font Catalogue.\tsCitation{lfc}
+\ifUseTsCitation
+    Fonts can be viewed at Latex Font Catalogue.\tsCitation{lfc}
+\else
+    The live citation example is disabled; its source is shown above.
+\fi

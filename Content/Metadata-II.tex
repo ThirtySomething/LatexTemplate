@@ -29,6 +29,16 @@ For further control, there are variables that can be used to enable/disable
 which features are active for the document. These variables can be found
 in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
 
+Use the corresponding \tsTextMonospace{false} switch to disable a feature.
+Disabling the glossary skips its package, definitions, and output; guard live
+glossary commands with \tsTextMonospace{\tsBackslash{}ifUseTsGlossary}.
+Disabling citations skips the bibliography, and disabling appendices skips
+their file; guard live citations and appendix references with their respective
+switches. Index entries are likewise conditional on
+\tsTextMonospace{\tsBackslash{}ifUseTsIndex}. The supplied verbatim examples
+remain visible regardless of these switches. TOC, figure-list, and table-list
+switches control list output only, not their underlying content.
+
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{1.5}
     \begin{longtable}{ | P{0.7\linewidth} | p{0.23\linewidth} | }
@@ -39,16 +49,16 @@ in the file \tsTextItalic{TSTemplate-Meta.tex}. There are:
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
 % Definition of document type, either article or book
-\newcommand{\tsDocumentType}[1]{article}
-% \newcommand{\tsDocumentType}[1]{book}
+\newcommand{\tsDocumentType}{article}
+% \newcommand{\tsDocumentType}{book}
         \end{BVerbatim}
          & Toggle between one page layout (article) and two page layout (book) \\
         \hline
         % ----------------------------------------------------------------------
         \begin{BVerbatim}
 % Definition of document language
-\newcommand{\tsDocumentLanguage}[1]{american}
-% \newcommand{\tsDocumentLanguage}[1]{ngerman}
+\newcommand{\tsDocumentLanguage}{american}
+% \newcommand{\tsDocumentLanguage}{ngerman}
         \end{BVerbatim}
          & Setup of used language of document                                  \\
         \hline

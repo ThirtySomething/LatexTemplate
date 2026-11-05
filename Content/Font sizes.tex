@@ -28,6 +28,13 @@
 There may be a need to adjust the font size. For this purpose \LaTeX{} provides
 the following options:
 
+Font-size commands are declarations, not commands with a text argument.
+Put the declaration and its text inside one group, for example
+\tsTextMonospace{\{\tsBackslash{}Huge Huge\}}, to keep the size change local.
+For a whole paragraph, end the paragraph inside the group:
+\tsTextMonospace{\{\tsBackslash{}Huge A paragraph.\tsBackslash{}par\}}.
+This also applies the selected size's line spacing to the paragraph.
+
 \begin{footnotesize}
     \renewcommand*{\arraystretch}{3}
     \begin{longtable}{ | p{0.43\linewidth} | p{0.5\linewidth} | }
@@ -35,31 +42,31 @@ the following options:
         \tsTextBold{Command}                                               & \tsTextBold{Example}              \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}Huge\{Huge\}}                       & \Huge{Huge}                       \\
+        \tsTextMonospace{\{\tsBackslash{}Huge Huge\}}                       & {\Huge Huge}                       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}huge\{huge\}}                       & \huge{huge}                       \\
+        \tsTextMonospace{\{\tsBackslash{}huge huge\}}                       & {\huge huge}                       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}LARGE\{LARGE\}}                     & \LARGE{LARGE}                     \\
+        \tsTextMonospace{\{\tsBackslash{}LARGE LARGE\}}                     & {\LARGE LARGE}                     \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}Large\{Large\}}                     & \Large{Large}                     \\
+        \tsTextMonospace{\{\tsBackslash{}Large Large\}}                     & {\Large Large}                     \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}normalsize\{normalsize\}} (Default) & \normalsize{normalsize} (Default) \\
+        \tsTextMonospace{\{\tsBackslash{}normalsize normalsize\}} (Default) & {\normalsize normalsize} (Default) \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}small\{small\}}                     & \small{small}                     \\
+        \tsTextMonospace{\{\tsBackslash{}small small\}}                     & {\small small}                     \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}footnotesize\{footnotesize\}}       & \footnotesize{footnotesize}       \\
+        \tsTextMonospace{\{\tsBackslash{}footnotesize footnotesize\}}       & {\footnotesize footnotesize}       \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}scriptsize\{scriptsize\}}           & \scriptsize{scriptsize}           \\
+        \tsTextMonospace{\{\tsBackslash{}scriptsize scriptsize\}}           & {\scriptsize scriptsize}           \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tiny\{tiny\}}                       & \tiny{tiny}                       \\
+        \tsTextMonospace{\{\tsBackslash{}tiny tiny\}}                       & {\tiny tiny}                       \\
         \hline
         % ----------------------------------------------------------------------
         \tsCaptionLabelTable{Font sizes}

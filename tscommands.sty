@@ -30,84 +30,100 @@
 \RequirePackage{fancyvrb}
 \RequirePackage{float}
 \RequirePackage{datetime}
-\RequirePackage[normalem]{ulem}
+\RequirePackage{ifthen}
+\@ifpackageloaded{ulem}{}{\RequirePackage[normalem]{ulem}}
 \RequirePackage{enumitem}
-\RequirePackage[percent]{overpic}
+\@ifpackageloaded{overpic}{}{\RequirePackage[percent]{overpic}}
 \RequirePackage{nicefrac}
-\RequirePackage[nointegrals]{wasysym}
+\@ifpackageloaded{wasysym}{}{\RequirePackage[nointegrals]{wasysym}}
 \RequirePackage{xcolor}
-\RequirePackage[outline]{contour}
+\@ifpackageloaded{contour}{}{\RequirePackage[outline]{contour}}
 
-\newdateformat{datedot}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
+\newdateformat{tscommands@dategerman}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
+\newdateformat{tscommands@dateamerican}{\twodigit{\THEMONTH}/\twodigit{\THEDAY}/\THEYEAR}
 
-\newcommand{\tsAppendixIncludeFile}[1]%
+\newcommand{\tscommands@label}[3]%
 {%
-    \tsAppendixSection{#1}%
-    \VerbatimInput[fontsize=\scriptsize]{#1}%
+    \ifthenelse{\equal{#2}{}}%
+        {\label{#1:#3}}%
+        {\label{#1:#2}}%
 }
-\newcommand{\tsAppendixSection}[1]%
+\newcommand{\tsAppendixIncludeFile}[2][]%
+{%
+    \tsAppendixSection[#1]{#2}%
+    \VerbatimInput[fontsize=\scriptsize]{#2}%
+}
+\newcommand{\tsAppendixSection}[2][]%
 {%
     \newpage%
-    \section{#1}\label{appendix:#1}%
+    \section{#2}\tscommands@label{appendix}{#1}{#2}%
 }
-\newcommand{\tsArrowRight}[1]{$\rightarrow$}
-\newcommand{\tsArrowDown}[1]{$\downarrow$}
-\newcommand{\tsArrowLeft}[1]{$\leftarrow$}
-\newcommand{\tsArrowUp}[1]{$\uparrow$}
-\newcommand{\tsArrowRightDouble}[1]{$\Rightarrow$}
-\newcommand{\tsArrowDownDouble}[1]{$\Downarrow$}
-\newcommand{\tsArrowLeftDouble}[1]{$\Leftarrow$}
-\newcommand{\tsArrowUpDouble}[1]{$\Uparrow$}
-\newcommand{\tsBackslash}[1]{\textbackslash}
-\newcommand{\tsBullet}[1]{\textbullet{}}
-\newcommand{\tsCaptionLabelFigure}[1]{\caption{#1}\label{fig:#1}}
-\newcommand{\tsCaptionLabelFormula}[1]{\caption{#1}\label{for:#1}}
-\newcommand{\tsCaptionLabelTable}[1]{\caption{#1}\label{tab:#1}}
+\newcommand{\tsArrowRight}{\ensuremath{\rightarrow}}
+\newcommand{\tsArrowDown}{\ensuremath{\downarrow}}
+\newcommand{\tsArrowLeft}{\ensuremath{\leftarrow}}
+\newcommand{\tsArrowUp}{\ensuremath{\uparrow}}
+\newcommand{\tsArrowRightDouble}{\ensuremath{\Rightarrow}}
+\newcommand{\tsArrowDownDouble}{\ensuremath{\Downarrow}}
+\newcommand{\tsArrowLeftDouble}{\ensuremath{\Leftarrow}}
+\newcommand{\tsArrowUpDouble}{\ensuremath{\Uparrow}}
+\newcommand{\tsBackslash}{\textbackslash}
+\newcommand{\tsBullet}{\textbullet{}}
+\NewExpandableDocumentCommand{\tsCaptionLabelFigure}{O{} m}
+    {\caption{#2}\tscommands@label{fig}{#1}{#2}}
+\newcommand{\tsCaptionLabelFormula}[2][]%
+{%
+    \begin{equation}%
+        #2%
+        \tscommands@label{for}{#1}{\theequation}%
+    \end{equation}%
+}
+\NewExpandableDocumentCommand{\tsCaptionLabelTable}{O{} m}
+    {\caption{#2}\tscommands@label{tab}{#1}{#2}}
 \newcommand{\tsCitation}[1]{~\cite{#1}}
-\newcommand{\tsDegree}[1]{#1$^\circ$}
-\newcommand{\tsDiameter}[1]{\diameter}
+\newcommand{\tsDegree}[1]{#1\ensuremath{{}^\circ}}
+\newcommand{\tsDiameter}{\diameter}
 \newcommand{\tsFrac}[2]{\nicefrac{#1}{#2}}
 \newcommand{\tsFootnoteDef}[2]{\footnote{\label{#2}#1}}
 \newcommand{\tsFootnoteRef}[1]{\tsTextUpper{\ref{#1}}}
-\newcommand{\tsImage}[3]%
+\NewDocumentCommand{\tsImage}{O{} O{H} m m m}%
 {%
-    \begin{figure}[H]%
+    \begin{figure}[#2]%
         \centering%
-        \includegraphics[#3]{#1}%
-        \tsCaptionLabelFigure{#2}%
+        \includegraphics[#5]{#3}%
+        \tsCaptionLabelFigure[#1]{#4}%
     \end{figure}%
 }
-\newcommand{\tsImageF}[3]%
+\NewDocumentCommand{\tsImageF}{O{} O{H} m m m}%
 {%
-    \begin{figure}[H]%
+    \begin{figure}[#2]%
         \centering%
-        \fbox{\includegraphics[#3]{#1}}%
-        \tsCaptionLabelFigure{#2}%
+        \fbox{\includegraphics[#5]{#3}}%
+        \tsCaptionLabelFigure[#1]{#4}%
     \end{figure}%
 }
-\newcommand{\tsImageO}[4]%
+\NewDocumentCommand{\tsImageO}{O{} O{H} m m m m}%
 {%
-    \begin{figure}[H]%
+    \begin{figure}[#2]%
         \centering%
-        \begin{overpic}[permil,#4]{#1}%
-            \put(10,10){\textcolor{white}{\scriptsize\contour{black}{#3}}}%
+        \begin{overpic}[permil,#6]{#3}%
+            \put(10,10){\textcolor{white}{\scriptsize\contour{black}{#5}}}%
         \end{overpic}%
-        \tsCaptionLabelFigure{#2}%
+        \tsCaptionLabelFigure[#1]{#4}%
     \end{figure}%
 }
-\newcommand{\tsImageOF}[4]%
+\NewDocumentCommand{\tsImageOF}{O{} O{H} m m m m}%
 {%
-    \begin{figure}[H]%
+    \begin{figure}[#2]%
         \centering%
         \fbox{%
-            \begin{overpic}[permil,#4]{#1}%
-                \put(10,10){\textcolor{white}{\scriptsize\contour{black}{#3}}}%
+            \begin{overpic}[permil,#6]{#3}%
+                \put(10,10){\textcolor{white}{\scriptsize\contour{black}{#5}}}%
             \end{overpic}%
         }%
-        \tsCaptionLabelFigure{#2}%
+        \tsCaptionLabelFigure[#1]{#4}%
     \end{figure}%
 }
-\newcommand{\tsNP}[1]{\bigbreak}
+\newcommand{\tsNP}{\bigbreak}
 \newcommand{\tsTextBold}[1]{\textbf{#1}}
 \newcommand{\tsTextItalic}[1]{\textit{#1}}
 \newcommand{\tsTextLower}[1]{\textsubscript{#1}}
@@ -117,7 +133,25 @@
 \newcommand{\tsTextStrikethrough}[1]{\sout{#1}}
 \newcommand{\tsTextUnderline}[1]{\underline{#1}}
 \newcommand{\tsTextUpper}[1]{\textsuperscript{#1}}
-\newcommand{\tsToday}[1]{\datedot\today}
+\newcommand{\tsToday}%
+{%
+    {%
+        \ifdefined\tsDocumentLanguage%
+            \edef\tscommands@datelanguage{\tsDocumentLanguage}%
+        \else%
+            \edef\tscommands@datelanguage{\languagename}%
+            \ifthenelse{\equal{\tscommands@datelanguage}{\detokenize{english}}}%
+                {\def\tscommands@datelanguage{american}}%
+                {}%
+        \fi%
+        \edef\tscommands@datelanguage{%
+            \expandafter\detokenize\expandafter{\tscommands@datelanguage}}%
+        \ifthenelse{\equal{\tscommands@datelanguage}{\detokenize{american}}}%
+            {\tscommands@dateamerican}%
+            {\tscommands@dategerman}%
+        \formatdate{\day}{\month}{\year}%
+    }%
+}
 \newenvironment{tsLTItemize}%
 {%
     \par\noindent%

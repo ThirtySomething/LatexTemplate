@@ -44,33 +44,33 @@
     }%
 }
 % Define new command for header/footer of article
-\newcommand{\tsFancyArticle}[1]%
+\newcommand{\tsFancyArticle}%
 {%
-    \fancyhead[L]{\scriptsize\tsTitle{}}%
+    \fancyhead[L]{\scriptsize\tsTitle}%
     \ifUseTsLogo%
-        \fancyhead[R]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}%
+        \fancyhead[R]{\includegraphics[height=0.7\headheight]{\tsLogoFile}}%
     \else%
-        \fancyhead[R]{\scriptsize\tsURL{}}%
+        \fancyhead[R]{\scriptsize\tsURL}%
     \fi%
     \fancyfoot[L]{\scriptsize\tsToday{}}%
-    \fancyfoot[R]{\scriptsize\tsPageLabel{\tsDocumentLanguage{}} \thepage}%
+    \fancyfoot[R]{\scriptsize\tsPageLabel{\tsDocumentLanguage} \thepage}%
 }
 % Define new command for header/footer of book
-\newcommand{\tsFancyBook}[1]%
+\newcommand{\tsFancyBook}%
 {%
-    \fancyhead[LO]{\scriptsize\tsTitle{}}%
-    \fancyhead[RE]{\scriptsize\tsTitle{}}%
+    \fancyhead[LO]{\scriptsize\tsTitle}%
+    \fancyhead[RE]{\scriptsize\tsTitle}%
     \ifUseTsLogo%
-        \fancyhead[RO]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}%
-        \fancyhead[LE]{\includegraphics[height=0.7\headheight]{\tsLogoFile{}}}%
+        \fancyhead[RO]{\includegraphics[height=0.7\headheight]{\tsLogoFile}}%
+        \fancyhead[LE]{\includegraphics[height=0.7\headheight]{\tsLogoFile}}%
     \else%
-        \fancyhead[RO]{\scriptsize\tsURL{}}%
-        \fancyhead[LE]{\scriptsize\tsURL{}}%
+        \fancyhead[RO]{\scriptsize\tsURL}%
+        \fancyhead[LE]{\scriptsize\tsURL}%
     \fi%
-    \fancyfoot[LE]{\scriptsize\tsPageLabel{\tsDocumentLanguage{}} \thepage}%
+    \fancyfoot[LE]{\scriptsize\tsPageLabel{\tsDocumentLanguage} \thepage}%
     \fancyfoot[LO]{\scriptsize\tsToday{}}%
     \fancyfoot[RE]{\scriptsize\tsToday{}}%
-    \fancyfoot[RO]{\scriptsize\tsPageLabel{\tsDocumentLanguage{}} \thepage}%
+    \fancyfoot[RO]{\scriptsize\tsPageLabel{\tsDocumentLanguage} \thepage}%
 }
 % Define command to choose header/footer depending on argument
 \newcommand{\tsFancyData}[1]{\ifthenelse{\equal{#1}{article}}{\tsFancyArticle{}}{\tsFancyBook{}}}

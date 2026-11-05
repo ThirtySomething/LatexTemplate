@@ -30,9 +30,9 @@
 \input{\jobname-Meta.tex}
 
 % A4 paper, font size
-\documentclass[12pt,a4paper]{\tsDocumentType{}}
+\documentclass[12pt,a4paper]{\tsDocumentType}
 % US spelling
-\usepackage[\tsDocumentLanguage{}]{babel}
+\usepackage[\tsDocumentLanguage]{babel}
 % Reusable beginner-friendly commands and their dependencies
 \usepackage{tscommands}
 % To have custom header/footer
@@ -82,15 +82,15 @@
 \fi
 
 % Include command definition file
-\input{\tsCommandsFile{}}
+\input{\tsCommandsFile}
 
 % Include custom command definition file
 \ifUseTsCustomCommands%
-    \input{\tsCustomCommandsFile{}}
+    \input{\tsCustomCommandsFile}
 \fi
 
 % Configure dotted lines in the table of contents
-\tsTOCDottedLine{\tsDocumentType{}}
+\tsTOCDottedLine{\tsDocumentType}
 
 % No indent of paragraphs
 \ifUseTsParagraphNoIndentation%
@@ -98,14 +98,14 @@
 \fi
 
 % Setting of document meta information
-\author{\tsAuthor{}}
-\title{\tsTitle{}}
+\author{\tsAuthor}
+\title{\tsTitle}
 \date{\tsToday{}}
 
 % Setting of pdf meta information
-\hypersetup{pdfauthor={\tsAuthor{} -- \tsURL{}}}
-\hypersetup{pdftitle={\tsTitle{}}}
-\hypersetup{pdfsubject={\tsSubject{}}}
+\hypersetup{pdfauthor={\tsAuthor -- \tsURL}}
+\hypersetup{pdftitle={\tsTitle}}
+\hypersetup{pdfsubject={\tsSubject}}
 
 % Set font type
 \renewcommand{\familydefault}{\sfdefault}
@@ -114,20 +114,20 @@
 \fancypagestyle{plain}{%
     \setlength{\headheight}{15pt}%
     \fancyhf{}%
-    \tsFancyData{\tsDocumentType{}}%
+    \tsFancyData{\tsDocumentType}%
     \renewcommand{\headrulewidth}{0.4pt}%
     \renewcommand{\footrulewidth}{0.4pt}%
 }
 
 % Include hyphenation definition file
 \ifUseTsHyphenation%
-    \input{\tsHyphenationFile{}}%
+    \input{\tsHyphenationFile}%
 \fi
 
 % Include glossary definition file and build it
 \ifUseTsGlossary%
     \makeglossaries%
-    \input{\tsGlossaryFile{}}%
+    \input{\tsGlossaryFile}%
     \renewcommand*{\glspostdescription}{}%
 \fi
 
@@ -153,7 +153,7 @@
 
 % Define version number as overlay on all pages
 % Version number
-\SetBgContents{\begin{footnotesize}\tsVersionString{}\end{footnotesize}}
+\SetBgContents{\begin{footnotesize}\tsVersionString\end{footnotesize}}
 \SetBgPosition{current page.center}
 \SetBgAngle{90}
 \SetBgColor{black}
@@ -183,7 +183,10 @@
 
 % Include title page
 \ifUseTsTitlePage%
-    \input{\tsTitlePageFile{}}%
+    \hypersetup{pageanchor=false}%
+    \input{\tsTitlePageFile}%
+    \clearpage%
+    \hypersetup{pageanchor=true}%
 \fi
 
 % Re-start numbering of content pages with arabic numbers
@@ -198,16 +201,16 @@
 % Include change history
 \ifUseTsHistory%
     \newpage%
-    \input{\tsHistoryFile{}}%
+    \input{\tsHistoryFile}%
 \fi
 
 % Include content
 \newpage
-\input{\tsContentFile{}}
+\input{\tsContentFile}
 
 % Include appendices
 \ifUseTsAppendix%
-    \input{\tsAppendixFile{}}%
+    \input{\tsAppendixFile}%
 \fi
 
 % Start post document on new page
@@ -240,7 +243,7 @@
 {%
     \newpage%
     \footnotesize%
-    \bibliography{\tsReferencesFile{}}{}%
+    \bibliography{\tsReferencesFile}{}%
     \bibliographystyle{babplain}%
 }%
 \fi

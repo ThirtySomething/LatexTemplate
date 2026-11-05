@@ -54,14 +54,26 @@ in \tsTextItalic{TSTemplate-Appendix.tex} or use this example:
 
 In this example the appendix \tsTextMonospace{README.md} is added and can be
 referenced either by \tsTextMonospace{\tsBackslash{}nameref\{appendix:README.md\}}
-(\nameref{appendix:README.md}) and/or
-\tsTextMonospace{\tsBackslash{}ref\{appendix:README.md\}} (\ref{appendix:README.md}).
+\ifUseTsAppendix
+    (\nameref{appendix:README.md})
+\fi
+and/or
+\tsTextMonospace{\tsBackslash{}ref\{appendix:README.md\}}%
+\ifUseTsAppendix
+    \space(\ref{appendix:README.md})%
+\fi
+.
+\ifUseTsAppendix\else
+    The live appendix references are disabled; the command examples remain visible.
+\fi
 \bigbreak
 
 In case you want to add a file to the appendix, you can also use the
 \tsTextMonospace{\tsBackslash{}tsAppendixIncludeFile\{filename\}} command.
-You can see the result in appendix \ref{appendix:vscode-latex-workshop.json},
-which is done by
+\ifUseTsAppendix
+    You can see the result in appendix \ref{appendix:vscode-latex-workshop.json}.
+\fi
+The source is
 
 \begin{figure}[H]
     \small
@@ -71,3 +83,8 @@ which is done by
     \end{BVerbatim}
     \tsCaptionLabelFigure{Usage of tsAppendixIncludeFile}
 \end{figure}
+
+An optional identifier keeps the reference independent of the filename:
+\tsTextMonospace{\tsBackslash{}tsAppendixIncludeFile[readme]\{README.md\}}
+creates \tsTextMonospace{appendix:readme}. The same optional identifier is
+supported by \tsTextMonospace{\tsBackslash{}tsAppendixSection}.

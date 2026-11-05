@@ -28,6 +28,20 @@
 To simplify things for newcomers, various commands have been defined. The use
 of the commands is optional. They are provided by the
 \tsTextMonospace{tscommands} package independently of this template.
+Commands without input take no argument. An empty group after such a command
+is optional and can delimit its name; it is not consumed as a parameter.
+Caption, image, and appendix helpers also accept a leading optional reference
+identifier, independent of the visible text. For example,
+\tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure[logo]\{Company logo\}}
+creates the label \tsTextMonospace{fig:logo}.
+All four image helpers accept the same leading optional identifier.
+The formula helper accepts an optional identifier too, but creates an equation
+from math source rather than a caption.
+In the overview below, \tsTextMonospace{[id]} marks this optional argument;
+replace \tsTextMonospace{id} with your reference identifier or omit it.
+Without it, the existing caption-based or filename-based label is retained.
+Use unique identifiers without their prefix, preferably letters, numbers, and
+hyphens, to keep references stable when captions change.
 However, using them makes it clearer what the
 author wants to achieve with the corresponding command. It is recommended to
 end commands without parameters with \tsTextMonospace{\{\}}, even if this is
@@ -43,15 +57,20 @@ command there can also be a space character -- otherwise this is removed by
         \tsTextBold{Meaning}                                                                                 \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsAppendixIncludeFile\{Filename\}}                                  &
+        \tsTextMonospace{\tsBackslash{}tsAppendixIncludeFile[id]\newline\{Filename\}}                      &
         This command will add an appendix section. The section consists of a
         \tsTextMonospace{tsTextMonospace} section header of \tsTextMonospace{Filename}
         and will include the file \tsTextMonospace{Filename} in a verbatim
-        environment. See appendix \ref{appendix:README.md} how it looks like.                                \\
+        environment.
+        With an optional ID, the label is \tsTextMonospace{appendix:id}.
+        \ifUseTsAppendix
+            See appendix \ref{appendix:README.md} how it looks like.
+        \fi                                                                                               \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsAppendixSection\{Appendix\}}                                      &
+        \tsTextMonospace{\tsBackslash{}tsAppendixSection[id]\{Appendix\}}                                  &
         This command will add an appendix, also a so-called label. Thus the
+        optional ID creates \tsTextMonospace{appendix:id}; without it, the
         appendix can be referenced via
         \tsTextMonospace{\tsBackslash{}ref\{appendix:Appendix\}}
         or via
@@ -99,9 +118,10 @@ command there can also be a space character -- otherwise this is removed by
         \tsBullet{}                                                                                          \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure\{Figure\}}                                     &
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure[id]\{Figure\}}                                 &
         This command is usually used below a mapping. There is not only a
-        description added, but also a so-called label. Thus the figure can be
+        description added, but also a so-called label.
+        The optional ID creates \tsTextMonospace{fig:id}. Without it, the figure can be
         referenced via
         \tsTextMonospace{\tsBackslash{}ref\{fig:Figure\}}
         or via
@@ -109,17 +129,19 @@ command there can also be a space character -- otherwise this is removed by
         somewhere else.                                                                                      \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFormula\{Formula\}}                                   &
-        This command is similar to
-        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure},
-        but is referenced via
-        \tsTextMonospace{\tsBackslash{}ref\{for:Formula\}} or via
-        \tsTextMonospace{\tsBackslash{}nameref\{for:Formula\}}.                                              \\
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFormula[id]\newline\{Formula\}}                       &
+        Creates a numbered equation from math source, not a caption.
+        Call it outside math environments, without dollar signs.
+        The optional ID creates \tsTextMonospace{for:id}, referenced with
+        \tsTextMonospace{\tsBackslash{}ref\{for:id\}}.
+        Without an ID, the label uses the equation number, such as
+        \tsTextMonospace{for:1}.                                                                              \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsCaptionLabelTable\{Table\}}                                       &
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelTable[id]\{Table\}}                                   &
         This command is similar to
-        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure}, but is
+        \tsTextMonospace{\tsBackslash{}tsCaptionLabelFigure}.
+        The optional ID creates \tsTextMonospace{tab:id}. Without it, it is
         referenced via
         \tsTextMonospace{\tsBackslash{}ref\{tab:Table\}} or via
         \tsTextMonospace{\tsBackslash{}nameref\{tab:Table\}}.                                                \\
@@ -130,7 +152,8 @@ command there can also be a space character -- otherwise this is removed by
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsDegree\{zahl\}}                                                   &
-        Without number \tsDegree{} or with number \tsDegree{715}!                                            \\
+        Without number \tsDegree{} or with number \tsDegree{715}.
+        Works in text and math mode; the argument keeps the surrounding mode.                               \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextMonospace{\tsBackslash{}tsDiameter\{\}}                                                     &
@@ -152,9 +175,12 @@ command there can also be a space character -- otherwise this is removed by
         using \tsTextMonospace{\tsBackslash{}tsFootnoteDef\{text\}\{ref\}}.                                  \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsImage\{filename\}\{description\}\newline\{options\}}              &
+        \tsTextMonospace{\tsBackslash{}tsImage[id][placement]\newline\{filename\}\{description\}\newline\{options\}} &
         With this, an image can be included -- it then automatically gets a
         description. It is mandatory to specify three parameter brackets.
+        The optional placement defaults to \tsTextMonospace{H} (exactly here).
+        Use \tsTextMonospace{htbp} to allow floating; use an empty ID
+        \tsTextMonospace{[][htbp]} when only specifying placement.
         The first parameter is the file name. The second parameter is the
         signature under the image. The third parameter, the options, are
         optional, that is, the brackets can be empty. These are the same
@@ -163,15 +189,15 @@ command there can also be a space character -- otherwise this is removed by
         e.g. \tsTextMonospace{width=380px}.                                                                  \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsImageF\{filename\}\{description\}\newline\{options\}}             &
+        \tsTextMonospace{\tsBackslash{}tsImageF[id][placement]\newline\{filename\}\{description\}\newline\{options\}} &
         Like \tsTextMonospace{\tsBackslash{}tsImage}, but with a frame.                                      \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsImageO\{filename\}\{description\}\newline\{overlay\}\{options\}}  &
+        \tsTextMonospace{\tsBackslash{}tsImageO[id][placement]\newline\{filename\}\{description\}\newline\{overlay\}\{options\}} &
         Like \tsTextMonospace{\tsBackslash{}tsImage}, but with an overlaid text.                             \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextMonospace{\tsBackslash{}tsImageOF\{filename\}\{description\}\newline\{overlay\}\{options\}} &
+        \tsTextMonospace{\tsBackslash{}tsImageOF[id][placement]\newline\{filename\}\{description\}\newline\{overlay\}\{options\}} &
         Like \tsTextMonospace{\tsBackslash{}tsImageF}, but with an overlaid text.                            \\
         \hline
         % ----------------------------------------------------------------------
@@ -236,6 +262,12 @@ command there can also be a space character -- otherwise this is removed by
         \tsCaptionLabelTable{Available commands}
     \end{longtable}
 \end{footnotesize}
+
+For a numbered formula, write
+\tsTextMonospace{\tsBackslash{}tsCaptionLabelFormula[energy]\{E = mc\^{}2\}}.
+The result is
+\tsCaptionLabelFormula[energy]{E = mc^2}
+and can be referenced as equation \ref{for:energy}.
 
 A look into the source code of this document shows the usage of the commands.
 
