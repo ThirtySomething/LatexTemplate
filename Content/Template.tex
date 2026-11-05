@@ -49,7 +49,10 @@ The template is divided into several files, which are listed here below:
         \tsTextItalic{TSTemplate-Appendix.tex}       & The appendices of the document. \\
         \hline
         % ----------------------------------------------------------------------
-        \tsTextItalic{TSTemplate-Commands.tex}       & The common predefined commands. \\
+        \tsTextItalic{TSTemplate-Commands.tex}       & Template-specific layout helpers. \\
+        \hline
+        % ----------------------------------------------------------------------
+        \tsTextItalic{tscommands.sty}               & Reusable beginner-friendly commands. \\
         \hline
         % ----------------------------------------------------------------------
         \tsTextItalic{TSTemplate-Content.tex}        & The content of the document.    \\
@@ -84,6 +87,10 @@ Some commands and formatting have been predefined for the template. They all
 have in common that they start with a \tsTextMonospace{\tsBackslash{}ts\ldots{}}.
 This serves to distinguish them from the commands otherwise used in \LaTeX{}.
 The available commands are explained in the \nameref{sec:Commands} chapter.
+They are provided by \tsTextMonospace{tscommands.sty}, which can also be loaded
+in other documents with \tsTextMonospace{\tsBackslash{}usepackage\{tscommands\}}.
+The template-specific layout helpers remain in
+\tsTextItalic{TSTemplate-Commands.tex}.
 \bigbreak
 
 \tsTextBold{NOTE:} The file containing the meta data is depending on the name

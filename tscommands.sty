@@ -1,0 +1,133 @@
+%% -----------------------------------------------------------------------------
+%% MIT License
+%%
+%% Copyright 2022 ThirtySomething
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a
+%% copy of this software and associated documentation files (the "Software"),
+%% to deal in the Software without restriction, including without limitation
+%% the rights to use, copy, modify, merge, publish, distribute, sublicense,
+%% and/or sell copies of the Software, and to permit persons to whom the
+%% Software is furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included
+%% in all copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+%% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+%% DEALINGS IN THE SOFTWARE.
+%% -----------------------------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tscommands}[2026/11/05 v1.0.0 Beginner-friendly LaTeX commands]
+
+\RequirePackage{babel}
+\RequirePackage{graphicx}
+\RequirePackage{fancyvrb}
+\RequirePackage{float}
+\RequirePackage{datetime}
+\RequirePackage[normalem]{ulem}
+\RequirePackage{enumitem}
+\RequirePackage[percent]{overpic}
+\RequirePackage{nicefrac}
+\RequirePackage[nointegrals]{wasysym}
+\RequirePackage{xcolor}
+\RequirePackage[outline]{contour}
+
+\newdateformat{datedot}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
+
+\newcommand{\tsAppendixIncludeFile}[1]%
+{%
+    \tsAppendixSection{#1}%
+    \VerbatimInput[fontsize=\scriptsize]{#1}%
+}
+\newcommand{\tsAppendixSection}[1]%
+{%
+    \newpage%
+    \section{#1}\label{appendix:#1}%
+}
+\newcommand{\tsArrowRight}[1]{$\rightarrow$}
+\newcommand{\tsArrowDown}[1]{$\downarrow$}
+\newcommand{\tsArrowLeft}[1]{$\leftarrow$}
+\newcommand{\tsArrowUp}[1]{$\uparrow$}
+\newcommand{\tsArrowRightDouble}[1]{$\Rightarrow$}
+\newcommand{\tsArrowDownDouble}[1]{$\Downarrow$}
+\newcommand{\tsArrowLeftDouble}[1]{$\Leftarrow$}
+\newcommand{\tsArrowUpDouble}[1]{$\Uparrow$}
+\newcommand{\tsBackslash}[1]{\textbackslash}
+\newcommand{\tsBullet}[1]{\textbullet{}}
+\newcommand{\tsCaptionLabelFigure}[1]{\caption{#1}\label{fig:#1}}
+\newcommand{\tsCaptionLabelFormula}[1]{\caption{#1}\label{for:#1}}
+\newcommand{\tsCaptionLabelTable}[1]{\caption{#1}\label{tab:#1}}
+\newcommand{\tsCitation}[1]{~\cite{#1}}
+\newcommand{\tsDegree}[1]{#1$^\circ$}
+\newcommand{\tsDiameter}[1]{\diameter}
+\newcommand{\tsFrac}[2]{\nicefrac{#1}{#2}}
+\newcommand{\tsFootnoteDef}[2]{\footnote{\label{#2}#1}}
+\newcommand{\tsFootnoteRef}[1]{\tsTextUpper{\ref{#1}}}
+\newcommand{\tsImage}[3]%
+{%
+    \begin{figure}[H]%
+        \centering%
+        \includegraphics[#3]{#1}%
+        \tsCaptionLabelFigure{#2}%
+    \end{figure}%
+}
+\newcommand{\tsImageF}[3]%
+{%
+    \begin{figure}[H]%
+        \centering%
+        \fbox{\includegraphics[#3]{#1}}%
+        \tsCaptionLabelFigure{#2}%
+    \end{figure}%
+}
+\newcommand{\tsImageO}[4]%
+{%
+    \begin{figure}[H]%
+        \centering%
+        \begin{overpic}[permil,#4]{#1}%
+            \put(10,10){\textcolor{white}{\scriptsize\contour{black}{#3}}}%
+        \end{overpic}%
+        \tsCaptionLabelFigure{#2}%
+    \end{figure}%
+}
+\newcommand{\tsImageOF}[4]%
+{%
+    \begin{figure}[H]%
+        \centering%
+        \fbox{%
+            \begin{overpic}[permil,#4]{#1}%
+                \put(10,10){\textcolor{white}{\scriptsize\contour{black}{#3}}}%
+            \end{overpic}%
+        }%
+        \tsCaptionLabelFigure{#2}%
+    \end{figure}%
+}
+\newcommand{\tsNP}[1]{\bigbreak}
+\newcommand{\tsTextBold}[1]{\textbf{#1}}
+\newcommand{\tsTextItalic}[1]{\textit{#1}}
+\newcommand{\tsTextLower}[1]{\textsubscript{#1}}
+\newcommand{\tsTextMonospace}[1]{\texttt{#1}}
+\newcommand{\tsTextQuoteF}[1]{\guillemotleft{}#1\guillemotright{}}
+\newcommand{\tsTextQuoteG}[1]{\glqq{}#1\grqq{}}
+\newcommand{\tsTextStrikethrough}[1]{\sout{#1}}
+\newcommand{\tsTextUnderline}[1]{\underline{#1}}
+\newcommand{\tsTextUpper}[1]{\textsuperscript{#1}}
+\newcommand{\tsToday}[1]{\datedot\today}
+\newenvironment{tsLTItemize}%
+{%
+    \par\noindent%
+    \begin{minipage}[t]{\linewidth}%
+        \begin{itemize}[nosep,leftmargin=*]%
+            }%
+            {%
+            \strut%
+        \end{itemize}%
+    \end{minipage}%
+}
+
+\endinput

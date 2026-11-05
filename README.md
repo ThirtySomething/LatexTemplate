@@ -2,6 +2,37 @@
 
 A basic template for latex documents. See the [PDF][pdf] for more details.
 
+## Reusable commands
+
+[tscommands.sty](./tscommands.sty) provides the beginner-friendly commands
+independently of the template. Place it beside your document (or install it in
+your TeX search path), then load it in the preamble:
+
+```latex
+\documentclass{article}
+\usepackage[american]{babel}
+\usepackage{tscommands}
+
+\begin{document}
+\tsTextBold{Important}
+\tsTextItalic{Italic text}
+\tsTextQuoteG{German-style quotation marks}
+\end{document}
+```
+
+The package loads its command dependencies. Load Babel with your desired
+language before `tscommands`; the quotation commands retain their explicit
+styles independently of that language. Existing names and arguments are
+unchanged, including the empty `{}` argument for commands such as `\tsBullet{}`.
+The package includes text formatting, symbols, captions, citations, footnotes,
+images, appendix helpers, the `\tsToday{}` date format, and `tsLTItemize`.
+
+Document metadata, header/footer configuration, TOC leaders, the custom `P`
+column type, and numeric minipage footnotes remain in
+[TSTemplate-Commands.tex](./TSTemplate-Commands.tex). The package does not enable
+appendix mode, build a bibliography, or set the document's layout; these remain
+the document author's responsibility.
+
 ## License
 
 ```code

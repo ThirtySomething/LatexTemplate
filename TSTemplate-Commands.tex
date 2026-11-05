@@ -23,14 +23,12 @@
 %% -----------------------------------------------------------------------------
 
 %% -----------------------------------------------------------------------------
-%% Common command definition of Latex template
+%% Template-specific layout command definitions
 %% -----------------------------------------------------------------------------
 
 %% -----------------------------------------------------------------------------
 %% Definition of internal commands
 %% -----------------------------------------------------------------------------
-% Define common date format: DD.MM.YYYY
-\newdateformat{datedot}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
 % New columntype for longtables used for itemize environment
 \newcolumntype{P}[1]{>{\endgraf\vspace*{-\baselineskip}}p{#1}}
 % Label for page depending on language
@@ -91,135 +89,3 @@
 }
 % Enable numeric footnote inside tables
 \renewcommand{\thempfootnote}{\arabic{mpfootnote}}
-
-%% -----------------------------------------------------------------------------
-%% Definition of public commands
-%% -----------------------------------------------------------------------------
-
-% Definition of a file as appendix
-\newcommand{\tsAppendixIncludeFile}[1]%
-{%
-    \tsAppendixSection{#1}%
-    \VerbatimInput[fontsize=\scriptsize]{#1}%
-}%
-% Definition for convenience usage of appendix
-\newcommand{\tsAppendixSection}[1]%
-{%
-    \newpage%
-    \section{#1}\label{appendix:#1}%
-}
-% Definition of arrow right
-\newcommand{\tsArrowRight}[1]{$\rightarrow$}
-% Definition of arrow down
-\newcommand{\tsArrowDown}[1]{$\downarrow$}
-% Definition of arrow left
-\newcommand{\tsArrowLeft}[1]{$\leftarrow$}
-% Definition of arrow up
-\newcommand{\tsArrowUp}[1]{$\uparrow$}
-% Definition of double arrow right
-\newcommand{\tsArrowRightDouble}[1]{$\Rightarrow$}
-% Definition of double arrow down
-\newcommand{\tsArrowDownDouble}[1]{$\Downarrow$}
-% Definition of double arrow left
-\newcommand{\tsArrowLeftDouble}[1]{$\Leftarrow$}
-% Definition of double arrow up
-\newcommand{\tsArrowUpDouble}[1]{$\Uparrow$}
-% Define command backslash
-\newcommand{\tsBackslash}[1]{\textbackslash}
-% Define a bullet
-\newcommand{\tsBullet}[1]{\textbullet{}}
-% Define command for caption including label for figures
-\newcommand{\tsCaptionLabelFigure}[1]{\caption{#1}\label{fig:#1}}
-% Define command for caption including label for formulas
-\newcommand{\tsCaptionLabelFormula}[1]{\caption{#1}\label{for:#1}}
-% Define command for caption including label for tables
-\newcommand{\tsCaptionLabelTable}[1]{\caption{#1}\label{tab:#1}}
-% Define convenience command for citations
-\newcommand{\tsCitation}[1]{~\cite{#1}}
-% Define convenience command for degree
-\newcommand{\tsDegree}[1]{#1$^\circ$}
-% Define convenience command for diameter
-\newcommand{\tsDiameter}[1]{\diameter}
-% Define command of a frac like 1/2
-%  \newcommand{\tsFrac}[2]{\tsTextUpper{#1}\kern-.06em/\kern-0.06em\tsTextLower{#2}}
-\newcommand{\tsFrac}[2]{\nicefrac{#1}{#2}}
-% Define a referencable footnote
-\newcommand{\tsFootnoteDef}[2]{\footnote{\label{#2}#1}}
-% Define a referencable footnote
-\newcommand{\tsFootnoteRef}[1]{\tsTextUpper{\ref{#1}}}
-% Define command to include an image without a frame
-\newcommand{\tsImage}[3]%
-{%
-    \begin{figure}[H]%
-        \centering%
-        \includegraphics[#3]{#1}%
-        \tsCaptionLabelFigure{#2}%
-    \end{figure}%
-}
-% Define command to include an image with a frame
-\newcommand{\tsImageF}[3]%
-{%
-    \begin{figure}[H]%
-        \centering%
-        \fbox{\includegraphics[#3]{#1}}%
-        \tsCaptionLabelFigure{#2}%
-    \end{figure}%
-}
-% Define command to include an image without a frame but an overlaid text
-\newcommand{\tsImageO}[4]%
-{%
-    \begin{figure}[H]%
-        \centering%
-        \begin{overpic}[permil,#4]{#1}%
-            \put(10,10){\textcolor{white}{\scriptsize\contour{black}{#3}}}%
-        \end{overpic}%
-        \tsCaptionLabelFigure{#2}%
-    \end{figure}%
-}
-% Define command to include an image with a frame and an overlaid text
-\newcommand{\tsImageOF}[4]%
-{%
-    \begin{figure}[H]%
-        \centering%
-        \fbox{%
-            \begin{overpic}[permil,#4]{#1}%
-                \put(10,10){\textcolor{white}{\scriptsize\contour{black}{#3}}}%
-            \end{overpic}%
-        }%
-        \tsCaptionLabelFigure{#2}%
-    \end{figure}%
-}
-% To start a new paragraph
-\newcommand{\tsNP}[1]{\bigbreak}
-% Define command for text in bold
-\newcommand{\tsTextBold}[1]{\textbf{#1}}
-% Define command for text in italic
-\newcommand{\tsTextItalic}[1]{\textit{#1}}
-% Define command for text in subscript
-\newcommand{\tsTextLower}[1]{\textsubscript{#1}}
-% Define command for text in monospace
-\newcommand{\tsTextMonospace}[1]{\texttt{#1}}
-% Define command for text in french quotes
-\newcommand{\tsTextQuoteF}[1]{\guillemotleft{}#1\guillemotright{}}
-% Define command for text in german quotes
-\newcommand{\tsTextQuoteG}[1]{\glqq{}#1\grqq{}}
-% Define command for text strikethrough
-\newcommand{\tsTextStrikethrough}[1]{\sout{#1}}
-% Define command for underlined text
-\newcommand{\tsTextUnderline}[1]{\underline{#1}}
-% Define command for text in superscript
-\newcommand{\tsTextUpper}[1]{\textsuperscript{#1}}
-% Definition of today in new date format
-\newcommand{\tsToday}[1]{\datedot\today}
-% Define new environment for itemize used in longtables
-\newenvironment{tsLTItemize}%
-{%
-    \par\noindent%
-    \begin{minipage}[t]{\linewidth}%
-    \begin{itemize}[nosep,leftmargin=*]%
-}%
-{%
-    \strut%
-    \end{itemize}%
-    \end{minipage}%
-}
