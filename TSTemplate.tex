@@ -68,9 +68,8 @@
 \usepackage{longtable}
 % To enable \begin{BVerbatim} inside a verbatim box
 \usepackage{verbatimbox}
-% Multiple watermarks as background images
-% https://tex.stackexchange.com/questions/134717/how-do-you-add-multiple-watermarks
-\usepackage{background}
+% Page overlays, e.g. watermarks on every page
+\usepackage{eso-pic}
 % To enable word wrap in bibliography for oversized urls
 \usepackage{url}
 \def\UrlBreaks{\do\/\do-}
@@ -158,30 +157,14 @@
 
 % Define version number as overlay on all pages
 % Version number
-\SetBgContents{\begin{footnotesize}\tsVersionString\end{footnotesize}}
-\SetBgPosition{current page.center}
-\SetBgAngle{90}
-\SetBgColor{black}
-\SetBgScale{0.5}
-\SetBgHshift{27cm}
-\SetBgVshift{19cm}
-\SetBgOpacity{1}
+\AddToShipoutPictureBG{%
+    \AtPageLowerLeft{%
+        \put(28.9bp,803.6bp){\makebox(0,0){\rotatebox{90}{\scalebox{0.5}{\color{black}\begin{footnotesize}\tsVersionString\end{footnotesize}}}}}%
+    }%
+}
 
-% For a second watermark on the same page then repeat
-% \makeatletter
-% Or AddThispageHook for one time only
-% \AddEverypageHook{%
-%     % Revision number
-%     \SetBgContents{\begin{footnotesize}Second watermark\end{footnotesize}}
-%     \SetBgPosition{current page.center}
-%     \SetBgAngle{90}
-%     \SetBgColor{black}
-%     \SetBgScale{0.5}
-%     \SetBgHshift{-27cm}
-%     \SetBgVshift{19cm}
-%     \SetBgOpacity{1}
-%     \bg@material
-% }
+% Further watermarks: add another \AddToShipoutPictureBG block
+% (it applies to every page that follows).
 
 % Set pagestyle to plain as modified above
 \pagestyle{plain}
